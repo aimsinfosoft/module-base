@@ -25,6 +25,7 @@ namespace Aimsinfosoft\Base\Debug\System;
 class AimsinfosoftFormatter extends \Monolog\Formatter\LineFormatter
 {
     /**
+     * formate
      * @param array $record
      *
      * @return string

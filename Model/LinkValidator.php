@@ -23,20 +23,32 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model;
 
+/**
+ * Class LinkValidator
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class LinkValidator
 {
+    /**
+     * List of allowed domains for link validation.
+     */
     public const ALLOWED_DOMAINS = [
         'store.aimsinfosoft.com'
     ];
 
     /**
+     * Validate a given link against the allowed domains.
+     *
      * @param string $link
+     *   The link to be validated.
      *
      * @return bool
+     *   Returns true if the link is valid, false otherwise.
      */
     public function validate(string $link): bool
     {
-        if (! (string) $link) { // fix for xml object
+        if (!(string)$link) { // Fix for XML object
             return true;
         }
 

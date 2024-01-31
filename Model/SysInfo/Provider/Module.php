@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider;
@@ -28,6 +27,16 @@ use Aimsinfosoft\Base\Model\SysInfo\InfoProviderInterface;
 use Aimsinfosoft\Base\Model\ModuleInfoProvider;
 use Magento\Framework\Module\ModuleListInterface;
 
+/**
+ * Class Module
+ *
+ * Module class responsible for providing information about installed modules.
+ *
+ * @category    Aimsinfosoft
+ * @package     Aimsinfosoft_Base
+ * @author      Aimsinfosoft
+ * @license     https://www.aimsinfosoft.com/LICENSE.txt
+ */
 class Module implements InfoProviderInterface
 {
     const MODULE_VERSION_KEY = 'version';
@@ -42,14 +51,26 @@ class Module implements InfoProviderInterface
      */
     private $moduleList;
 
+    /**
+     * Module constructor.
+     *
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param ModuleListInterface $moduleList
+     */
     public function __construct(
         ModuleInfoProvider $moduleInfoProvider,
         ModuleListInterface $moduleList
-    ) {
+    )
+    {
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->moduleList = $moduleList;
     }
 
+    /**
+     * Generate information about installed modules.
+     *
+     * @return array
+     */
     public function generate(): array
     {
         $modulesData = [];
@@ -66,6 +87,12 @@ class Module implements InfoProviderInterface
         return $modulesData;
     }
 
+    /**
+     * Get information about a specific module.
+     *
+     * @param string $moduleName
+     * @return array
+     */
     protected function getModuleData(string $moduleName): array
     {
         $moduleInfo = $this->moduleInfoProvider->getModuleInfo($moduleName);

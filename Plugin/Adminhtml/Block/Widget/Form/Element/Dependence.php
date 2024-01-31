@@ -19,13 +19,15 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Plugin\Adminhtml\Block\Widget\Form\Element;
 
 use Magento\Backend\Block\Widget\Form\Element;
 
 /**
- * Fix group dependence on old Magento
+ * Class Dependence
+ * @package Aimsinfosoft\Base\Plugin\Adminhtml\Block\Widget\Form\Element
+ *
+ * Plugin class to fix group dependence on old Magento versions
  */
 class Dependence
 {
@@ -34,12 +36,19 @@ class Dependence
      */
     private $productMetadata;
 
+    /**
+     * Dependence constructor.
+     *
+     * @param \Magento\Framework\App\ProductMetadataInterface $productMetadata
+     */
     public function __construct(\Magento\Framework\App\ProductMetadataInterface $productMetadata)
     {
         $this->productMetadata = $productMetadata;
     }
 
     /**
+     * Plugin method to add field dependence
+     *
      * @param Element\Dependence $subject
      * @param \Closure $proceed
      * @param $fieldName
@@ -53,7 +62,8 @@ class Dependence
         $fieldName,
         $fieldNameFrom,
         $refField
-    ) {
+    )
+    {
         if (version_compare($this->productMetadata->getVersion(), '2.2.0', '<')
             && strpos($fieldName, 'groups[][fields]') !== false
         ) {

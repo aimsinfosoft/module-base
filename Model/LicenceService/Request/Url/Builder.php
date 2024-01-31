@@ -25,6 +25,10 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Request\Url;
 
 use Aimsinfosoft\Base\Model\Config;
 
+/**
+ * Class Builder
+ * @package Aimsinfosoft\Base\Model\LicenceService\Request\Url
+ */
 class Builder
 {
     /**
@@ -32,11 +36,22 @@ class Builder
      */
     private $config;
 
+    /**
+     * Builder constructor.
+     * @param Config $config
+     */
     public function __construct(Config $config)
     {
         $this->config = $config;
     }
 
+    /**
+     * Build the URL for the license service API request.
+     *
+     * @param string $path
+     * @param array $params
+     * @return string
+     */
     public function build($path, $params = []): string
     {
         $apiUrl = $this->config->getLicenceServiceApiUrl();

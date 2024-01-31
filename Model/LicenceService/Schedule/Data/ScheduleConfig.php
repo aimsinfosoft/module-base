@@ -26,6 +26,11 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Schedule\Data;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
+/**
+ * Class ScheduleConfig
+ *
+ * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Data
+ */
 class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const LAST_SEND_DATE = 'last_send_date';
@@ -33,6 +38,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     public const IS_NEED_TO_SHOW_NOTIFICATION = 'is_need_to_how_notification';
 
     /**
+     * Get the last send date.
+     *
      * @return int|null
      */
     public function getLastSendDate(): ?int
@@ -41,6 +48,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Set the last send date.
+     *
      * @param int|null $lastSendDate
      * @return $this
      */
@@ -50,6 +59,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Get the time intervals.
+     *
      * @return int[]|null
      */
     public function getTimeIntervals(): ?array
@@ -58,6 +69,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Set the time intervals.
+     *
      * @param int[]|null $timeIntervals
      * @return $this
      */
@@ -67,6 +80,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Check if it is needed to show a notification.
+     *
      * @return bool
      */
     public function isNeedToShowNotification(): bool
@@ -75,6 +90,8 @@ class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Set whether to show a notification or not.
+     *
      * @param bool $isNeedToShowNotification
      * @return $this
      */

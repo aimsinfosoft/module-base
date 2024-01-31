@@ -84,7 +84,8 @@ class Info extends Fieldset
         ProductMetadataInterface $productMetadata,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->cronFactory = $cronFactory;
         $this->directoryList = $directoryList;
@@ -117,6 +118,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get field rendered
      * @return \Magento\Framework\View\Element\BlockInterface
      */
     private function getFieldRenderer()
@@ -131,6 +133,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get magento mode
      * @param AbstractElement $fieldset
      *
      * @return string
@@ -146,6 +149,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get magento path info
      * @param AbstractElement $fieldset
      *
      * @return string
@@ -159,6 +163,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get owner info
      * @param AbstractElement $fieldset
      *
      * @return string
@@ -179,6 +184,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get system time
      * @param AbstractElement $fieldset
      *
      * @return string
@@ -194,6 +200,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get cron info
      * @param AbstractElement $fieldset
      *
      * @return string
@@ -231,6 +238,11 @@ class Info extends Fieldset
         return $this->getFieldHtml($fieldset, 'cron_configuration', $label, $value);
     }
 
+    /**
+     * get download button html
+     * @param AbstractElement $fieldset
+     * @return string
+     */
     private function getDownloadButtonHtml(AbstractElement $fieldset): string
     {
         $button = $this->getLayout()->createBlock(DownloadButton::class);
@@ -244,6 +256,7 @@ class Info extends Fieldset
     }
 
     /**
+     * get fields html
      * @param AbstractElement $fieldset
      * @param string $fieldName
      * @param string $label
@@ -254,7 +267,7 @@ class Info extends Fieldset
     protected function getFieldHtml($fieldset, $fieldName, $label = '', $value = '')
     {
         $field = $fieldset->addField($fieldName, 'label', [
-            'name'  => 'dummy',
+            'name' => 'dummy',
             'label' => $label,
             'after_element_html' => $value,
         ])->setRenderer($this->getFieldRenderer());

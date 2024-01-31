@@ -19,19 +19,35 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Debug\System;
 
 /**
- * phpcs:ignoreFile
+ * Class AimsinfosoftDump
+ * @package Aimsinfosoft\Base\Debug\System
+ *
+ * Debug class for dumping information about a class.
+ * @SuppressWarnings(PHPMD)
+ * @phpcs:disableFile
  */
 class AimsinfosoftDump
 {
+    /**
+     * @var string
+     */
     public $className = '';
 
+    /**
+     * @var string
+     */
     public $shortClassName = '';
 
+    /**
+     * @var array
+     */
     public $methods = [];
 
+    /**
+     * @var array
+     */
     public $properties = [];
 }

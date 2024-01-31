@@ -30,6 +30,12 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\View\Helper\Js;
 use Magento\Framework\View\LayoutFactory;
 
+/**
+ * Class Information
+ * @package Aimsinfosoft\Base\Block\Adminhtml\System\Config
+ *
+ * Adminhtml block for rendering additional information in the system configuration.
+ */
 class Information extends Fieldset
 {
     public const SEO_PARAMS = '?utm_source=extension&utm_medium=backend&utm_campaign=';
@@ -39,17 +45,33 @@ class Information extends Fieldset
      */
     private $layoutFactory;
 
+    /**
+     * Information constructor.
+     *
+     * @param Context $context
+     * @param Session $authSession
+     * @param Js $jsHelper
+     * @param LayoutFactory $layoutFactory
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         Session $authSession,
         Js $jsHelper,
         LayoutFactory $layoutFactory,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->layoutFactory = $layoutFactory;
     }
 
+    /**
+     * Render the element.
+     *
+     * @param AbstractElement $element
+     * @return string
+     */
     public function render(AbstractElement $element)
     {
         if (!($moduleCode = $element->getDataByPath('group/module_code'))
@@ -71,6 +93,13 @@ class Information extends Fieldset
         return preg_replace('(onclick=\"Fieldset.toggleCollapse.*?\")', '', $html);
     }
 
+    /**
+     * Get inner HTML.
+     *
+     * @param string $moduleCode
+     * @param AbstractElement $element
+     * @return string
+     */
     private function getInnerHtml(string $moduleCode, AbstractElement $element): string
     {
         $html = '';

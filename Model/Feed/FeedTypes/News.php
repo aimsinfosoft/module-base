@@ -35,6 +35,11 @@ use Magento\Framework\Escaper;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Framework\Notification\MessageInterface;
 
+/**
+ * Class News
+ *
+ * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
+ */
 class News
 {
     /**
@@ -87,6 +92,19 @@ class News
      */
     private $moduleInfoProvider;
 
+    /**
+     * News constructor.
+     *
+     * @param Config $config
+     * @param FeedContentProvider $feedContentProvider
+     * @param Parser $parser
+     * @param ProductMetadataInterface $productMetadata
+     * @param ModuleListInterface $moduleList
+     * @param ExistsFactory $inboxExistsFactory
+     * @param Escaper $escaper
+     * @param DataObjectFactory $dataObjectFactory
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         Config $config,
         FeedContentProvider $feedContentProvider,
@@ -97,7 +115,8 @@ class News
         Escaper $escaper,
         DataObjectFactory $dataObjectFactory,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->config = $config;
         $this->feedContentProvider = $feedContentProvider;
         $this->parser = $parser;
@@ -110,6 +129,8 @@ class News
     }
 
     /**
+     * Executes the main functionality to retrieve news data.
+     *
      * @return array
      */
     public function execute(): array
@@ -128,19 +149,19 @@ class News
         );
 
         $feedXml = $this->parser->parseXml($feedResponse->getContent());
-         
+
         if (isset($feedXml->channel->item)) {
-            
+
             $installDate = $this->config->getFirstModuleRun();
             foreach ($feedXml->channel->item as $item) {
-                
+
                 if ((int)$item->version === 1 // for magento One
                     || ((string)$item->edition && (string)$item->edition !== $this->getCurrentEdition())
                     || !array_intersect($this->convertToArray($item->type ?? ''), $allowedNotifications)
                 ) {
                     continue;
                 }
-             
+
                 $priority = $item->priority ?? 1;
 
                 if ($priority <= $maxPriority || !$this->isItemValid($item)) {
@@ -148,21 +169,21 @@ class News
                 }
                 $date = strtotime((string)$item->pubDate);
                 $expired = isset($item->expirationDate) ? strtotime((string)$item->expirationDate) : null;
-                
+
                 //07-03-2023change this condition less than to greater then
                 if ($installDate <= $date && (!$expired || $expired > gmdate('U'))) {
                     $maxPriority = $priority;
                     $expired = $expired ? date('Y-m-d H:i:s', $expired) : null;
 
                     $feedData = [
-                        'severity'        => MessageInterface::SEVERITY_NOTICE,
-                        'date_added'      => date('Y-m-d H:i:s', $date),
+                        'severity' => MessageInterface::SEVERITY_NOTICE,
+                        'date_added' => date('Y-m-d H:i:s', $date),
                         'expiration_date' => $expired,
-                        'title'           => $this->convertString($item->title),
-                        'description'     => $this->convertString($item->description),
-                        'url'             => $this->convertString($item->link),
-                        'is_Aimsinfosoft'       => 1,
-                        'image_url'       => $this->convertString($item->image)
+                        'title' => $this->convertString($item->title),
+                        'description' => $this->convertString($item->description),
+                        'url' => $this->convertString($item->link),
+                        'is_Aimsinfosoft' => 1,
+                        'image_url' => $this->convertString($item->image)
                     ];
                 }
             }
@@ -171,6 +192,8 @@ class News
     }
 
     /**
+     * Checks if the news item is valid.
+     *
      * @param \SimpleXMLElement $item
      *
      * @return bool
@@ -186,6 +209,8 @@ class News
     }
 
     /**
+     * Gets the current Magento edition.
+     *
      * @return string
      */
     protected function getCurrentEdition(): string
@@ -194,6 +219,8 @@ class News
     }
 
     /**
+     * Converts a value to an array.
+     *
      * @param mixed $value
      *
      * @return array
@@ -204,6 +231,8 @@ class News
     }
 
     /**
+     * Converts a SimpleXMLElement to a string.
+     *
      * @param \SimpleXMLElement $data
      *
      * @return string
@@ -214,6 +243,8 @@ class News
     }
 
     /**
+     * Gets all Magento extensions.
+     *
      * @return string[]
      */
     private function getAllExtensions(): array
@@ -225,6 +256,8 @@ class News
     }
 
     /**
+     * Gets installed Aimsinfosoft extensions.
+     *
      * @return string[]
      */
     private function getInstalledAimsinfosoftExtensions(): array
@@ -248,6 +281,8 @@ class News
     }
 
     /**
+     * Validates by extension.
+     *
      * @param string $extensions
      * @param bool $allModules
      *
@@ -274,6 +309,8 @@ class News
     }
 
     /**
+     * Validates by extension if not installed.
+     *
      * @param string $extensions
      *
      * @return bool
@@ -299,6 +336,8 @@ class News
     }
 
     /**
+     * Gets the extension value.
+     *
      * @param string $extensions
      *
      * @return array
@@ -324,6 +363,8 @@ class News
     }
 
     /**
+     * Validates by Aimsinfosoft count.
+     *
      * @param int|string $counts
      *
      * @return bool
@@ -365,6 +406,8 @@ class News
     }
 
     /**
+     * Validates by domain zone.
+     *
      * @param string $zones
      *
      * @return bool
@@ -385,6 +428,8 @@ class News
     }
 
     /**
+     * Gets dependent modules.
+     *
      * @param string[] $AimsinfosoftModules
      *
      * @return array
@@ -420,6 +465,8 @@ class News
     }
 
     /**
+     * Checks if the news item already exists.
+     *
      * @param \SimpleXMLElement $item
      *
      * @return bool

@@ -19,11 +19,16 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
 
+/**
+ * Class Import
+ * @package Aimsinfosoft\Base\Block\Adminhtml
+ *
+ * Adminhtml block for handling import functionality.
+ */
 class Import extends Template
 {
     /**
@@ -31,10 +36,17 @@ class Import extends Template
      */
     private $importEntityTypeCode;
 
+    /**
+     * Import constructor.
+     * @param Template\Context $context
+     * @param array $data
+     * @throws \Aimsinfosoft\Base\Exceptions\EntityTypeCodeNotSet
+     */
     public function __construct(
         Template\Context $context,
         array $data = []
-    ) {
+    )
+    {
         if (empty($data['entityTypeCode'])) {
             throw new \Aimsinfosoft\Base\Exceptions\EntityTypeCodeNotSet();
         }
@@ -42,6 +54,11 @@ class Import extends Template
         parent::__construct($context, $data);
     }
 
+    /**
+     * Get the import entity type code.
+     *
+     * @return string
+     */
     public function getImportEntity()
     {
         return $this->importEntityTypeCode;

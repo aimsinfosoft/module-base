@@ -29,6 +29,10 @@ use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\InstanceFactory;
 use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstanceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 
+/**
+ * Class Converter
+ * @since 1.0.0
+ */
 class Converter
 {
     /**
@@ -46,16 +50,30 @@ class Converter
      */
     private $dataObjectHelper;
 
+    /**
+     * Converter constructor.
+     *
+     * @param RegisteredInstanceFactory $registeredInstanceFactory
+     * @param InstanceFactory $instanceFactory
+     * @param DataObjectHelper $dataObjectHelper
+     */
     public function __construct(
         RegisteredInstanceFactory $registeredInstanceFactory,
         InstanceFactory $instanceFactory,
         DataObjectHelper $dataObjectHelper
-    ) {
+    )
+    {
         $this->registeredInstanceFactory = $registeredInstanceFactory;
         $this->instanceFactory = $instanceFactory;
         $this->dataObjectHelper = $dataObjectHelper;
     }
 
+    /**
+     * Convert an array to a RegisteredInstance object.
+     *
+     * @param array $data
+     * @return RegisteredInstance
+     */
     public function convertArrayToRegisteredInstance(array $data): RegisteredInstance
     {
         /** @var RegisteredInstance $registeredInstance */
@@ -69,6 +87,12 @@ class Converter
         return $registeredInstance;
     }
 
+    /**
+     * Convert an array to an Instance object.
+     *
+     * @param array $data
+     * @return Instance
+     */
     public function convertArrayToInstance(array $data): Instance
     {
         /** @var Instance $instance */

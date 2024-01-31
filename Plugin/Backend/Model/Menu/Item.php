@@ -26,6 +26,12 @@ use Aimsinfosoft\Base\Model\Feed\ExtensionsProvider;
 use Aimsinfosoft\Base\Model\ModuleInfoProvider;
 use Magento\Backend\Model\Menu\Item as NativeItem;
 
+/**
+ * Class Item
+ * @package Aimsinfosoft\Base\Plugin\Backend\Model\Menu
+ *
+ * Plugin class to modify the Admin Menu Item URLs
+ */
 class Item
 {
     public const BASE_MARKETPLACE = 'Aimsinfosoft_Base::marketplace';
@@ -47,17 +53,26 @@ class Item
      */
     private $moduleInfoProvider;
 
+    /**
+     * Item constructor.
+     *
+     * @param ExtensionsProvider $extensionsProvider
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->extensionsProvider = $extensionsProvider;
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
     /**
+     * After plugin method to modify the Admin Menu Item URLs
+     *
      * @param NativeItem $subject
-     * @param $url
+     * @param string $url
      *
      * @return string
      */
@@ -90,3 +105,4 @@ class Item
         return $url;
     }
 }
+

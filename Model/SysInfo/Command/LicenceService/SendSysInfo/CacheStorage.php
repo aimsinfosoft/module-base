@@ -25,8 +25,15 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
 use Aimsinfosoft\Base\Model\FlagRepository;
 
+/**
+ * Class CacheStorage
+ * @since 1.0.0
+ */
 class CacheStorage
 {
+    /**
+     * Cache identifier prefix.
+     */
     public const PREFIX = 'Aimsinfosoft_base_';
 
     /**
@@ -34,16 +41,34 @@ class CacheStorage
      */
     private $flagRepository;
 
+    /**
+     * CacheStorage constructor.
+     *
+     * @param FlagRepository $flagRepository
+     */
     public function __construct(FlagRepository $flagRepository)
     {
         $this->flagRepository = $flagRepository;
     }
 
+    /**
+     * Get a value from the cache by identifier.
+     *
+     * @param string $identifier
+     * @return string|null
+     */
     public function get(string $identifier): ?string
     {
         return $this->flagRepository->get(self::PREFIX . $identifier);
     }
 
+    /**
+     * Set a value in the cache by identifier.
+     *
+     * @param string $identifier
+     * @param string $value
+     * @return bool
+     */
     public function set(string $identifier, string $value): bool
     {
         $this->flagRepository->save(self::PREFIX . $identifier, $value);

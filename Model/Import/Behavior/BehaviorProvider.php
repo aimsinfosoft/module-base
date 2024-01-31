@@ -19,9 +19,12 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\Import\Behavior;
 
+/**
+ * Class BehaviorProvider
+ * @package Aimsinfosoft\Base\Model\Import\Behavior
+ */
 class BehaviorProvider implements BehaviorProviderInterface
 {
     /**
@@ -29,6 +32,12 @@ class BehaviorProvider implements BehaviorProviderInterface
      */
     private $behaviors;
 
+    /**
+     * BehaviorProvider constructor.
+     *
+     * @param array $behaviors
+     * @throws \Aimsinfosoft\Base\Exceptions\WrongBehaviorInterface
+     */
     public function __construct($behaviors)
     {
         $this->behaviors = [];
@@ -43,6 +52,10 @@ class BehaviorProvider implements BehaviorProviderInterface
 
     /**
      * @inheritdoc
+     *
+     * @param string $behaviorCode
+     * @return \Aimsinfosoft\Base\Model\Import\Behavior\BehaviorInterface
+     * @throws \Aimsinfosoft\Base\Exceptions\NonExistentImportBehavior
      */
     public function getBehavior($behaviorCode)
     {

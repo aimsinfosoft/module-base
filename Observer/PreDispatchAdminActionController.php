@@ -45,6 +45,13 @@ class PreDispatchAdminActionController implements ObserverInterface
      */
     private $newsProcessor;
 
+    /**
+     * PreDispatchAdminActionController constructor.
+     *
+     * @param NewsProcessor $newsProcessor
+     * @param Session $backendAuthSession
+     * @param LoggerInterface $logger
+     */
     public function __construct(
         NewsProcessor $newsProcessor,
         Session $backendAuthSession,
@@ -56,6 +63,7 @@ class PreDispatchAdminActionController implements ObserverInterface
     }
 
     /**
+     * check for update and remove expired items
      * @param Observer $observer
      */
     public function execute(Observer $observer)

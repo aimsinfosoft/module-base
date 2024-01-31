@@ -29,6 +29,16 @@ use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstanceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Serialize\SerializerInterface;
 
+/**
+ * Class RegisteredInstanceRepository
+ *
+ * Repository class for managing registered instances.
+ *
+ * @category    Aimsinfosoft
+ * @package     Aimsinfosoft_Base
+ * @author      Aimsinfosoft
+ * @license     https://www.aimsinfosoft.com/LICENSE.txt
+ */
 class RegisteredInstanceRepository
 {
     public const REGISTERED_INSTANCE = 'Aimsinfosoft_base_registered_instance';
@@ -53,18 +63,32 @@ class RegisteredInstanceRepository
      */
     private $registeredInstanceFactory;
 
+    /**
+     * RegisteredInstanceRepository constructor.
+     *
+     * @param FlagRepository $flagRepository
+     * @param SerializerInterface $serializer
+     * @param DataObjectHelper $dataObjectHelper
+     * @param RegisteredInstanceFactory $registeredInstanceFactory
+     */
     public function __construct(
         FlagRepository $flagRepository,
         SerializerInterface $serializer,
         DataObjectHelper $dataObjectHelper,
         RegisteredInstanceFactory $registeredInstanceFactory
-    ) {
+    )
+    {
         $this->flagRepository = $flagRepository;
         $this->serializer = $serializer;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->registeredInstanceFactory = $registeredInstanceFactory;
     }
 
+    /**
+     * Get the registered instance.
+     *
+     * @return RegisteredInstance
+     */
     public function get(): RegisteredInstance
     {
         $registeredInstance = $this->registeredInstanceFactory->create();
@@ -79,6 +103,12 @@ class RegisteredInstanceRepository
         return $registeredInstance;
     }
 
+    /**
+     * Save the registered instance.
+     *
+     * @param RegisteredInstance $registeredInstance
+     * @return bool
+     */
     public function save(RegisteredInstance $registeredInstance): bool
     {
         $regInstArray = $registeredInstance->toArray();

@@ -26,7 +26,8 @@ use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Framework\Unserialize\Unserialize;
 
 /**
- * Wrapper for Serialize
+ * Serializer is a wrapper for serialization operations.
+ *
  * @since 1.1.0
  */
 class Serializer
@@ -41,10 +42,17 @@ class Serializer
      */
     private $unserialize;
 
+    /**
+     * Serializer constructor.
+     *
+     * @param ObjectManagerInterface $objectManager
+     * @param Unserialize $unserialize
+     */
     public function __construct(
         ObjectManagerInterface $objectManager,
         Unserialize $unserialize
-    ) {
+    )
+    {
         if (interface_exists(SerializerInterface::class)) {
             // For Magento >= 2.2
             $this->serializer = $objectManager->get(SerializerInterface::class);
@@ -52,6 +60,12 @@ class Serializer
         $this->unserialize = $unserialize;
     }
 
+    /**
+     * Serialize the given value.
+     *
+     * @param mixed $value
+     * @return string
+     */
     public function serialize($value)
     {
         try {
@@ -65,6 +79,12 @@ class Serializer
         }
     }
 
+    /**
+     * Unserialize the given value.
+     *
+     * @param string $value
+     * @return mixed|false
+     */
     public function unserialize($value)
     {
         if (false === $value || null === $value || '' === $value) {

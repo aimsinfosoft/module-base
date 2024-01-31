@@ -31,6 +31,10 @@ use Aimsinfosoft\Base\Utils\Http\CurlFactory;
 use Magento\Framework\Api\SimpleDataObjectConverter;
 use Magento\Framework\Exception\LocalizedException;
 
+/**
+ * Class RequestManager
+ * @package Aimsinfosoft\Base\Model\LicenceService\Api
+ */
 class RequestManager
 {
     /**
@@ -48,11 +52,19 @@ class RequestManager
      */
     private $urlBuilder;
 
+    /**
+     * RequestManager constructor.
+     *
+     * @param SimpleDataObjectConverter $simpleDataObjectConverter
+     * @param CurlFactory $curlFactory
+     * @param Builder $urlBuilder
+     */
     public function __construct(
         SimpleDataObjectConverter $simpleDataObjectConverter,
         CurlFactory $curlFactory,
         Builder $urlBuilder
-    ) {
+    )
+    {
         $this->simpleDataObjectConverter = $simpleDataObjectConverter;
         $this->curlFactory = $curlFactory;
         $this->urlBuilder = $urlBuilder;
@@ -83,7 +95,7 @@ class RequestManager
         /** @var Curl $curl */
         $curl = $this->curlFactory->create();
         $url = $this->urlBuilder->build(
-            '/api/v1/instance_client/'. $instanceInfo->getSystemInstanceKey() . '/collect'
+            '/api/v1/instance_client/' . $instanceInfo->getSystemInstanceKey() . '/collect'
         );
         $postParams = $this->simpleDataObjectConverter->convertKeysToCamelCase($instanceInfo->toArray());
         $postParams = json_encode($postParams);
@@ -100,7 +112,7 @@ class RequestManager
     {
         /** @var Curl $curl */
         $curl = $this->curlFactory->create();
-        $url = $this->urlBuilder->build('/api/v1/instance_client/'. $systemInstanceKey . '/ping');
+        $url = $this->urlBuilder->build('/api/v1/instance_client/' . $systemInstanceKey . '/ping');
 
         $curl->request($url);
     }

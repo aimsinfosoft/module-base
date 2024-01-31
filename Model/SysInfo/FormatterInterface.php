@@ -19,12 +19,21 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo;
 
+/**
+ * Interface FormatterInterface
+ * @since 1.0.0
+ */
 interface FormatterInterface
 {
+    /**
+     * Format the provided information.
+     *
+     * @param array $info
+     * @return array
+     */
     public function format(array $info): array;
 }

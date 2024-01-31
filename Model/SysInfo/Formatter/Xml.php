@@ -19,13 +19,16 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Formatter;
 
 use Magento\Framework\Xml\Generator as XmlGenerator;
 
+/**
+ * Class Xml
+ * @since 1.0.0
+ */
 class Xml implements FormatterInterface
 {
     public const FILE_EXTENSION = 'xml';
@@ -45,16 +48,29 @@ class Xml implements FormatterInterface
      */
     private $rootNodeName;
 
+    /**
+     * Xml constructor.
+     *
+     * @param XmlGenerator $xmlGenerator
+     * @param array $data
+     * @param string $rootNodeName
+     */
     public function __construct(
         XmlGenerator $xmlGenerator,
         array $data,
         string $rootNodeName
-    ) {
+    )
+    {
         $this->xmlGenerator = $xmlGenerator;
         $this->data = $data;
         $this->rootNodeName = $rootNodeName;
     }
 
+    /**
+     * Get the formatted content.
+     *
+     * @return string
+     */
     public function getContent(): string
     {
         $content = $this->xmlGenerator
@@ -65,6 +81,11 @@ class Xml implements FormatterInterface
         return $content;
     }
 
+    /**
+     * Get the extension associated with the formatted content.
+     *
+     * @return string
+     */
     public function getExtension(): string
     {
         return self::FILE_EXTENSION;

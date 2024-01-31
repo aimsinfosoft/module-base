@@ -60,6 +60,7 @@ class VarDump
     private static $arrayDepthLevel = 2;
 
     /**
+     * set object depth level
      * @param int $level
      */
     public static function setObjectDepthLevel($level)
@@ -68,6 +69,7 @@ class VarDump
     }
 
     /**
+     * set array level
      * @param int $level
      */
     public static function setArrayDepthLevel($level)
@@ -75,6 +77,9 @@ class VarDump
         self::$arrayDepthLevel = (int)$level;
     }
 
+    /**
+     * excute
+     */
     public static function execute()
     {
         if (self::isAllowed()) {
@@ -86,7 +91,7 @@ class VarDump
 
     /**
      * @param array $array
-     * @param int   $level
+     * @param int $level
      *
      * @return array|string
      */

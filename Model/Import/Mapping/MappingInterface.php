@@ -23,26 +23,33 @@
 namespace Aimsinfosoft\Base\Model\Import\Mapping;
 
 /**
+ * Interface MappingInterface
+ * @package Aimsinfosoft\Base\Model\Import\Mapping
  * @since 1.4.6
  */
 interface MappingInterface
 {
     /**
+     * Get valid column names.
+     *
      * @return array
      */
     public function getValidColumnNames();
 
     /**
-     * @param string $columnName
+     * Get the mapped field for a given column name.
      *
-     * @throws \Aimsinfosoft\Base\Exceptions\MappingColumnDoesntExist
+     * @param string $columnName
      * @return string|bool
+     * @throws \Aimsinfosoft\Base\Exceptions\MappingColumnDoesntExist
      */
     public function getMappedField($columnName);
 
     /**
-     * @throws \Aimsinfosoft\Base\Exceptions\MasterAttributeCodeDoesntSet
+     * Get the master attribute code.
+     *
      * @return string
+     * @throws \Aimsinfosoft\Base\Exceptions\MasterAttributeCodeDoesntSet
      */
     public function getMasterAttributeCode();
 }

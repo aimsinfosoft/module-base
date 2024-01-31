@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\Response;
@@ -27,6 +26,9 @@ namespace Aimsinfosoft\Base\Model\Response;
 use Magento\Downloadable\Helper\Download;
 use Magento\Framework\Filesystem\File\ReadInterface;
 
+/**
+ * DownloadOutput class extends Magento Download helper for handling file downloads.
+ */
 class DownloadOutput extends Download
 {
     /**
@@ -34,6 +36,12 @@ class DownloadOutput extends Download
      */
     private $resourceHandler;
 
+    /**
+     * Set the resource handler for the download.
+     *
+     * @param ReadInterface $readResource
+     * @return $this
+     */
     public function setResourceHandler(ReadInterface $readResource): self
     {
         $this->resourceHandler = $readResource;
@@ -41,6 +49,11 @@ class DownloadOutput extends Download
         return $this;
     }
 
+    /**
+     * Get the resource handler for the download.
+     *
+     * @return ReadInterface|null
+     */
     protected function _getHandle(): ?ReadInterface
     {
         return $this->resourceHandler;

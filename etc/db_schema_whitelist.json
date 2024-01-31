@@ -1,9 +1,0 @@
-{
-    "adminnotification_inbox": {
-        "column": {
-            "is_aimsinfosoft": true,
-            "expiration_date": true,
-            "image_url": true
-        }
-    }
-}

@@ -34,6 +34,7 @@ class LogBeautifier
     private static $instance;
 
     /**
+     * beautify
      * @param mixed $var
      *
      * @return string
@@ -69,6 +70,7 @@ class LogBeautifier
     }
 
     /**
+     * array key
      * @param string|int $key
      *
      * @return string
@@ -83,6 +85,7 @@ class LogBeautifier
     }
 
     /**
+     * array simple type
      * @param mixed $var
      *
      * @return string|int|float
@@ -109,8 +112,9 @@ class LogBeautifier
     }
 
     /**
+     * prepare array varibale
      * @param array $arrayVar
-     * @param int   $depth
+     * @param int $depth
      *
      * @return string
      */
@@ -143,6 +147,7 @@ class LogBeautifier
     }
 
     /**
+     * prepare object var
      * @param AimsinfosoftDump $object
      * @param int $depth
      *
@@ -164,6 +169,7 @@ class LogBeautifier
     }
 
     /**
+     * get instance
      * @return LogBeautifier
      */
     public static function getInstance()

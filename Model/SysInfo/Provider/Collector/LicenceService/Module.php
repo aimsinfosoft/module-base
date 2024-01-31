@@ -29,6 +29,13 @@ use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector\CollectorInterface;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Config\ConfigOptionsListConstants;
 
+/**
+ * Class Module
+ *
+ * Collector for module information used in the license service.
+ *
+ * @since 1.0.0
+ */
 class Module implements CollectorInterface
 {
     /**
@@ -41,14 +48,26 @@ class Module implements CollectorInterface
      */
     private $deploymentConfig;
 
+    /**
+     * Module constructor.
+     *
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param DeploymentConfig $deploymentConfig
+     */
     public function __construct(
         ModuleInfoProvider $moduleInfoProvider,
         DeploymentConfig $deploymentConfig
-    ) {
+    )
+    {
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->deploymentConfig = $deploymentConfig;
     }
 
+    /**
+     * Get collected module information for the license service.
+     *
+     * @return array
+     */
     public function get(): array
     {
         $modulesData = [];
@@ -59,7 +78,7 @@ class Module implements CollectorInterface
                 $modulesData[] = [
                     RequestModule::CODE => $moduleName,
                     RequestModule::VERSION => $moduleInfo[ModuleInfoProvider::MODULE_VERSION_KEY] ?? '',
-                    RequestModule::STATUS  => (bool)$moduleStatus
+                    RequestModule::STATUS => (bool)$moduleStatus
                 ];
             }
         }

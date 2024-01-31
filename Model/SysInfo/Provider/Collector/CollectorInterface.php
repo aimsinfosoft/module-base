@@ -23,7 +23,19 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 
+/**
+ * Interface CollectorInterface
+ *
+ * Interface for classes that collect system information.
+ *
+ * @since 1.0.0
+ */
 interface CollectorInterface
 {
+    /**
+     * Get collected system information.
+     *
+     * @return array
+     */
     public function get(): array;
 }

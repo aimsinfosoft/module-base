@@ -19,22 +19,29 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Setup;
 
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 
+/**
+ * Class Recurring
+ * @package Aimsinfosoft\Base\Setup
+ *
+ * InstallSchema class for recurring setup operations.
+ */
 class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
 {
     const NOTIFICATION_TABLE = 'adminnotification_inbox';
-    const IS_Aimsinfosoft_COLUMN = 'is_aimsinfosoft';
+    const IS_Aimsinfosoft_COLUMN = 'is_Aimsinfosoft';
     const EXPIRATION_COLUMN = 'expiration_date';
     const IMAGE_URL_COLUMN = 'image_url';
 
     /**
-     * @param SchemaSetupInterface   $setup
+     * Install recurring schema operations.
+     *
+     * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
@@ -58,6 +65,13 @@ class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
         $setup->endSetup();
     }
 
+    /**
+     * Check if the column exists in the notification table.
+     *
+     * @param SchemaSetupInterface $setup
+     * @param string $column
+     * @return bool
+     */
     private function notificationTableColumnExist(SchemaSetupInterface $setup, $column)
     {
         return $setup->getConnection()->tableColumnExists(
@@ -67,6 +81,8 @@ class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
     }
 
     /**
+     * Add the is_Aimsinfosoft field to the notification table.
+     *
      * @param SchemaSetupInterface $setup
      */
     private function addIsAimsinfosoftField(SchemaSetupInterface $setup)
@@ -84,6 +100,8 @@ class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
     }
 
     /**
+     * Add the expiration_date field to the notification table.
+     *
      * @param SchemaSetupInterface $setup
      */
     private function addExpireField(SchemaSetupInterface $setup)
@@ -101,6 +119,8 @@ class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
     }
 
     /**
+     * Add the image_url field to the notification table.
+     *
      * @param SchemaSetupInterface $setup
      */
     private function addImageUrlField(SchemaSetupInterface $setup)

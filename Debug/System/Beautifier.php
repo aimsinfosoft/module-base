@@ -35,12 +35,16 @@ class Beautifier
      */
     private static $instance;
 
+    /**
+     * Beautifier constructor.
+     */
     public function __construct()
     {
         VarDump::AimsinfosoftEcho(Template::$debugJsCss);
     }
 
     /**
+     * beautify
      * @param mixed $var
      */
     public function beautify($var)
@@ -74,6 +78,7 @@ class Beautifier
     }
 
     /**
+     * array key
      * @param string|int $key
      *
      * @return string
@@ -120,9 +125,10 @@ class Beautifier
     }
 
     /**
+     * prepare array variable
      * @param array $arrayVar
-     * @param int   $depth
-     * @param bool  $opened
+     * @param int $depth
+     * @param bool $opened
      *
      * @return string
      */
@@ -168,6 +174,7 @@ class Beautifier
     }
 
     /**
+     * prepare objecct var
      * @param AimsinfosoftDump $object
      * @param int $depth
      *
@@ -208,6 +215,7 @@ class Beautifier
     }
 
     /**
+     * get instance
      * @return Beautifier
      */
     public static function getInstance()

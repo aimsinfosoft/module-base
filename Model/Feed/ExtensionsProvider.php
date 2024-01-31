@@ -22,6 +22,11 @@
 
 namespace Aimsinfosoft\Base\Model\Feed;
 
+/**
+ * Class ExtensionsProvider
+ *
+ * Provides data about extensions through feeds
+ */
 class ExtensionsProvider
 {
     /**
@@ -34,13 +39,21 @@ class ExtensionsProvider
      */
     private $extensionsFeed;
 
+    /**
+     * ExtensionsProvider constructor.
+     *
+     * @param FeedTypes\Extensions $extensionsFeed
+     */
     public function __construct(
         FeedTypes\Extensions $extensionsFeed
-    ) {
+    )
+    {
         $this->extensionsFeed = $extensionsFeed;
     }
 
     /**
+     * Get data for all feed extensions
+     *
      * @return array
      */
     public function getAllFeedExtensions()
@@ -53,8 +66,9 @@ class ExtensionsProvider
     }
 
     /**
-     * @param string $moduleCode
+     * Get data for a specific feed module
      *
+     * @param string $moduleCode
      * @return array
      */
     public function getFeedModuleData($moduleCode)

@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Plugin\Setup\Model\DeclarationInstaller;
@@ -30,6 +29,12 @@ use Magento\Framework\Setup\Patch\PatchApplier;
 use Magento\Framework\Setup\Patch\PatchHistory;
 use Magento\Setup\Model\DeclarationInstaller;
 
+/**
+ * Class ApplyPatchesBeforeDeclarativeSchema
+ * @package Aimsinfosoft\Base\Plugin\Setup\Model\DeclarationInstaller
+ *
+ * Plugin class to apply patches before installing declarative schema.
+ */
 class ApplyPatchesBeforeDeclarativeSchema
 {
     /**
@@ -47,17 +52,27 @@ class ApplyPatchesBeforeDeclarativeSchema
      */
     private $moduleNames;
 
+    /**
+     * ApplyPatchesBeforeDeclarativeSchema constructor.
+     *
+     * @param PatchApplier $patchApplier
+     * @param ResourceConnection $resourceConnection
+     * @param array $moduleNames
+     */
     public function __construct(
         PatchApplier $patchApplier,
         ResourceConnection $resourceConnection,
         array $moduleNames = []
-    ) {
+    )
+    {
         $this->patchApplier = $patchApplier;
         $this->resourceConnection = $resourceConnection;
         $this->moduleNames = $moduleNames;
     }
 
     /**
+     * Apply patches before installing declarative schema.
+     *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      *
      * @param DeclarationInstaller $declarationInstaller
@@ -68,7 +83,8 @@ class ApplyPatchesBeforeDeclarativeSchema
     public function beforeInstallSchema(
         DeclarationInstaller $declarationInstaller,
         array $request
-    ): ?array {
+    ): ?array
+    {
         $isDryRun = $request[DryRunLogger::INPUT_KEY_DRY_RUN_MODE] ?? true;
         $connection = $this->resourceConnection->getConnection();
 

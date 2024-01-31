@@ -19,13 +19,19 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 
 use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCollectionFactory;
 
+/**
+ * Class Config
+ *
+ * Collector for system configuration information.
+ *
+ * @since 1.0.0
+ */
 class Config implements CollectorInterface
 {
     public const CONFIG_PATH_KEY = 'path';
@@ -36,12 +42,23 @@ class Config implements CollectorInterface
      */
     private $configCollectionFactory;
 
+    /**
+     * Config constructor.
+     *
+     * @param ConfigCollectionFactory $configCollectionFactory
+     */
     public function __construct(
         ConfigCollectionFactory $configCollectionFactory
-    ) {
+    )
+    {
         $this->configCollectionFactory = $configCollectionFactory;
     }
 
+    /**
+     * Get collected system configuration information.
+     *
+     * @return array
+     */
     public function get(): array
     {
         $configData = [];
@@ -61,6 +78,11 @@ class Config implements CollectorInterface
         return $configData;
     }
 
+    /**
+     * Get conditions for filtering configuration paths.
+     *
+     * @return array
+     */
     protected function getPathConditions(): array
     {
         return [
@@ -69,6 +91,12 @@ class Config implements CollectorInterface
         ];
     }
 
+    /**
+     * Prepare the configuration path for storage.
+     *
+     * @param string $path
+     * @return string
+     */
     private function preparePath(string $path): string
     {
         return str_replace('/', '_', $path);

@@ -23,8 +23,19 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
+/**
+ * Class Checker
+ * @since 1.0.0
+ */
 class Checker
 {
+    /**
+     * Check if the cache value is different from the new value.
+     *
+     * @param string|null $cacheValue
+     * @param string $newValue
+     * @return bool
+     */
     public function isChangedCacheValue(?string $cacheValue, string $newValue): bool
     {
         return !($cacheValue && hash_equals($cacheValue, $newValue));

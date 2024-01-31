@@ -30,6 +30,9 @@ namespace Aimsinfosoft\Base\Debug;
  */
 class VarDie
 {
+    /**
+     * excute
+     */
     public static function execute()
     {
         if (VarDump::isAllowed()) {
@@ -40,6 +43,9 @@ class VarDie
         }
     }
 
+    /**
+     * backtrace
+     */
     public static function backtrace()
     {
         if (VarDump::isAllowed()) {

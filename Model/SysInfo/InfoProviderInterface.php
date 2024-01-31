@@ -19,12 +19,23 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo;
 
+/**
+ * Interface InfoProviderInterface
+ *
+ * Interface for classes that provide system information.
+ *
+ * @since 1.0.0
+ */
 interface InfoProviderInterface
 {
+    /**
+     * Generate system information.
+     *
+     * @return array
+     */
     public function generate(): array;
 }

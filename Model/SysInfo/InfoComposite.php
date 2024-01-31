@@ -19,11 +19,17 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo;
 
+/**
+ * Class InfoComposite
+ *
+ * Composite class that aggregates multiple InfoProviderInterface instances.
+ *
+ * @since 1.0.0
+ */
 class InfoComposite implements InfoProviderInterface
 {
     /**
@@ -31,12 +37,23 @@ class InfoComposite implements InfoProviderInterface
      */
     private $providers;
 
+    /**
+     * InfoComposite constructor.
+     *
+     * @param array $providers
+     */
     public function __construct(
         array $providers = []
-    ) {
+    )
+    {
         $this->providers = $providers;
     }
 
+    /**
+     * Generate information by aggregating results from all providers.
+     *
+     * @return array
+     */
     public function generate(): array
     {
         $info = [];

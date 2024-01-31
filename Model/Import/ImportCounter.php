@@ -22,6 +22,10 @@
 
 namespace Aimsinfosoft\Base\Model\Import;
 
+/**
+ * Class ImportCounter
+ * @package Aimsinfosoft\Base\Model\Import
+ */
 class ImportCounter
 {
     /**
@@ -39,22 +43,39 @@ class ImportCounter
      */
     private $deleted = 0;
 
+    /**
+     * Increment the count of created items.
+     *
+     * @param int $incrementOn
+     */
     public function incrementCreated($incrementOn = 1)
     {
         $this->created += (int)$incrementOn;
     }
 
+    /**
+     * Increment the count of updated items.
+     *
+     * @param int $incrementOn
+     */
     public function incrementUpdated($incrementOn = 1)
     {
         $this->updated += (int)$incrementOn;
     }
 
+    /**
+     * Increment the count of deleted items.
+     *
+     * @param int $incrementOn
+     */
     public function incrementDeleted($incrementOn = 1)
     {
         $this->deleted += (int)$incrementOn;
     }
 
     /**
+     * Get the count of created items.
+     *
      * @return int
      */
     public function getCreatedCount()
@@ -63,6 +84,8 @@ class ImportCounter
     }
 
     /**
+     * Get the count of updated items.
+     *
      * @return int
      */
     public function getUpdatedCount()
@@ -71,6 +94,8 @@ class ImportCounter
     }
 
     /**
+     * Get the count of deleted items.
+     *
      * @return int
      */
     public function getDeletedCount()

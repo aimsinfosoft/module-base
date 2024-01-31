@@ -35,20 +35,35 @@ class RegisterLicenceKey extends Command
      */
     private $registerLicenceKey;
 
+    /**
+     * RegisterLicenceKey constructor.
+     * @param CommandRegisterLicenceKey $registerLicenceKey
+     * @param string|null $name
+     */
     public function __construct(
         CommandRegisterLicenceKey $registerLicenceKey,
         string $name = null
-    ) {
+    )
+    {
         parent::__construct($name);
         $this->registerLicenceKey = $registerLicenceKey;
     }
 
+    /**
+     * configure
+     */
     protected function configure()
     {
         $this->setName('Aimsinfosoft-base:licence:register-key');
         parent::configure();
     }
 
+    /**
+     * execurte 
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|void
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->registerLicenceKey->execute();

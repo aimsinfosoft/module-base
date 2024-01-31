@@ -19,17 +19,27 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Shell;
 use Symfony\Component\Process\PhpExecutableFinder;
 
+/**
+ * Class CliPhpResolver
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class CliPhpResolver
 {
+    /**
+     * Configuration key for PHP executable path
+     */
     public const PHP_EXECUTABLE_PATH = 'php_executable_path';
 
+    /**
+     * Regular expression for checking PHP version in CLI mode
+     */
     public const VERSION_CHECK_REGEXP = '/PHP [\d\.]+ \(cli\)/';
 
     /**
@@ -52,11 +62,19 @@ class CliPhpResolver
      */
     private $executablePath;
 
+    /**
+     * CliPhpResolver constructor.
+     *
+     * @param DeploymentConfig $deploymentConfig
+     * @param PhpExecutableFinder $executableFinder
+     * @param Shell $shell
+     */
     public function __construct(
         DeploymentConfig $deploymentConfig,
         PhpExecutableFinder $executableFinder,
         Shell $shell
-    ) {
+    )
+    {
         $this->deploymentConfig = $deploymentConfig;
         $this->executableFinder = $executableFinder;
         $this->shell = $shell;
@@ -77,6 +95,11 @@ class CliPhpResolver
         return $this->executablePath;
     }
 
+    /**
+     * Resolve the PHP executable path based on configuration and system settings.
+     *
+     * @return string
+     */
     private function resolvePhpExecutable()
     {
         $pathCandidates = [
@@ -93,6 +116,12 @@ class CliPhpResolver
         return 'php';
     }
 
+    /**
+     * Check if the provided path is an executable PHP binary.
+     *
+     * @param string $path
+     * @return bool
+     */
     private function isExecutable($path): bool
     {
         $disabledFunctions = $this->getDisabledPhpFunctions();
@@ -114,6 +143,11 @@ class CliPhpResolver
         return (bool)preg_match(self::VERSION_CHECK_REGEXP, $versionResult);
     }
 
+    /**
+     * Get the list of disabled PHP functions.
+     *
+     * @return array
+     */
     private function getDisabledPhpFunctions(): array
     {
         return explode(',', str_replace(' ', ',', ini_get('disable_functions')));

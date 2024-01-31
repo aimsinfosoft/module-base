@@ -28,6 +28,11 @@ use Aimsinfosoft\Base\Model\LicenceService\Schedule\Data\ScheduleConfigFactory;
 use Aimsinfosoft\Base\Model\LicenceService\Schedule\ScheduleConfigRepository;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 
+/**
+ * Class Schedule
+ *
+ * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker
+ */
 class Schedule implements SenderCheckerInterface
 {
     /**
@@ -45,16 +50,33 @@ class Schedule implements SenderCheckerInterface
      */
     private $scheduleConfigRepository;
 
+    /**
+     * Schedule constructor.
+     *
+     * @param DateTime $dateTime
+     * @param ScheduleConfigFactory $scheduleConfigFactory
+     * @param ScheduleConfigRepository $scheduleConfigRepository
+     */
     public function __construct(
         DateTime $dateTime,
         ScheduleConfigFactory $scheduleConfigFactory,
         ScheduleConfigRepository $scheduleConfigRepository
-    ) {
+    )
+    {
         $this->dateTime = $dateTime;
         $this->scheduleConfigFactory = $scheduleConfigFactory;
         $this->scheduleConfigRepository = $scheduleConfigRepository;
     }
 
+    /**
+     * Check if it is necessary to send based on the time interval.
+     *
+     * @param string $flag
+     *   The identifier or flag for the scheduled task.
+     *
+     * @return bool
+     *   Returns true if it is necessary to send, false otherwise.
+     */
     public function isNeedToSend(string $flag): bool
     {
         $currentTime = $this->dateTime->gmtTimestamp();
@@ -79,6 +101,11 @@ class Schedule implements SenderCheckerInterface
         return $isNeedToSend;
     }
 
+    /**
+     * Get default schedule configuration.
+     *
+     * @return array
+     */
     public function getScheduleConfig(): array
     {
         return [

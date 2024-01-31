@@ -27,6 +27,13 @@ use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo\Domain as R
 use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector\CollectorInterface;
 use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCollectionFactory;
 
+/**
+ * Class Domain
+ *
+ * Collector for domain information used in the license service.
+ *
+ * @since 1.0.0
+ */
 class Domain implements CollectorInterface
 {
     public const CONFIG_PATH_KEY = 'path';
@@ -37,12 +44,23 @@ class Domain implements CollectorInterface
      */
     private $configCollectionFactory;
 
+    /**
+     * Domain constructor.
+     *
+     * @param ConfigCollectionFactory $configCollectionFactory
+     */
     public function __construct(
         ConfigCollectionFactory $configCollectionFactory
-    ) {
+    )
+    {
         $this->configCollectionFactory = $configCollectionFactory;
     }
 
+    /**
+     * Get collected domain information for the license service.
+     *
+     * @return array
+     */
     public function get(): array
     {
         $configCollection = $this->configCollectionFactory->create()

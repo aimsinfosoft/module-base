@@ -38,10 +38,16 @@ class RefreshFeedData
      */
     private $extensionsFeed;
 
+    /**
+     * RefreshFeedData constructor.
+     * @param Ads $adsFeed
+     * @param Extensions $extensionsFeed
+     */
     public function __construct(
         Ads $adsFeed,
         Extensions $extensionsFeed
-    ) {
+    )
+    {
         $this->adsFeed = $adsFeed;
         $this->extensionsFeed = $extensionsFeed;
     }

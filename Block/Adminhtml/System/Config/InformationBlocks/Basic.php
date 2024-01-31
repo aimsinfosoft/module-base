@@ -33,6 +33,10 @@ class Basic extends Template
      */
     private $class;
 
+    /**
+     * to html
+     * @return string
+     */
     public function toHtml()
     {
         $html = '';
@@ -42,22 +46,34 @@ class Basic extends Template
         }
 
         if ($this->getClass()) {
-            $html = '<div class="' . $this->getClass() .'">' . $html . '</div>';
+            $html = '<div class="' . $this->getClass() . '">' . $html . '</div>';
         }
 
         return $html;
     }
 
+    /**
+     * get element
+     * @return AbstractElement
+     */
     public function getElement(): AbstractElement
     {
         return $this->getData('element') ?? $this->getParentBlock()->getElement();
     }
 
+    /**
+     * set class
+     * @param string $class
+     */
     public function setClass(string $class): void
     {
         $this->class = $class;
     }
 
+    /**
+     * get class
+     * @return string
+     */
     public function getClass(): string
     {
         return $this->class;

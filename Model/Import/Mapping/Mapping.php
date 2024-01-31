@@ -22,6 +22,10 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Mapping;
 
+/**
+ * Class Mapping
+ * @package Aimsinfosoft\Base\Model\Import\Mapping
+ */
 class Mapping implements MappingInterface
 {
     /**
@@ -37,7 +41,7 @@ class Mapping implements MappingInterface
         /**
          * csv_column_name => model_column_name
          * model_column_name (numeric key means model_column_name => model_column_name)
-        **/
+         **/
     ];
 
     /**
@@ -46,7 +50,9 @@ class Mapping implements MappingInterface
     private $processedMapping;
 
     /**
-     * @inheritdoc
+     * Get valid column names.
+     *
+     * @return array
      */
     public function getValidColumnNames()
     {
@@ -54,7 +60,11 @@ class Mapping implements MappingInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the mapped field for a given column name.
+     *
+     * @param string $columnName
+     * @return mixed
+     * @throws \Aimsinfosoft\Base\Exceptions\MappingColumnDoesntExist
      */
     public function getMappedField($columnName)
     {
@@ -66,7 +76,10 @@ class Mapping implements MappingInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the master attribute code.
+     *
+     * @return string
+     * @throws \Aimsinfosoft\Base\Exceptions\MasterAttributeCodeDoesntSet
      */
     public function getMasterAttributeCode()
     {
@@ -77,6 +90,11 @@ class Mapping implements MappingInterface
         return $this->masterAttributeCode;
     }
 
+    /**
+     * Processed mapping data.
+     *
+     * @return array
+     */
     public function processedMapping()
     {
         if (null === $this->processedMapping) {

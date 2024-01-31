@@ -42,15 +42,26 @@ class UserGuide extends Template
      */
     private $extensionsProvider;
 
+    /**
+     * UserGuide constructor.
+     * @param Template\Context $context
+     * @param ExtensionsProvider $extensionsProvider
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         ExtensionsProvider $extensionsProvider,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->extensionsProvider = $extensionsProvider;
     }
 
+    /**
+     * get user guide link
+     * @return string
+     */
     public function getUserGuideLink(): string
     {
         $moduleCode = $this->getElement()->getDataByPath('group/module_code');
@@ -64,6 +75,10 @@ class UserGuide extends Template
         return $link;
     }
 
+    /**
+     * get element
+     * @return AbstractElement
+     */
     public function getElement(): AbstractElement
     {
         return $this->getParentBlock()->getElement();

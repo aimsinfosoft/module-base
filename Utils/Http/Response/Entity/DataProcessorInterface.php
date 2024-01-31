@@ -19,10 +19,21 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Utils\Http\Response\Entity;
 
+/**
+ * Interface DataProcessorInterface
+ * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
+ *
+ * Defines a contract for data processing within the response entity.
+ */
 interface DataProcessorInterface
 {
+    /**
+     * Process the given data array and return the processed array.
+     *
+     * @param array $data
+     * @return array
+     */
     public function process(array $data): array;
 }

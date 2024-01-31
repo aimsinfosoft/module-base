@@ -25,6 +25,14 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Provider;
 
 use Magento\Framework\Exception\NotFoundException;
 
+/**
+ * Class Collector
+ *
+ * Collector class responsible for gathering information from various collectors
+ * based on the specified group name.
+ *
+ * @since 1.0.0
+ */
 class Collector
 {
     /**
@@ -32,12 +40,19 @@ class Collector
      */
     private $collectorPool;
 
+    /**
+     * Collector constructor.
+     *
+     * @param CollectorPool $collectorPool
+     */
     public function __construct(CollectorPool $collectorPool)
     {
         $this->collectorPool = $collectorPool;
     }
 
     /**
+     * Collect information from various collectors based on the specified group name.
+     *
      * @param string $groupName
      * @return array
      * @throws NotFoundException

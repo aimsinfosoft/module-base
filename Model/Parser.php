@@ -19,16 +19,22 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 use Magento\Framework\Escaper;
 
 /**
- * Class Parser for parsing xml/csv formats
+ * Class Parser
+ *
+ * The Parser class is responsible for parsing XML and CSV formats.
+ *
+ * @package Aimsinfosoft\Base\Model
  */
 class Parser
 {
+    /**
+     * Restricted characters for escaping.
+     */
     public const RESTRICTED_CHARS = [
         "\r\n",
         "\n",
@@ -40,13 +46,21 @@ class Parser
      */
     private $escaper;
 
+    /**
+     * Parser constructor.
+     *
+     * @param Escaper $escaper
+     */
     public function __construct(
         Escaper $escaper
-    ) {
+    )
+    {
         $this->escaper = $escaper;
     }
 
     /**
+     * Parse XML content and return SimpleXMLElement.
+     *
      * @param string $xmlContent
      *
      * @return bool|\SimpleXMLElement
@@ -63,8 +77,7 @@ class Parser
     }
 
     /**
-     * @codingStandardsIgnoreStart
-     * Using fgetcsv for multiline values. Most optimized variant, Magento don't have alternatives.
+     * Parse CSV content using fgetcsv for multiline values.
      *
      * @param string $csvContent
      *
@@ -103,10 +116,10 @@ class Parser
             return [];
         }
     }
-    /** @codingStandardsIgnoreEnd */
 
     /**
-     * Delete space from selected data
+     * Trim CSV data for selected columns.
+     *
      * @param array $data
      * @param array $columns
      *
@@ -130,6 +143,8 @@ class Parser
     }
 
     /**
+     * Escape HTML characters and replace restricted characters.
+     *
      * @param string $value
      *
      * @return string

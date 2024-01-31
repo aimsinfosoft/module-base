@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\Response\File;
@@ -32,6 +31,9 @@ use Magento\Framework\Filesystem;
 use Magento\Framework\Session\Config\ConfigInterface;
 use Magento\Framework\Stdlib;
 
+/**
+ * FileUrlOctetResponse class represents an octet-stream response for files accessed via URL.
+ */
 class FileUrlOctetResponse extends AbstractOctetResponse
 {
     /**
@@ -39,6 +41,19 @@ class FileUrlOctetResponse extends AbstractOctetResponse
      */
     private $fileReadFactory;
 
+    /**
+     * FileUrlOctetResponse constructor.
+     *
+     * @param Filesystem\File\ReadFactory $fileReadFactory
+     * @param DownloadOutput $downloadHelper
+     * @param MagentoVersion $magentoVersion
+     * @param App\Request\Http $request
+     * @param Stdlib\CookieManagerInterface $cookieManager
+     * @param Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory
+     * @param App\Http\Context $context
+     * @param Stdlib\DateTime $dateTime
+     * @param ConfigInterface|null $sessionConfig
+     */
     public function __construct(
         Filesystem\File\ReadFactory $fileReadFactory,
         DownloadOutput $downloadHelper,
@@ -49,7 +64,8 @@ class FileUrlOctetResponse extends AbstractOctetResponse
         App\Http\Context $context,
         Stdlib\DateTime $dateTime,
         ConfigInterface $sessionConfig = null
-    ) {
+    )
+    {
         $this->fileReadFactory = $fileReadFactory;
 
         parent::__construct(
@@ -64,6 +80,12 @@ class FileUrlOctetResponse extends AbstractOctetResponse
         );
     }
 
+    /**
+     * Gets the read resource by its path.
+     *
+     * @param string $readResourcePath
+     * @return Filesystem\File\ReadInterface
+     */
     public function getReadResourceByPath(string $readResourcePath): Filesystem\File\ReadInterface
     {
         switch (true) {

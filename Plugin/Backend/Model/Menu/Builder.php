@@ -102,6 +102,21 @@ class Builder
      */
     private $moduleInfoProvider;
 
+    /**
+     * Builder constructor.
+     *
+     * @param Config $menuConfig
+     * @param IteratorFactory $iteratorFactory
+     * @param ItemFactory $itemFactory
+     * @param ModuleListInterface $moduleList
+     * @param Structure $configStructure
+     * @param ProductMetadataInterface $metadata
+     * @param ObjectFactory $objectFactory
+     * @param ScopeConfigInterface $scopeConfig
+     * @param ExtensionsProvider $extensionsProvider
+     * @param LoggerInterface $logger
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         Config $menuConfig,
         IteratorFactory $iteratorFactory,
@@ -114,7 +129,8 @@ class Builder
         ExtensionsProvider $extensionsProvider,
         LoggerInterface $logger,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->menuConfig = $menuConfig;
         $this->iteratorFactory = $iteratorFactory;
         $this->itemFactory = $itemFactory;
@@ -129,6 +145,7 @@ class Builder
     }
 
     /**
+     * after get result
      * @param \Magento\Backend\Model\Menu\Builder $subject
      * @param Menu $menu
      *
@@ -147,6 +164,7 @@ class Builder
     }
 
     /**
+     * observer menu
      * @param Menu $menu
      *
      * @return Menu
@@ -226,9 +244,9 @@ class Builder
                 $module = $this->itemFactory->create(
                     [
                         'data' => [
-                            'id'       => $itemId,
-                            'title'    => $this->normalizeTitle($title),
-                            'module'   => $installedModule,
+                            'id' => $itemId,
+                            'title' => $this->normalizeTitle($title),
+                            'module' => $installedModule,
                             'resource' => $parentNodeResource ?: $moduleConfigResource
                         ]
                     ]
@@ -260,6 +278,7 @@ class Builder
     }
 
     /**
+     * clone the menu items
      * @param $menuItems
      * @param Menu $menu
      * @return array
@@ -290,6 +309,7 @@ class Builder
     }
 
     /**
+     * get module full name
      * @param $itemData
      *
      * @return string
@@ -304,6 +324,7 @@ class Builder
     }
 
     /**
+     * generating menu items
      * @param $id
      * @param $installedModule
      * @param $resource
@@ -318,11 +339,11 @@ class Builder
             $item = $this->itemFactory->create(
                 [
                     'data' => [
-                        'id'           => $id,
-                        'title'        => $title,
-                        'module'       => $installedModule,
-                        'action'       => $url,
-                        'resource'     => $resource
+                        'id' => $id,
+                        'title' => $title,
+                        'module' => $installedModule,
+                        'action' => $url,
+                        'resource' => $resource
                     ]
                 ]
             );
@@ -335,6 +356,7 @@ class Builder
     }
 
     /**
+     * get installed modules
      * @param $configItems
      *
      * @return array
@@ -366,6 +388,7 @@ class Builder
     }
 
     /**
+     * get menu items
      * @param Menu $menu
      *
      * @return array|null
@@ -389,6 +412,7 @@ class Builder
     }
 
     /**
+     * get config items
      * @return array
      */
     private function getConfigItems()
@@ -405,6 +429,7 @@ class Builder
     }
 
     /**
+     * generate Aimsinfosoft  module
      * @return array
      */
     private function generateAimsinfosoftItems($menu)
@@ -425,6 +450,7 @@ class Builder
     }
 
     /**
+     * is collected node
      * @param $menuItem
      *
      * @return bool
@@ -456,6 +482,7 @@ class Builder
     }
 
     /**
+     * get module title
      * @param $name
      *
      * @return string
@@ -475,6 +502,11 @@ class Builder
         return $result;
     }
 
+    /**
+     * generate config items
+     *
+     * @return array
+     */
     private function generateConfigItems()
     {
         $result = [];
@@ -495,7 +527,7 @@ class Builder
 
     /**
      * @param \Magento\Config\Model\Config\Structure\Element\Iterator $config
-     * @param string                                                  $name
+     * @param string $name
      *
      * @return \Magento\Config\Model\Config\Structure\Element\Iterator|null
      */

@@ -27,8 +27,18 @@ use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Filesystem\Driver\File;
 use Magento\Framework\Module\Dir\Reader;
 
+/**
+ * Class ModuleInfoProvider
+ *
+ * The ModuleInfoProvider class provides information about Magento modules.
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class ModuleInfoProvider
 {
+    /**
+     * Key for storing module version.
+     */
     public const MODULE_VERSION_KEY = 'version';
 
     /**
@@ -59,22 +69,32 @@ class ModuleInfoProvider
      */
     private $serializer;
 
+    /**
+     * ModuleInfoProvider constructor.
+     *
+     * @param Reader $moduleReader
+     * @param File $filesystem
+     * @param Serializer $serializer
+     */
     public function __construct(
         Reader $moduleReader,
         File $filesystem,
         Serializer $serializer
-    ) {
+    )
+    {
         $this->moduleReader = $moduleReader;
         $this->filesystem = $filesystem;
         $this->serializer = $serializer;
     }
 
     /**
-     * Read info about extension from composer json file
+     * Read information about the extension from the composer.json file.
      *
      * @param string $moduleCode
+     *   The code of the module.
      *
      * @return mixed
+     *   Returns an array of information about the module.
      */
     public function getModuleInfo(string $moduleCode)
     {
@@ -96,11 +116,13 @@ class ModuleInfoProvider
     }
 
     /**
-     * Check whether module was installed via Magento Marketplace
+     * Check whether the module was installed via Magento Marketplace.
      *
      * @param string $moduleCode
+     *   The code of the module.
      *
      * @return bool
+     *   Returns true if the module was installed via Magento Marketplace, false otherwise.
      */
     public function isOriginMarketplace(string $moduleCode = 'Aimsinfosoft_Base'): bool
     {
@@ -111,7 +133,10 @@ class ModuleInfoProvider
     }
 
     /**
+     * Get an array of restricted modules.
+     *
      * @return array
+     *   Returns an array of restricted modules.
      */
     public function getRestrictedModules(): array
     {

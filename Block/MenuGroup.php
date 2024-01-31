@@ -32,17 +32,31 @@ class MenuGroup extends Fieldset
      */
     private $metadata;
 
+    /**
+     * MenuGroup constructor.
+     * @param ProductMetadataInterface $metadata
+     * @param \Magento\Backend\Block\Context $context
+     * @param \Magento\Backend\Model\Auth\Session $authSession
+     * @param \Magento\Framework\View\Helper\Js $jsHelper
+     * @param array $data
+     */
     public function __construct(
         ProductMetadataInterface $metadata,
         \Magento\Backend\Block\Context $context,
         \Magento\Backend\Model\Auth\Session $authSession,
         \Magento\Framework\View\Helper\Js $jsHelper,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->metadata = $metadata;
     }
 
+    /**
+     * render
+     * @param AbstractElement $element
+     * @return string
+     */
     public function render(AbstractElement $element)
     {
         if (version_compare($this->metadata->getVersion(), '2.2.0', '>=')) {

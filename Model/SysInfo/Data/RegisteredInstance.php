@@ -27,12 +27,18 @@ use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
+/**
+ * Class RegisteredInstance
+ * @since 1.0.0
+ */
 class RegisteredInstance extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const INSTANCES = 'instances';
     public const CURRENT_INSTANCE = 'current_instance';
 
     /**
+     * Get the current instance.
+     *
      * @return \Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance|null
      */
     public function getCurrentInstance(): ?Instance
@@ -41,6 +47,8 @@ class RegisteredInstance extends SimpleDataObject implements ExtensibleDataInter
     }
 
     /**
+     * Set the current instance.
+     *
      * @param \Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance|null $instance
      * @return $this
      */
@@ -50,6 +58,8 @@ class RegisteredInstance extends SimpleDataObject implements ExtensibleDataInter
     }
 
     /**
+     * Get the instances.
+     *
      * @return \Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance[]
      */
     public function getInstances(): array
@@ -58,6 +68,8 @@ class RegisteredInstance extends SimpleDataObject implements ExtensibleDataInter
     }
 
     /**
+     * Set the instances.
+     *
      * @param \Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance[] $instances
      * @return $this
      */

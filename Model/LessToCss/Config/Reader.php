@@ -23,6 +23,8 @@
 namespace Aimsinfosoft\Base\Model\LessToCss\Config;
 
 /**
+ * Class Reader
+ * @package Aimsinfosoft\Base\Model\LessToCss\Config
  * @codingStandardsIgnoreFile
  */
 class Reader extends \Magento\Framework\Config\Reader\Filesystem
@@ -36,6 +38,18 @@ class Reader extends \Magento\Framework\Config\Reader\Filesystem
         '/config/module' => 'name'
     ];
 
+    /**
+     * Reader constructor.
+     *
+     * @param \Magento\Framework\Config\FileResolverInterface $fileResolver
+     * @param Converter $converter
+     * @param SchemaLocator $schemaLocator
+     * @param \Magento\Framework\Config\ValidationStateInterface $validationState
+     * @param string $fileName
+     * @param array $idAttributes
+     * @param string $domDocumentClass
+     * @param string $defaultScope
+     */
     public function __construct(
         \Magento\Framework\Config\FileResolverInterface $fileResolver,
         Converter $converter,
@@ -45,7 +59,8 @@ class Reader extends \Magento\Framework\Config\Reader\Filesystem
         $idAttributes = [],
         $domDocumentClass = \Magento\Framework\Config\Dom::class,
         $defaultScope = 'global'
-    ) {
+    )
+    {
         parent::__construct(
             $fileResolver,
             $converter,

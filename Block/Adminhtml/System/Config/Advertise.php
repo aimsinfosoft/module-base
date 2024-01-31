@@ -27,20 +27,24 @@ use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
 /**
- * Class Advertise for adding advertise
+ * Class Advertise
+ * @package Aimsinfosoft\Base\Block\Adminhtml\System\Config
+ *
+ * Adminhtml block for rendering an advertising field in system configuration.
  */
 class Advertise extends Field
 {
     /**
-     * @param AbstractElement $element
+     * Render the advertising field.
      *
+     * @param AbstractElement $element
      * @return string
      */
     public function render(AbstractElement $element)
     {
         $commentText = $element->getContainer()->getGroup()['data']['text'];
         $element->setValue(__('Not Installed'));
-        $element->setHtmlId('aimsinfosoft_not_instaled');
+        $element->setHtmlId('aimsinfosoft_not_installed');
         $element->setComment(__($commentText));
         $element->setLabel(__('Status'));
 
@@ -48,6 +52,8 @@ class Advertise extends Field
     }
 
     /**
+     * Render scope label.
+     *
      * @inheritDoc
      */
     protected function _renderScopeLabel(\Magento\Framework\Data\Form\Element\AbstractElement $element)
@@ -56,6 +62,8 @@ class Advertise extends Field
     }
 
     /**
+     * Check if the inherit checkbox is required.
+     *
      * @inheritDoc
      */
     protected function _isInheritCheckboxRequired(\Magento\Framework\Data\Form\Element\AbstractElement $element)
@@ -64,6 +72,8 @@ class Advertise extends Field
     }
 
     /**
+     * Render the inherit checkbox.
+     *
      * @inheritDoc
      */
     protected function _renderInheritCheckbox(\Magento\Framework\Data\Form\Element\AbstractElement $element)

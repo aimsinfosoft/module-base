@@ -45,22 +45,38 @@ class ExistingConflicts extends Template
      */
     private $extensionsProvider;
 
+    /**
+     * ExistingConflicts constructor.
+     * @param Template\Context $context
+     * @param Manager $moduleManager
+     * @param ExtensionsProvider $extensionsProvider
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         Manager $moduleManager,
         ExtensionsProvider $extensionsProvider,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->moduleManager = $moduleManager;
         $this->extensionsProvider = $extensionsProvider;
     }
 
+    /**
+     * get element
+     * @return AbstractElement
+     */
     public function getElement(): AbstractElement
     {
         return $this->getParentBlock()->getElement();
     }
 
+    /**
+     * get conflict message
+     * @return array
+     */
     public function getConflictsMessages(): array
     {
         $messages = [];
@@ -80,6 +96,10 @@ class ExistingConflicts extends Template
         return $messages;
     }
 
+    /**
+     * get existing confilicts
+     * @return array
+     */
     private function getExistingConflicts(): array
     {
         $conflicts = [];

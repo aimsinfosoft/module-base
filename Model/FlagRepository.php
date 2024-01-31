@@ -27,6 +27,11 @@ use Magento\Framework\Flag;
 use Magento\Framework\Flag\FlagResource;
 use Magento\Framework\FlagFactory;
 
+/**
+ * Class FlagRepository
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class FlagRepository
 {
     /**
@@ -39,19 +44,39 @@ class FlagRepository
      */
     private $flagFactory;
 
+    /**
+     * FlagRepository constructor.
+     *
+     * @param FlagResource $flagResource
+     * @param FlagFactory $flagFactory
+     */
     public function __construct(
         FlagResource $flagResource,
         FlagFactory $flagFactory
-    ) {
+    )
+    {
         $this->flagResource = $flagResource;
         $this->flagFactory = $flagFactory;
     }
 
+    /**
+     * Get the value of a flag by its code.
+     *
+     * @param string $code
+     * @return string|null
+     */
     public function get(string $code): ?string
     {
         return $this->getFlagObject($code)->getFlagData();
     }
 
+    /**
+     * Save the value of a flag.
+     *
+     * @param string $code
+     * @param string $value
+     * @return bool
+     */
     public function save(string $code, string $value): bool
     {
         $flag = $this->getFlagObject($code);
@@ -61,6 +86,12 @@ class FlagRepository
         return true;
     }
 
+    /**
+     * Get the Flag object by its code.
+     *
+     * @param string $code
+     * @return Flag
+     */
     private function getFlagObject(string $code): Flag
     {
         $flagModel = $this->flagFactory->create(['data' => ['flag_code' => $code]]);

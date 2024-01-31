@@ -34,6 +34,16 @@ use Magento\Framework\Module\Dir;
 use Magento\Framework\Module\Dir\Reader as FrameworkDirReader;
 use Magento\Framework\Filesystem\Directory\ReadFactory;
 
+/**
+ * Class Reader
+ *
+ * Reader class responsible for reading module configuration files.
+ *
+ * @category    Aimsinfosoft
+ * @package     Aimsinfosoft_Base
+ * @author      Aimsinfosoft
+ * @license     https://www.aimsinfosoft.com/LICENSE.txt
+ */
 class Reader
 {
     /**
@@ -63,12 +73,21 @@ class Reader
      */
     private $fileIterators = [];
 
+    /**
+     * Reader constructor.
+     *
+     * @param FileIteratorFactory $fileIteratorFactory
+     * @param ReadFactory $readFactory
+     * @param FrameworkDirReader $frameworkDirReader
+     * @param DeploymentConfig $deploymentConfig
+     */
     public function __construct(
         FileIteratorFactory $fileIteratorFactory,
         ReadFactory $readFactory,
         FrameworkDirReader $frameworkDirReader,
         DeploymentConfig $deploymentConfig
-    ) {
+    )
+    {
         $this->fileIteratorFactory = $fileIteratorFactory;
         $this->readFactory = $readFactory;
         $this->frameworkDirReader = $frameworkDirReader;
@@ -89,7 +108,8 @@ class Reader
         string $filename,
         string $moduleProviderName = 'all',
         $moduleStatus = 'all'
-    ): FileIterator {
+    ): FileIterator
+    {
         return $this->getFilesIterator($filename, $moduleProviderName, $moduleStatus, Dir::MODULE_ETC_DIR);
     }
 
@@ -109,7 +129,8 @@ class Reader
         string $moduleProviderName,
         $moduleStatus,
         string $subDir = ''
-    ): FileIterator {
+    ): FileIterator
+    {
         if (!isset($this->fileIterators[$subDir][$filename][$moduleProviderName][$moduleStatus])) {
             $this->fileIterators[$subDir][$filename][$moduleProviderName][$moduleStatus] =
                 $this->fileIteratorFactory->create(
@@ -136,7 +157,8 @@ class Reader
         string $moduleProviderName,
         $requiredModuleStatus,
         string $subDir = ''
-    ): array {
+    ): array
+    {
         $result = [];
         $moduleList = $this->deploymentConfig->get(ConfigOptionsListConstants::KEY_MODULES);
         foreach ($moduleList as $moduleName => $moduleStatus) {
@@ -158,7 +180,16 @@ class Reader
         return $result;
     }
 
-    private function isValid($moduleName, $moduleStatus, $moduleProviderName, $requiredModuleStatus)
+    /**
+     * Validate if the module is valid based on the provided criteria.
+     *
+     * @param string $moduleName
+     * @param string|bool $moduleStatus
+     * @param string $moduleProviderName
+     * @param string|bool $requiredModuleStatus
+     * @return bool
+     */
+    private function isValid($moduleName, $moduleStatus, $moduleProviderName, $requiredModuleStatus): bool
     {
         $isValid = true;
         if ($moduleProviderName != 'all' && strpos($moduleName, $moduleProviderName . '_') !== 0) {

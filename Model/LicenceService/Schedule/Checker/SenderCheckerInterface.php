@@ -19,14 +19,23 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker;
 
+/**
+ * Interface SenderCheckerInterface
+ *
+ * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker
+ */
 interface SenderCheckerInterface
 {
     /**
+     * Check if it is necessary to send based on the specified flag.
+     *
      * @param string $flag
+     *   The identifier or flag for the scheduled task.
+     *
      * @return bool
+     *   Returns true if it is necessary to send, false otherwise.
      */
     public function isNeedToSend(string $flag): bool;
 }

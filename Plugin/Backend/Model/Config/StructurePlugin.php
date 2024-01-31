@@ -19,6 +19,7 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
+declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Plugin\Backend\Model\Config;
 
@@ -31,7 +32,10 @@ use Magento\Config\Model\Config\Structure;
 use Magento\Config\Model\Config\Structure\Element\Section;
 
 /**
- * Class StructurePlugin add advertising modules
+ * Class StructurePlugin
+ * @package Aimsinfosoft\Base\Plugin\Backend\Model\Config
+ *
+ * Plugin class to add advertising modules
  */
 class StructurePlugin
 {
@@ -40,26 +44,26 @@ class StructurePlugin
      */
     public const Aimsinfosoft_ADVERTISE = [
         'Aimsinfosoft_advertise' => [
-                'id' => 'Aimsinfosoft_base_advertise',
-                'type' => 'text',
-                'label' => 'Aimsinfosoft Base Advertise',
-                'children' => [
-                    'label' => [
-                        'id' => 'label',
-                        'label' => '',
-                        'type' => 'label',
-                        'showInDefault' => '1',
-                        'showInWebsite' => '1',
-                        'showInStore' => '1',
-                        'comment' => '',
-                        'frontend_model' => Advertise::class,
-                        '_elementType' => 'field'
-                    ]
-                ],
-                'showInDefault' => '1',
-                'showInWebsite' => '1',
-                'showInStore' => '1'
-            ]
+            'id' => 'Aimsinfosoft_base_advertise',
+            'type' => 'text',
+            'label' => 'Aimsinfosoft Base Advertise',
+            'children' => [
+                'label' => [
+                    'id' => 'label',
+                    'label' => '',
+                    'type' => 'label',
+                    'showInDefault' => '1',
+                    'showInWebsite' => '1',
+                    'showInStore' => '1',
+                    'comment' => '',
+                    'frontend_model' => Advertise::class,
+                    '_elementType' => 'field'
+                ]
+            ],
+            'showInDefault' => '1',
+            'showInWebsite' => '1',
+            'showInStore' => '1'
+        ]
     ];
 
     /**
@@ -87,12 +91,21 @@ class StructurePlugin
      */
     private $linkValidator;
 
+    /**
+     * StructurePlugin constructor.
+     *
+     * @param AdsProvider $adsProvider
+     * @param Config $config
+     * @param ScopeDefiner $scopeDefiner
+     * @param LinkValidator $linkValidator
+     */
     public function __construct(
         AdsProvider $adsProvider,
         Config $config,
         ScopeDefiner $scopeDefiner,
         LinkValidator $linkValidator
-    ) {
+    )
+    {
         $this->adsProvider = $adsProvider;
         $this->config = $config;
         $this->scopeDefiner = $scopeDefiner;
@@ -100,15 +113,17 @@ class StructurePlugin
     }
 
     /**
+     * Plugin method to add an information block to the configuration structure
+     *
      * @param Structure $subject
      * @param Section $result
-     *
      * @return Section
      */
     public function afterGetElementByPathParts(
         Structure $subject,
         $result
-    ) {
+    )
+    {
         if (!$this->config->isAdsEnabled()) {
             return $result;
         }

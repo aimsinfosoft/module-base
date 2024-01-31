@@ -37,17 +37,25 @@ class Frequency extends \Magento\Backend\App\Action
      */
     private $frequency;
 
+    /**
+     * Frequency constructor.
+     * @param Action\Context $context
+     * @param Config $config
+     * @param \Aimsinfosoft\Base\Model\Source\Frequency $frequency
+     */
     public function __construct(
         Action\Context $context,
         \Aimsinfosoft\Base\Model\Config $config,
         \Aimsinfosoft\Base\Model\Source\Frequency $frequency
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->config = $config;
         $this->frequency = $frequency;
     }
 
     /**
+     * execute
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
      */
     public function execute()
@@ -75,6 +83,10 @@ class Frequency extends \Magento\Backend\App\Action
         return $resultRedirect;
     }
 
+    /**
+     * is allowed
+     * @return bool
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed(
@@ -82,6 +94,9 @@ class Frequency extends \Magento\Backend\App\Action
         );
     }
 
+    /**
+     * decrease freuqncey
+     */
     protected function decreaseFrequency()
     {
         $currentValue = $this->config->getCurrentFrequencyValue();
@@ -106,6 +121,9 @@ class Frequency extends \Magento\Backend\App\Action
         );
     }
 
+    /**
+     * increase increaseFrequency
+     */
     protected function increaseFrequency()
     {
         $currentValue = $this->config->getCurrentFrequencyValue();

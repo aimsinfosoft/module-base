@@ -30,7 +30,7 @@ use Aimsinfosoft\Base\Plugin\Backend\Model\Menu\Item;
 use Magento\Config\Model\Config\Structure;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\View\Asset\Repository;
-use Magento\Framework\View\Element\Template;    
+use Magento\Framework\View\Element\Template;
 
 class VersionInfo extends Template
 {
@@ -64,6 +64,15 @@ class VersionInfo extends Template
      */
     private $currentModuleFeedData = [];
 
+    /**
+     * VersionInfo constructor.
+     * @param Template\Context $context
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param ExtensionsProvider $extensionsProvider
+     * @param Structure $structure
+     * @param Repository $assetRepo
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         ModuleInfoProvider $moduleInfoProvider,
@@ -71,7 +80,8 @@ class VersionInfo extends Template
         Structure $structure,
         Repository $assetRepo,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->extensionsProvider = $extensionsProvider;
@@ -79,6 +89,10 @@ class VersionInfo extends Template
         $this->assetRepo = $assetRepo;
     }
 
+    /**
+     * get current version
+     * @return string
+     */
     public function getCurrentVersion(): string
     {
         $moduleCode = $this->getElement()->getDataByPath('group/module_code');
@@ -86,6 +100,10 @@ class VersionInfo extends Template
         return $this->moduleInfoProvider->getModuleInfo($moduleCode)['version'] ?? '';
     }
 
+    /**
+     * get current module feed data
+     * @return array
+     */
     public function getCurrentModuleFeedData(): array
     {
         if (!$this->currentModuleFeedData) {
@@ -96,6 +114,10 @@ class VersionInfo extends Template
         return $this->currentModuleFeedData;
     }
 
+    /**
+     * is last version
+     * @return bool
+     */
     public function isLastVersion(): bool
     {
         $currentVer = $this->getCurrentVersion();
@@ -111,6 +133,10 @@ class VersionInfo extends Template
         return true;
     }
 
+    /**
+     * get config module name
+     * @return string
+     */
     public function getConfigModuleName(): string
     {
         $configPath = $this->getElement()->getDataByPath('group/path');
@@ -128,6 +154,10 @@ class VersionInfo extends Template
         return $name;
     }
 
+    /**
+     * get logo href
+     * @return string
+     */
     public function getLogoHref(): string
     {
         $moduleCode = $this->getElement()->getDataByPath('group/module_code');
@@ -141,16 +171,28 @@ class VersionInfo extends Template
         return $href;
     }
 
+    /**
+     * get logo url
+     * @return string
+     */
     public function getLogoUrl(): string
     {
         return $this->assetRepo->getUrl('Aimsinfosoft_Base::images/Aimsinfosoft_logo.svg');
     }
 
+    /**
+     * is orgin market place
+     * @return bool
+     */
     public function isOriginMarketplace(): bool
     {
         return $this->moduleInfoProvider->isOriginMarketplace();
     }
 
+    /**
+     * is get changelog link
+     * @return string
+     */
     public function getChangelogLink(): string
     {
         if ($this->getCurrentModuleFeedData() && isset($this->getCurrentModuleFeedData()['url'])) {
@@ -162,6 +204,10 @@ class VersionInfo extends Template
         return '';
     }
 
+    /**
+     * get element
+     * @return AbstractElement
+     */
     public function getElement(): AbstractElement
     {
         return $this->getParentBlock()->getElement();

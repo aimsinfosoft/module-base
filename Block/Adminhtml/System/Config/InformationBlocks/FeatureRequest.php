@@ -42,20 +42,35 @@ class FeatureRequest extends Template
      */
     private $moduleInfoProvider;
 
+    /**
+     * FeatureRequest constructor.
+     * @param Template\Context $context
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
+    /**
+     * get feature request link
+     * @return string
+     */
     public function getFeatureRequestLink(): string
     {
         return self::FEATURE_LINK . Information::SEO_PARAMS . self::CAMPAIGN_NAME;
     }
 
+    /**
+     * is marketplace
+     * @return bool
+     */
     public function isOriginMarketplace(): bool
     {
         return $this->moduleInfoProvider->isOriginMarketplace();
