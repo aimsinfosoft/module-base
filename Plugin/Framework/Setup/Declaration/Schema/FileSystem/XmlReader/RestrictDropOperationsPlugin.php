@@ -28,10 +28,11 @@ use Magento\Framework\Config\FileResolverByModule;
 use Aimsinfosoft\Base\Model\SysInfo\Provider\Module\Dir\Reader;
 
 /**
- * Fix an issue - when a module is disabled, db_schema.xml of the module is not collecting.
- * But db_schema_whitelist.json is readable even if the module disabled.
- * It cause the issue - DB Tables, Columns, Reference drops while module is disabled.
- * We add the db_schema.xml file of disabled modules to the list as if they were enabled.
+ * Class RestrictDropOperationsPlugin
+ * @package Aimsinfosoft\Base\Plugin\Framework\Setup\Declaration\Schema\FileSystem\XmlReader
+ *
+ * Plugin class to fix an issue where db_schema.xml files of disabled modules are not collected,
+ * causing DB Tables, Columns, Reference drops while a module is disabled.
  */
 class RestrictDropOperationsPlugin
 {
@@ -40,13 +41,21 @@ class RestrictDropOperationsPlugin
      */
     private $moduleReader;
 
+    /**
+     * RestrictDropOperationsPlugin constructor.
+     *
+     * @param Reader $moduleReader
+     */
     public function __construct(
         Reader $moduleReader
-    ) {
+    )
+    {
         $this->moduleReader = $moduleReader;
     }
 
     /**
+     * After plugin method to modify the file list for db_schema.xml.
+     *
      * @param FileResolverByModule $subject
      * @param array $result
      * @param string $filename
@@ -72,6 +81,13 @@ class RestrictDropOperationsPlugin
         return $result;
     }
 
+    /**
+     * Build a sorted array from multiple arrays.
+     *
+     * @param FileIterator $allModules
+     * @param array $arraysToMerge
+     * @return array
+     */
     private function buildSorted(FileIterator $allModules, array $arraysToMerge): array
     {
         $sortedResult = [];

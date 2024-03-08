@@ -32,6 +32,10 @@ class DownloadButton extends Field
     public const ELEMENT_ID = 'download_info';
     protected const ACTION_URL = 'ambase/sysInfo/download';
 
+    /**
+     * to html
+     * @return string
+     */
     protected function _toHtml()
     {
         $button = $this->getLayout()->createBlock(Button::class)
@@ -44,6 +48,10 @@ class DownloadButton extends Field
         return $button->toHtml();
     }
 
+    /**
+     * get on click action
+     * @return string
+     */
     private function getOnClickAction(): string
     {
         return sprintf(

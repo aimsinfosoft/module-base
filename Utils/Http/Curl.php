@@ -28,6 +28,10 @@ use Aimsinfosoft\Base\Utils\Http\Response\ResponseFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\HTTP\Adapter\CurlFactory as FrameworkCurlFactory;
 
+/**
+ * Class Curl
+ * @package Aimsinfosoft\Base\Utils\Http
+ */
 class Curl
 {
     /**
@@ -50,19 +54,36 @@ class Curl
      */
     private $headers = [];
 
+    /**
+     * Curl constructor.
+     *
+     * @param FrameworkCurlFactory $curlFactory
+     * @param ResponseFactory $responseFactory
+     */
     public function __construct(
         FrameworkCurlFactory $curlFactory,
         ResponseFactory $responseFactory
-    ) {
+    )
+    {
         $this->curlFactory = $curlFactory;
         $this->responseFactory = $responseFactory;
     }
 
+    /**
+     * Perform an HTTP request using cURL.
+     *
+     * @param string $url
+     * @param mixed $params
+     * @param string $method
+     * @return SimpleDataObject
+     * @throws LocalizedException
+     */
     public function request(
         string $url,
         $params = '',
-        string $method = \Zend_Http_Client::POST
-    ): SimpleDataObject {
+        string $method = \Laminas\Http\Request::METHOD_POST
+    ): SimpleDataObject
+    {
         $curl = $this->curlFactory->create();
         $curl->setConfig(['timeout' => self::CONNECTION_TIMEOUT, 'header' => false, 'verifypeer' => false]);
 
@@ -86,6 +107,12 @@ class Curl
         return $this->responseFactory->create($url, $responseData);
     }
 
+    /**
+     * Set custom headers for the HTTP request.
+     *
+     * @param array $headers
+     * @return $this
+     */
     public function setHeaders(array $headers): self
     {
         $this->headers = $headers;
@@ -93,6 +120,11 @@ class Curl
         return $this;
     }
 
+    /**
+     * Get formatted headers for the HTTP request.
+     *
+     * @return array
+     */
     private function getHeaders(): array
     {
         $headers = [];

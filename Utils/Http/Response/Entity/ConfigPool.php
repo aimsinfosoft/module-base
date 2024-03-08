@@ -26,6 +26,12 @@ namespace Aimsinfosoft\Base\Utils\Http\Response\Entity;
 use Aimsinfosoft\Base\Utils\Http\Url\UrlComparator;
 use Magento\Framework\Exception\NotFoundException;
 
+/**
+ * Class ConfigPool
+ * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
+ *
+ * Represents a pool of configurations for HTTP response entities.
+ */
 class ConfigPool
 {
     /**
@@ -38,16 +44,25 @@ class ConfigPool
      */
     private $urlComparator;
 
+    /**
+     * ConfigPool constructor.
+     *
+     * @param UrlComparator $urlComparator
+     * @param array $configs
+     */
     public function __construct(
         UrlComparator $urlComparator,
         array $configs
-    ) {
+    )
+    {
         $this->checkConfigInstance($configs);
         $this->urlComparator = $urlComparator;
         $this->configs = $configs;
     }
 
     /**
+     * Get the configuration for the given path.
+     *
      * @param string $path
      * @return Config
      * @throws NotFoundException
@@ -70,9 +85,10 @@ class ConfigPool
     }
 
     /**
+     * Check if the provided configurations are instances of Config class.
+     *
      * @param array $configs
      * @throws \InvalidArgumentException
-     * @return void
      */
     private function checkConfigInstance(array $configs): void
     {

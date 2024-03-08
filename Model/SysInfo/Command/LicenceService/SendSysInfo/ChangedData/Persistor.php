@@ -29,6 +29,10 @@ use Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo\Encryptio
 use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 use Aimsinfosoft\Base\Model\SysInfo\Provider\CollectorPool;
 
+/**
+ * Class Persistor
+ * @since 1.0.0
+ */
 class Persistor
 {
     /**
@@ -51,18 +55,32 @@ class Persistor
      */
     private $encryption;
 
+    /**
+     * Persistor constructor.
+     *
+     * @param Collector $collector
+     * @param Checker $checker
+     * @param CacheStorage $cacheStorage
+     * @param Encryption $encryption
+     */
     public function __construct(
         Collector $collector,
         Checker $checker,
         CacheStorage $cacheStorage,
         Encryption $encryption
-    ) {
+    )
+    {
         $this->collector = $collector;
         $this->checker = $checker;
         $this->cacheStorage = $cacheStorage;
         $this->encryption = $encryption;
     }
 
+    /**
+     * Get changed data from the collector.
+     *
+     * @return array
+     */
     public function get(): array
     {
         $data = $this->collector->collect(CollectorPool::LICENCE_SERVICE_GROUP);
@@ -78,6 +96,12 @@ class Persistor
         return $changedData;
     }
 
+    /**
+     * Save changed data to the cache.
+     *
+     * @param array $data
+     * @return void
+     */
     public function save(array $data): void
     {
         foreach ($data as $sysInfoName => $sysInfo) {

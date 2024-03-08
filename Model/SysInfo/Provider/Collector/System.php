@@ -19,17 +19,34 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 
 use Magento\Framework\App\ProductMetadataInterface;
 
+/**
+ * Class System
+ *
+ * Collector for system information used in the system information provider.
+ *
+ * @since 1.0.0
+ */
 class System implements CollectorInterface
 {
+    /**
+     * Key for Magento version information.
+     */
     public const MAGENTO_VERSION_KEY = 'magento_version';
+
+    /**
+     * Key for Magento edition information.
+     */
     public const MAGENTO_EDITION_KEY = 'magento_edition';
+
+    /**
+     * Key for PHP version information.
+     */
     public const PHP_VERSION_KEY = 'php_version';
 
     /**
@@ -37,12 +54,23 @@ class System implements CollectorInterface
      */
     private $productMetadata;
 
+    /**
+     * System constructor.
+     *
+     * @param ProductMetadataInterface $productMetadata
+     */
     public function __construct(
         ProductMetadataInterface $productMetadata
-    ) {
+    )
+    {
         $this->productMetadata = $productMetadata;
     }
 
+    /**
+     * Get collected system information for the system information provider.
+     *
+     * @return array
+     */
     public function get(): array
     {
         return [

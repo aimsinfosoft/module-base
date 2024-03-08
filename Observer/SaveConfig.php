@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Observer;
 
 use Aimsinfosoft\Base\Model\Feed\FeedTypes\Ads;
@@ -28,7 +27,10 @@ use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
 /**
- * Class SaveConfig for clear cache data
+ * Class SaveConfig
+ * @package Aimsinfosoft\Base\Observer
+ *
+ * Observer class for clearing cache data after saving configuration
  */
 class SaveConfig implements ObserverInterface
 {
@@ -37,13 +39,21 @@ class SaveConfig implements ObserverInterface
      */
     private $cache;
 
+    /**
+     * SaveConfig constructor.
+     *
+     * @param CacheInterface $cache
+     */
     public function __construct(
         CacheInterface $cache
-    ) {
+    )
+    {
         $this->cache = $cache;
     }
 
     /**
+     * Execute method to clear cache data after saving configuration
+     *
      * @param Observer $observer
      */
     public function execute(Observer $observer)

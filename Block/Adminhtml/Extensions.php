@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Block\Adminhtml;
 
 use Aimsinfosoft\Base\Model\ModuleInfoProvider;
@@ -28,6 +27,12 @@ use Magento\Backend\Block\Template;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
+/**
+ * Class Extensions
+ * @package Aimsinfosoft\Base\Block\Adminhtml
+ *
+ * Adminhtml block for displaying information about installed modules.
+ */
 class Extensions extends Field
 {
     public const SEO_PARAMS = '?utm_source=extension&utm_medium=backend&utm_campaign=ext_list';
@@ -47,23 +52,39 @@ class Extensions extends Field
      */
     private $moduleInfoProvider;
 
+    /**
+     * Extensions constructor.
+     * @param Template\Context $context
+     * @param ModuleListProcessor $moduleListProcessor
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         ModuleListProcessor $moduleListProcessor,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->moduleListProcessor = $moduleListProcessor;
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
+    /**
+     * Get HTML for the element.
+     *
+     * @param AbstractElement $element
+     * @return string
+     */
     protected function _getElementHtml(AbstractElement $element)
     {
         return $this->toHtml();
     }
 
     /**
+     * Get the list of installed modules.
+     *
      * @return array
      */
     public function getModuleList()
@@ -72,6 +93,8 @@ class Extensions extends Field
     }
 
     /**
+     * Check if the module origin is from the Magento Marketplace.
+     *
      * @return bool
      */
     public function isOriginMarketplace()
@@ -80,7 +103,7 @@ class Extensions extends Field
     }
 
     /**
-     * return empty value where origin marketplace
+     * Return SEO parameters unless the module origin is from the Magento Marketplace.
      *
      * @return string
      */

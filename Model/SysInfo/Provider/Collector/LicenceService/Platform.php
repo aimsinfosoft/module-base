@@ -27,6 +27,13 @@ use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo\Platform as
 use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector\CollectorInterface;
 use Magento\Framework\App\ProductMetadataInterface;
 
+/**
+ * Class Platform
+ *
+ * Collector for platform information used in the license service.
+ *
+ * @since 1.0.0
+ */
 class Platform implements CollectorInterface
 {
     /**
@@ -34,11 +41,21 @@ class Platform implements CollectorInterface
      */
     private $productMetadata;
 
+    /**
+     * Platform constructor.
+     *
+     * @param ProductMetadataInterface $productMetadata
+     */
     public function __construct(ProductMetadataInterface $productMetadata)
     {
         $this->productMetadata = $productMetadata;
     }
 
+    /**
+     * Get collected platform information for the license service.
+     *
+     * @return array
+     */
     public function get(): array
     {
         return [

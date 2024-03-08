@@ -19,16 +19,20 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\Import\Behavior;
 
+/**
+ * Interface BehaviorProviderInterface
+ * @package Aimsinfosoft\Base\Model\Import\Behavior
+ */
 interface BehaviorProviderInterface
 {
     /**
-     * @param string $behaviorCode
+     * Get the behavior instance based on the behavior code.
      *
-     * @throws \Aimsinfosoft\Base\Exceptions\NonExistentImportBehavior
+     * @param string $behaviorCode
      * @return \Aimsinfosoft\Base\Model\Import\Behavior\BehaviorInterface
+     * @throws \Aimsinfosoft\Base\Exceptions\NonExistentImportBehavior
      */
     public function getBehavior($behaviorCode);
 }

@@ -25,6 +25,10 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo;
 
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 
+/**
+ * Class Module
+ * @package Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo
+ */
 class Module extends SimpleDataObject
 {
     public const STATUS = 'status';

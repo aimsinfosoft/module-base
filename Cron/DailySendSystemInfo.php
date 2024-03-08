@@ -40,14 +40,23 @@ class DailySendSystemInfo
      */
     private $dailyChecker;
 
+    /**
+     * DailySendSystemInfo constructor.
+     * @param SendSysInfo $sysInfo
+     * @param Daily $dailyChecker
+     */
     public function __construct(
         SendSysInfo $sysInfo,
         Daily $dailyChecker
-    ) {
+    )
+    {
         $this->sysInfo = $sysInfo;
         $this->dailyChecker = $dailyChecker;
     }
 
+    /**
+     * execute
+     */
     public function execute()
     {
         if ($this->dailyChecker->isNeedToSend(self::FLAG_KEY)) {

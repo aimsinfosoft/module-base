@@ -24,11 +24,22 @@ namespace Aimsinfosoft\Base\Plugin\Backend\Block;
 
 use Magento\Backend\Block\Menu as NativeMenu;
 
+/**
+ * Class Menu
+ * @package Aimsinfosoft\Base\Plugin\Backend\Block
+ *
+ * Plugin class to modify the backend menu behavior
+ */
 class Menu
 {
+    /**
+     * Constant for the maximum number of menu items
+     */
     public const MAX_ITEMS = 300;
 
     /**
+     * Plugin method to modify the rendering of the navigation menu
+     *
      * @param NativeMenu $subject
      * @param $menu
      * @param int $level
@@ -61,8 +72,10 @@ class Menu
     }
 
     /**
+     * Plugin method to append JavaScript to the rendered HTML
+     *
      * @param NativeMenu $subject
-     * @param string     $html
+     * @param string $html
      *
      * @return string
      */

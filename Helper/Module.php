@@ -47,17 +47,25 @@ class Module
      */
     private $moduleInfoProvider;
 
+    /**
+     * Module constructor.
+     * @param ExtensionsProvider $extensionsProvider
+     * @param LinkValidator $linkValidator
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         ExtensionsProvider $extensionsProvider,
         LinkValidator $linkValidator,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->extensionsProvider = $extensionsProvider;
         $this->linkValidator = $linkValidator;
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
     /**
+     * get all extension
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\Feed\ExtensionsProvider::getAllFeedExtensions
      */
@@ -67,6 +75,7 @@ class Module
     }
 
     /**
+     * get feed module data
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\Feed\ExtensionsProvider::getFeedModuleData()
      */
@@ -76,6 +85,7 @@ class Module
     }
 
     /**
+     * get restricted module
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\ModuleInfoProvider::getRestrictedModules
      */
@@ -85,6 +95,7 @@ class Module
     }
 
     /**
+     * get module info
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\ModuleInfoProvider::getModuleInfo
      */
@@ -94,6 +105,7 @@ class Module
     }
 
     /**
+     * is origin market place
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\ModuleInfoProvider::isOriginMarketplace
      */
@@ -103,6 +115,7 @@ class Module
     }
 
     /**
+     * validate link url
      * @deprecated since 1.10.2
      * @see \Aimsinfosoft\Base\Model\LinkValidator::validate
      */

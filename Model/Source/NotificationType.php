@@ -30,6 +30,11 @@ class NotificationType implements \Magento\Framework\Option\ArrayInterface
     public const UNSUBSCRIBE_ALL = 'UNSUBSCRIBE_ALL';
     public const TIPS_TRICKS = 'TIPS_TRICKS';
 
+    /**
+     * Get options in key-value pair format.
+     *
+     * @return array
+     */
     public function toOptionArray()
     {
         $types = [

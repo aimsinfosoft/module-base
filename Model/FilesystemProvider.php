@@ -34,6 +34,8 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class to provide either default Filesystem class or with configured DenyListPathValidator exception paths
+ *
+ * @package Aimsinfosoft\Base\Model
  */
 class FilesystemProvider
 {
@@ -67,6 +69,15 @@ class FilesystemProvider
      */
     private $filesystem;
 
+    /**
+     * FilesystemProvider constructor.
+     *
+     * @param ObjectManagerInterface $objectManager
+     * @param DirectoryList $directoryList
+     * @param ComponentRegistrarInterface $componentRegistrar
+     * @param LoggerInterface $logger
+     * @param array $exceptionPaths
+     */
     public function __construct(
         ObjectManagerInterface $objectManager,
         DirectoryList $directoryList,
@@ -81,6 +92,11 @@ class FilesystemProvider
         $this->exceptionPaths = $exceptionPaths;
     }
 
+    /**
+     * Get the Filesystem instance.
+     *
+     * @return Filesystem
+     */
     public function get(): Filesystem
     {
         if ($this->filesystem === null) {
@@ -100,6 +116,8 @@ class FilesystemProvider
     }
 
     /**
+     * Create a configured Filesystem instance with DenyListPathValidator exception paths.
+     *
      * @return Filesystem
      */
     private function createConfiguredFilesystem(): Filesystem

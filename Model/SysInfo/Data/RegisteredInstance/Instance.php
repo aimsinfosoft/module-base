@@ -26,12 +26,18 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
+/**
+ * Class Instance
+ * @since 1.0.0
+ */
 class Instance extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const DOMAIN = 'domain';
     public const SYSTEM_INSTANCE_KEY = 'system_instance_key';
 
     /**
+     * Get the domain.
+     *
      * @return string
      */
     public function getDomain(): string
@@ -40,6 +46,8 @@ class Instance extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Set the domain.
+     *
      * @param string $domain
      * @return $this
      */
@@ -49,6 +57,8 @@ class Instance extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Get the system instance key.
+     *
      * @return string
      */
     public function getSystemInstanceKey(): string
@@ -57,6 +67,8 @@ class Instance extends SimpleDataObject implements ExtensibleDataInterface
     }
 
     /**
+     * Set the system instance key.
+     *
      * @param string $systemInstanceKey
      * @return $this
      */

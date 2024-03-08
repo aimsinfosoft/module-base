@@ -108,7 +108,8 @@ abstract class AbstractImport extends AbstractEntity
         array $data = [],
         MagentoVersion $magentoVersion = null,
         ImportCounter $importCounter = null
-    ) {
+    )
+    {
         if (empty($entityTypeCode)) {
             throw new \Aimsinfosoft\Base\Exceptions\EntityTypeCodeNotSet();
         }
@@ -148,9 +149,9 @@ abstract class AbstractImport extends AbstractEntity
     /**
      * Validation failure message template definitions
      *
-     * @var array $rowData
-     * @var int $rowNum
      * @return bool
+     * @var int $rowNum
+     * @var array $rowData
      */
     public function validateRow(array $rowData, $rowNum)
     {
@@ -225,9 +226,9 @@ abstract class AbstractImport extends AbstractEntity
     }
 
     /**
+     * @param array $errors
      * @since 1.9.6
      *
-     * @param array $errors
      */
     public function evaluateRuntimeErrors(&$errors)
     {
@@ -246,8 +247,8 @@ abstract class AbstractImport extends AbstractEntity
     }
 
     /**
-     * @throws \Aimsinfosoft\Base\Exceptions\NonExistentImportBehavior
      * @return bool
+     * @throws \Aimsinfosoft\Base\Exceptions\NonExistentImportBehavior
      */
     protected function _importData()
     {

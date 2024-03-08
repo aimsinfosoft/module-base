@@ -26,6 +26,10 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\RegisterLicence
 use Aimsinfosoft\Base\Model\SysInfo\RegisteredInstanceRepository;
 use Magento\Framework\UrlInterface;
 
+/**
+ * Class Provider
+ * @since 1.0.0
+ */
 class Provider
 {
     /**
@@ -38,14 +42,26 @@ class Provider
      */
     private $url;
 
+    /**
+     * Provider constructor.
+     *
+     * @param RegisteredInstanceRepository $registeredInstanceRepository
+     * @param UrlInterface $url
+     */
     public function __construct(
         RegisteredInstanceRepository $registeredInstanceRepository,
         UrlInterface $url
-    ) {
+    )
+    {
         $this->registeredInstanceRepository = $registeredInstanceRepository;
         $this->url = $url;
     }
 
+    /**
+     * Get the stored domains from registered instances.
+     *
+     * @return array
+     */
     public function getStoredDomains(): array
     {
         $domains = [];
@@ -59,6 +75,11 @@ class Provider
         return $domains;
     }
 
+    /**
+     * Get the current domains.
+     *
+     * @return array
+     */
     public function getCurrentDomains(): array
     {
         // phpcs:disable Magento2.Functions.DiscouragedFunction.Discouraged

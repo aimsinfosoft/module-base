@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
@@ -27,6 +26,13 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 use Aimsinfosoft\Base\Model\ModuleInfoProvider;
 use Magento\Framework\Module\ModuleListInterface;
 
+/**
+ * Class Module
+ *
+ * Collector for module information used in the system information provider.
+ *
+ * @since 1.0.0
+ */
 class Module implements CollectorInterface
 {
     /**
@@ -39,14 +45,26 @@ class Module implements CollectorInterface
      */
     private $moduleList;
 
+    /**
+     * Module constructor.
+     *
+     * @param ModuleInfoProvider $moduleInfoProvider
+     * @param ModuleListInterface $moduleList
+     */
     public function __construct(
         ModuleInfoProvider $moduleInfoProvider,
         ModuleListInterface $moduleList
-    ) {
+    )
+    {
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->moduleList = $moduleList;
     }
 
+    /**
+     * Get collected module information for the system information provider.
+     *
+     * @return array
+     */
     public function get(): array
     {
         $modulesData = [];
@@ -63,6 +81,12 @@ class Module implements CollectorInterface
         return $modulesData;
     }
 
+    /**
+     * Get data for a specific module.
+     *
+     * @param string $moduleName
+     * @return array
+     */
     protected function getModuleData(string $moduleName): array
     {
         $moduleInfo = $this->moduleInfoProvider->getModuleInfo($moduleName);

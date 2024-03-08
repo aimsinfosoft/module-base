@@ -19,11 +19,18 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\AdminNotification;
 
+/**
+ * Class Messages
+ *
+ * @package Aimsinfosoft\Base\Model\AdminNotification
+ */
 class Messages
 {
+    /**
+     * Session identifier for admin messages
+     */
     public const AMBASE_SESSION_IDENTIFIER = 'ambase-session-messages';
 
     /**
@@ -31,13 +38,21 @@ class Messages
      */
     private $session;
 
+    /**
+     * Messages constructor.
+     *
+     * @param \Magento\Backend\Model\Session $session
+     */
     public function __construct(
         \Magento\Backend\Model\Session $session
-    ) {
+    )
+    {
         $this->session = $session;
     }
 
     /**
+     * Add a message to the admin session.
+     *
      * @param string $message
      */
     public function addMessage($message)
@@ -52,6 +67,8 @@ class Messages
     }
 
     /**
+     * Get all messages from the admin session and clear the session.
+     *
      * @return array
      */
     public function getMessages()
@@ -65,6 +82,9 @@ class Messages
         return $messages;
     }
 
+    /**
+     * Clear all messages from the admin session.
+     */
     public function clear()
     {
         $this->session->setData(self::AMBASE_SESSION_IDENTIFIER, []);

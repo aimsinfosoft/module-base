@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\Feed;
 
 use Aimsinfosoft\Base\Model\Feed\Response\FeedResponseInterface;
@@ -29,19 +28,21 @@ use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
 /**
- * Class FeedContentProvider for reading file content by url
+ * Class FeedContentProvider
+ *
+ * @package Aimsinfosoft\Base\Model\Feed
  */
 class FeedContentProvider
 {
     /**
      * Path to NEWS
      */
-    public const URN_NEWS = 'store.aimsinfosoft.com/pub/feed-news-segments.xml';//do not use https:// or http
+    public const URN_NEWS = 'store.aimsinfosoft.com/pub/feed-news-segments.xml'; //do not use https:// or http
 
     /**
      * Path to ADS
      */
-    public const URN_ADS = 'sdssdsstore.aimsinfosoft.com/pub/abase.csv';
+    public const URN_ADS = 'store.aimsinfosoft.com/pub/abase.csv';
 
     /**
      * Path to EXTENSIONS
@@ -68,17 +69,27 @@ class FeedContentProvider
      */
     private $feedResponseFactory;
 
+    /**
+     * FeedContentProvider constructor.
+     *
+     * @param CurlFactory $curlFactory
+     * @param StoreManagerInterface $storeManager
+     * @param FeedResponseInterfaceFactory $feedResponseFactory
+     */
     public function __construct(
         CurlFactory $curlFactory,
         StoreManagerInterface $storeManager,
         FeedResponseInterfaceFactory $feedResponseFactory
-    ) {
+    )
+    {
         $this->curlFactory = $curlFactory;
         $this->storeManager = $storeManager;
         $this->feedResponseFactory = $feedResponseFactory;
     }
 
     /**
+     * Get feed response from the specified URL.
+     *
      * @param string $url
      * @param array $options
      *
@@ -99,7 +110,7 @@ class FeedContentProvider
         if (isset($options['modified_since'])) {
             $headers = ['If-Modified-Since: ' . $options['modified_since']];
         }
-        $curlObject->write(\Zend_Http_Client::GET, $url, '1.1', $headers);
+        $curlObject->write(\Laminas\Http\Request::METHOD_POST, $url, '1.1', $headers);
         $result = $curlObject->read();
 
         /** @var FeedResponseInterface $feedResponse */
@@ -124,12 +135,21 @@ class FeedContentProvider
         return $feedResponse;
     }
 
+    /**
+     * Get the full URL from the URN.
+     *
+     * @param string $urn
+     *
+     * @return string
+     */
     public function getFeedUrl(string $urn): string
     {
         return 'https://' . $urn;
     }
 
     /**
+     * Get the domain zone from the base URL.
+     *
      * @return string
      */
     public function getDomainZone()
@@ -141,6 +161,8 @@ class FeedContentProvider
     }
 
     /**
+     * Get the base URL object.
+     *
      * @return \Zend\Uri\Uri
      */
     private function getBaseUrlObject()

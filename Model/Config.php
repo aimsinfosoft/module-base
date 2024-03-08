@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 use Aimsinfosoft\Base\Model\Source\NotificationType;
@@ -29,19 +28,22 @@ use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Store\Model\ScopeInterface;
 
 /**
- * Class Config provide configuration data
+ * Class Config
+ * Provide configuration data for the module
+ *
+ * @package Aimsinfosoft\Base\Model
  */
 class Config extends ConfigProviderAbstract
 {
     /**
-     * xpath prefix of module (section)
+     * XPath prefix of the module (section)
      *
      * @var string
      */
     protected $pathPrefix = 'aimsinfosoft_base/';
 
     /**#@+
-     * xpath group parts
+     * XPath group parts
      */
     public const NOTIFICATIONS_BLOCK = 'notifications/';
 
@@ -52,7 +54,7 @@ class Config extends ConfigProviderAbstract
     /**#@-*/
 
     /**#@+
-     * xpath field parts
+     * XPath field parts
      */
     public const LAST_UPDATE = 'last_update';
 
@@ -70,9 +72,15 @@ class Config extends ConfigProviderAbstract
 
     /**#@-*/
 
+    /**
+     * Number of seconds in an hour
+     */
     public const HOUR_MIN_SEC_VALUE = 60 * 60 * 24;
 
-    public const REMOVE_EXPIRED_FREQUENCY = 60 * 60 * 6;//4 times per day
+    /**
+     * Frequency value for removing expired data
+     */
+    public const REMOVE_EXPIRED_FREQUENCY = 60 * 60 * 6; // 4 times per day
 
     /**
      * @var WriterInterface
@@ -84,17 +92,27 @@ class Config extends ConfigProviderAbstract
      */
     private $reinitableConfig;
 
+    /**
+     * Config constructor.
+     *
+     * @param ScopeConfigInterface $scopeConfig
+     * @param WriterInterface $configWriter
+     * @param ReinitableConfigInterface $reinitableConfig
+     */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         WriterInterface $configWriter,
         ReinitableConfigInterface $reinitableConfig
-    ) {
+    )
+    {
         parent::__construct($scopeConfig);
         $this->configWriter = $configWriter;
         $this->reinitableConfig = $reinitableConfig;
     }
 
     /**
+     * Get the frequency in seconds
+     *
      * @return int
      */
     public function getFrequencyInSec()
@@ -103,6 +121,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the last update timestamp
+     *
      * @return int
      */
     public function getLastUpdate()
@@ -111,6 +131,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the last removal timestamp
+     *
      * @return int
      */
     public function getLastRemovement()
@@ -119,7 +141,7 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
-     * Save Last Update
+     * Save the last update timestamp
      */
     public function setLastUpdate()
     {
@@ -129,6 +151,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the first module run timestamp
+     *
      * @return int
      */
     public function getFirstModuleRun()
@@ -145,7 +169,7 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
-     * Save Last Removement
+     * Save the last removal timestamp
      */
     public function setLastRemovement()
     {
@@ -155,6 +179,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the current frequency value
+     *
      * @return int
      */
     public function getCurrentFrequencyValue()
@@ -163,6 +189,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Change the frequency value
+     *
      * @param int $value
      */
     public function changeFrequency($value)
@@ -173,6 +201,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Check if ads are enabled
+     *
      * @return bool
      */
     public function isAdsEnabled()
@@ -181,6 +211,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the enabled notification types
+     *
      * @return array
      */
     public function getEnabledNotificationTypes()
@@ -191,6 +223,8 @@ class Config extends ConfigProviderAbstract
     }
 
     /**
+     * Get the Licence Service API URL
+     *
      * @return string
      */
     public function getLicenceServiceApiUrl()

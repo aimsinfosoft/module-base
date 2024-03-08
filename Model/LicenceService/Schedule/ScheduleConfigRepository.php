@@ -29,6 +29,11 @@ use Aimsinfosoft\Base\Model\LicenceService\Schedule\Data\ScheduleConfigFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Serialize\SerializerInterface;
 
+/**
+ * Class ScheduleConfigRepository
+ *
+ * @package Aimsinfosoft\Base\Model\LicenceService\Schedule
+ */
 class ScheduleConfigRepository
 {
     /**
@@ -51,18 +56,36 @@ class ScheduleConfigRepository
      */
     private $scheduleConfigFactory;
 
+    /**
+     * ScheduleConfigRepository constructor.
+     *
+     * @param FlagRepository $flagRepository
+     * @param SerializerInterface $serializer
+     * @param DataObjectHelper $dataObjectHelper
+     * @param ScheduleConfigFactory $scheduleConfigFactory
+     */
     public function __construct(
         FlagRepository $flagRepository,
         SerializerInterface $serializer,
         DataObjectHelper $dataObjectHelper,
         ScheduleConfigFactory $scheduleConfigFactory
-    ) {
+    )
+    {
         $this->flagRepository = $flagRepository;
         $this->serializer = $serializer;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->scheduleConfigFactory = $scheduleConfigFactory;
     }
 
+    /**
+     * Get schedule configuration by flag.
+     *
+     * @param string $flag
+     *   The identifier or flag for the schedule configuration.
+     *
+     * @return ScheduleConfig
+     *   Returns an instance of ScheduleConfig.
+     */
     public function get(string $flag): ScheduleConfig
     {
         $scheduleConfigInstance = $this->scheduleConfigFactory->create();
@@ -79,6 +102,17 @@ class ScheduleConfigRepository
         return $scheduleConfigInstance;
     }
 
+    /**
+     * Save schedule configuration by flag.
+     *
+     * @param string $flag
+     *   The identifier or flag for the schedule configuration.
+     * @param ScheduleConfig $scheduleConfig
+     *   The schedule configuration to be saved.
+     *
+     * @return bool
+     *   Returns true on successful save.
+     */
     public function save(string $flag, ScheduleConfig $scheduleConfig): bool
     {
         $scheduleConfigArray = $scheduleConfig->toArray();

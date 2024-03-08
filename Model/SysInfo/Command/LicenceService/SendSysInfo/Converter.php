@@ -27,6 +27,10 @@ use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo;
 use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfoFactory;
 use Magento\Framework\Api\DataObjectHelper;
 
+/**
+ * Class Converter
+ * @since 1.0.0
+ */
 class Converter
 {
     /**
@@ -39,14 +43,27 @@ class Converter
      */
     private $dataObjectHelper;
 
+    /**
+     * Converter constructor.
+     *
+     * @param InstanceInfoFactory $instanceInfoFactory
+     * @param DataObjectHelper $dataObjectHelper
+     */
     public function __construct(
         InstanceInfoFactory $instanceInfoFactory,
         DataObjectHelper $dataObjectHelper
-    ) {
+    )
+    {
         $this->instanceInfoFactory = $instanceInfoFactory;
         $this->dataObjectHelper = $dataObjectHelper;
     }
 
+    /**
+     * Convert an array to an InstanceInfo object.
+     *
+     * @param array $data
+     * @return InstanceInfo
+     */
     public function convertToObject(array $data): InstanceInfo
     {
         $addIfEmpty = [InstanceInfo::DOMAINS => [], InstanceInfo::MODULES => []];

@@ -22,6 +22,10 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Validation;
 
+/**
+ * Class ValidatorPool
+ * @package Aimsinfosoft\Base\Model\Import\Validation
+ */
 class ValidatorPool implements ValidatorPoolInterface
 {
     /**
@@ -29,9 +33,14 @@ class ValidatorPool implements ValidatorPoolInterface
      */
     private $validators;
 
-    public function __construct(
-        $validators
-    ) {
+    /**
+     * ValidatorPool constructor.
+     *
+     * @param array $validators
+     * @throws \Aimsinfosoft\Base\Exceptions\WrongValidatorInterface
+     */
+    public function __construct($validators)
+    {
         $this->validators = [];
         foreach ($validators as $validator) {
             if (!($validator instanceof ValidatorInterface)) {
@@ -43,7 +52,9 @@ class ValidatorPool implements ValidatorPoolInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the list of validators.
+     *
+     * @return \Aimsinfosoft\Base\Model\Import\Validation\ValidatorInterface[]
      */
     public function getValidators()
     {
@@ -51,7 +62,10 @@ class ValidatorPool implements ValidatorPoolInterface
     }
 
     /**
-     * @inheritdoc
+     * Add a validator to the pool.
+     *
+     * @param \Aimsinfosoft\Base\Model\Import\Validation\ValidatorInterface $validator
+     * @throws \Aimsinfosoft\Base\Exceptions\WrongValidatorInterface
      */
     public function addValidator($validator)
     {

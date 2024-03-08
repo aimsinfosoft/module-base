@@ -19,18 +19,22 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\Config\Backend;
 
-class Menu extends \Magento\Framework\App\Config\Value implements
-    \Magento\Framework\App\Config\Data\ProcessorInterface
+/**
+ * Class Menu
+ *
+ * @package Aimsinfosoft\Base\Model\Config\Backend
+ */
+class Menu extends \Magento\Framework\App\Config\Value implements \Magento\Framework\App\Config\Data\ProcessorInterface
 {
     /**
+     * Invalidate Block cache type after saving the configuration value.
+     *
      * @return $this
      */
     public function afterSave()
     {
-      
         if ($this->isValueChanged()) {
             $this->cacheTypeList->invalidate(\Magento\Framework\App\Cache\Type\Block::TYPE_IDENTIFIER);
         }
@@ -39,7 +43,7 @@ class Menu extends \Magento\Framework\App\Config\Value implements
     }
 
     /**
-     * Process config value
+     * Process the configuration value.
      *
      * @param string $value
      * @return string

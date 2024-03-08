@@ -29,6 +29,12 @@ use Magento\Framework\App\State;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class RefreshFeedData
+ * @package Aimsinfosoft\Base\Setup\Patch\Data
+ *
+ * Data Patch to refresh feed data.
+ */
 class RefreshFeedData implements DataPatchInterface
 {
     /**
@@ -46,16 +52,27 @@ class RefreshFeedData implements DataPatchInterface
      */
     private $extensionsFeed;
 
+    /**
+     * RefreshFeedData constructor.
+     *
+     * @param State $appState
+     * @param LoggerInterface $logger
+     * @param Extensions $extensionsFeed
+     */
     public function __construct(
         State $appState,
         LoggerInterface $logger,
         Extensions $extensionsFeed
-    ) {
+    )
+    {
         $this->logger = $logger;
         $this->appState = $appState;
         $this->extensionsFeed = $extensionsFeed;
     }
 
+    /**
+     * Apply the data patch.
+     */
     public function apply()
     {
         $this->appState->emulateAreaCode(
@@ -65,16 +82,29 @@ class RefreshFeedData implements DataPatchInterface
         );
     }
 
+    /**
+     * Get dependencies for the patch.
+     *
+     * @return array
+     */
     public static function getDependencies()
     {
         return [];
     }
 
+    /**
+     * Get aliases for the patch.
+     *
+     * @return array
+     */
     public function getAliases()
     {
         return [];
     }
 
+    /**
+     * Refresh the feed data.
+     */
     public function refreshFeedData(): void
     {
         try {

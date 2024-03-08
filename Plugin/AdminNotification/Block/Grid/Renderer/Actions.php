@@ -24,6 +24,12 @@ namespace Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer;
 
 use Magento\AdminNotification\Block\Grid\Renderer\Actions as NativeActions;
 
+/**
+ * Class Actions
+ * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer
+ *
+ * Plugin class to modify rendering of admin notification actions
+ */
 class Actions
 {
     /**
@@ -31,24 +37,32 @@ class Actions
      */
     private $urlBuilder;
 
+    /**
+     * Actions constructor.
+     *
+     * @param \Magento\Framework\UrlInterface $urlBuilder
+     */
     public function __construct(
         \Magento\Framework\UrlInterface $urlBuilder
-    ) {
+    )
+    {
         $this->urlBuilder = $urlBuilder;
     }
 
     /**
+     * Plugin method to modify rendering of admin notification actions
+     *
      * @param NativeActions $subject
      * @param \Closure $proceed
      * @param \Magento\Framework\DataObject $row
-     *
      * @return string
      */
     public function aroundRender(
         NativeActions $subject,
         \Closure $proceed,
         \Magento\Framework\DataObject $row
-    ) {
+    )
+    {
         $result = $proceed($row);
         if ($row->getData('is_Aimsinfosoft')) {
             $result .= sprintf(
@@ -71,6 +85,6 @@ class Actions
             );
         }
 
-        return  $result;
+        return $result;
     }
 }

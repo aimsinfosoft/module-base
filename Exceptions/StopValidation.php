@@ -38,6 +38,7 @@ class StopValidation extends \Exception
     }
 
     /**
+     * get validate result
      * @return array|bool
      */
     public function getValidateResult()

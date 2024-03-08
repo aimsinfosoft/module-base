@@ -24,13 +24,28 @@ namespace Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer;
 
 use Magento\AdminNotification\Block\Grid\Renderer\Notice as NativeNotice;
 
+/**
+ * Class Notice
+ * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer
+ *
+ * Plugin class to modify rendering of admin notification messages
+ */
 class Notice
 {
+    /**
+     * Plugin method to modify rendering of admin notification messages
+     *
+     * @param NativeNotice $subject
+     * @param \Closure $proceed
+     * @param \Magento\Framework\DataObject $row
+     * @return string
+     */
     public function aroundRender(
         NativeNotice $subject,
         \Closure $proceed,
         \Magento\Framework\DataObject $row
-    ) {
+    )
+    {
         $result = $proceed($row);
 
         $AimsinfosoftLogo = '';
@@ -44,6 +59,6 @@ class Notice
         }
         $result = '<div class="ambase-grid-message' . $AimsinfosoftLogo . '"' . $AimsinfosoftImage . '>' . $result . '</div>';
 
-        return  $result;
+        return $result;
     }
 }

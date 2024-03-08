@@ -61,6 +61,15 @@ class Download
      */
     private $resultFactory;
 
+    /**
+     * Download constructor.
+     * @param Reader $reader
+     * @param ReadFactory $readFactory
+     * @param FileFactory $fileFactory
+     * @param RequestInterface $request
+     * @param ManagerInterface $messageManager
+     * @param ResultFactory $resultFactory
+     */
     public function __construct(
         Reader $reader,
         ReadFactory $readFactory,
@@ -68,7 +77,8 @@ class Download
         RequestInterface $request,
         ManagerInterface $messageManager,
         ResultFactory $resultFactory
-    ) {
+    )
+    {
         $this->reader = $reader;
         $this->readFactory = $readFactory;
         $this->fileFactory = $fileFactory;
@@ -78,6 +88,7 @@ class Download
     }
 
     /**
+     * download sample
      * @return \Magento\Backend\Model\View\Result\Redirect|\Magento\Framework\Controller\Result\Raw
      */
     public function downloadSample($moduleName)
@@ -114,6 +125,7 @@ class Download
     }
 
     /**
+     * not enity found
      * @return \Magento\Backend\Model\View\Result\Redirect
      */
     private function noEntityFound()
@@ -127,6 +139,7 @@ class Download
     }
 
     /**
+     * empty module name
      * @return \Magento\Backend\Model\View\Result\Redirect
      */
     private function emptyModuleName()

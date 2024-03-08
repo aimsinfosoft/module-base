@@ -27,8 +27,20 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\UninstallInterface;
 
+/**
+ * Class Uninstall
+ * @package Aimsinfosoft\Base\Setup
+ *
+ * Handles module uninstallation.
+ */
 class Uninstall implements UninstallInterface
 {
+    /**
+     * Uninstall the module.
+     *
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
+     */
     public function uninstall(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $this
@@ -36,6 +48,12 @@ class Uninstall implements UninstallInterface
             ->uninstallConfigData($setup);
     }
 
+    /**
+     * Drop columns during uninstallation.
+     *
+     * @param SchemaSetupInterface $setup
+     * @return $this
+     */
     private function uninstallColumns(SchemaSetupInterface $setup): self
     {
         $connection = $setup->getConnection();
@@ -55,6 +73,12 @@ class Uninstall implements UninstallInterface
         return $this;
     }
 
+    /**
+     * Remove configuration data during uninstallation.
+     *
+     * @param SchemaSetupInterface $setup
+     * @return $this
+     */
     private function uninstallConfigData(SchemaSetupInterface $setup): self
     {
         $configTable = $setup->getTable('core_config_data');

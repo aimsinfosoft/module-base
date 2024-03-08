@@ -30,24 +30,26 @@
         <div>
             <span class="version-title">
                 <?= $escaper->escapeHtml($block->getConfigModuleName()) ?>
-                <span class="module-version <?= /** @noEscape */ $class ?>">
+                <span class="module-version <?= /** @noEscape */
+                $class ?>">
                     <?= $escaper->escapeHtml($block->getCurrentVersion()) ?>
                 </span>
                 <?= $escaper->escapeHtml(__(' by ')) ?>
                 <a target="_blank" href="<?= $escaper->escapeUrl($block->getLogoHref()) ?>">
-                    <img alt="aimsinfosoft" class="aimsinfosoft-logo" src="<?= $escaper->escapeHtmlAttr($block->getLogoUrl()) ?>"/>
+                    <img alt="aimsinfosoft" class="aimsinfosoft-logo"
+                         src="<?= $escaper->escapeHtmlAttr($block->getLogoUrl()) ?>"/>
                 </a>
             </span>
         </div>
         <?php if (!$isVersionLast && !$block->isOriginMarketplace()): ?>
-        <div>
+            <div>
            <span class="upgrade-error message message-warning">
                 <?= $escaper->escapeHtml(__('Update is available and recommended. See the')) ?>
                 <a target="_blank" href="<?= $escaper->escapeHtmlAttr($block->getChangelogLink()) ?>)">
                     <?= $escaper->escapeHtml('Change Log') ?>
                 </a>
             </span>
-        </div>
+            </div>
         <?php endif; ?>
     </div>
 <?php endif; ?>

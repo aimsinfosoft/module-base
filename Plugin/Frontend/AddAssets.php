@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Plugin\Frontend;
 
 use Aimsinfosoft\Base\Model\LessToCss\Config\Converter;
@@ -32,6 +31,12 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\View\Design\Theme\ThemeProviderInterface;
 use Magento\Framework\App\ObjectManager;
 
+/**
+ * Class AddAssets
+ * @package Aimsinfosoft\Base\Plugin\Frontend
+ *
+ * Plugin class to add CSS assets for modules if less functionality for the theme is missing.
+ */
 class AddAssets
 {
     public const CACHE_KEY = 'Aimsinfosoft_should_load_css_files';
@@ -81,6 +86,17 @@ class AddAssets
      */
     private $design;
 
+    /**
+     * AddAssets constructor.
+     *
+     * @param Config $config
+     * @param CacheInterface $cache
+     * @param \Aimsinfosoft\Base\Model\LessToCss\Config $lessConfig
+     * @param \Magento\Framework\View\LayoutInterface $layout
+     * @param ScopeConfigInterface $scopeConfig
+     * @param \Magento\Framework\View\Design\FileResolution\Fallback\StaticFile $fallback
+     * @param \Magento\Framework\View\DesignInterface $design
+     */
     public function __construct(
         Config $config,
         CacheInterface $cache,
@@ -89,7 +105,8 @@ class AddAssets
         ScopeConfigInterface $scopeConfig,
         \Magento\Framework\View\Design\FileResolution\Fallback\StaticFile $fallback,
         \Magento\Framework\View\DesignInterface $design
-    ) {
+    )
+    {
         $this->config = $config;
         $this->cache = $cache;
         $this->lessConfig = $lessConfig;
@@ -100,11 +117,10 @@ class AddAssets
     }
 
     /**
-     * Add our css files if less functionality for theme is missing
+     * Add CSS assets for modules if less functionality for the theme is missing.
      *
      * @param Renderer $subject
      * @param array $resultGroups
-     *
      * @return array
      */
     public function beforeRenderAssets(Renderer $subject, $resultGroups = [])
@@ -140,6 +156,8 @@ class AddAssets
     }
 
     /**
+     * Add CSS asset for the specified module.
+     *
      * @param string $moduleName
      * @param array $moduleConfig
      */
@@ -153,6 +171,8 @@ class AddAssets
     }
 
     /**
+     * Check if CSS should be loaded.
+     *
      * @return int
      */
     private function isShouldLoadCss()
@@ -168,7 +188,7 @@ class AddAssets
             ) {
                 $found++;
                 if ($found === $shouldFind && $this->findLess($item) === false) {
-                    //styles with usual name founded, but this styles dont have less
+                    //styles with the usual name found, but these styles don't have less
                     return 1;
                 }
             }
@@ -178,8 +198,9 @@ class AddAssets
     }
 
     /**
-     * @param File $asset
+     * Find the less file for the specified CSS asset.
      *
+     * @param File $asset
      * @return bool|string
      */
     private function findLess(File $asset)
@@ -208,6 +229,8 @@ class AddAssets
     }
 
     /**
+     * Get the theme provider instance.
+     *
      * @return ThemeProviderInterface
      */
     private function getThemeProvider()

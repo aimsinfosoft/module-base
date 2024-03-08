@@ -25,16 +25,30 @@ namespace Aimsinfosoft\Base\Plugin\AdminNotification\Block;
 use Magento\AdminNotification\Block\ToolbarEntry as NativeToolbarEntry;
 
 /**
- * Add html attributes to Aimsinfosoft notifications
+ * Class ToolbarEntry
+ * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block
+ *
+ * Plugin class to add html attributes to Aimsinfosoft notifications
  */
 class ToolbarEntry
 {
+    /**
+     * Constant for Aimsinfosoft HTML attribute
+     */
     public const Aimsinfosoft_ATTRIBUTE = ' data-ambase-logo="1"';
 
+    /**
+     * Plugin method to modify the HTML output for Aimsinfosoft notifications
+     *
+     * @param NativeToolbarEntry $subject
+     * @param string $html
+     * @return string
+     */
     public function afterToHtml(
         NativeToolbarEntry $subject,
         $html
-    ) {
+    )
+    {
         $collection = $subject->getLatestUnreadNotifications()
             ->clear()
             ->addFieldToFilter('is_Aimsinfosoft', 1);

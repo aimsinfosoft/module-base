@@ -58,13 +58,22 @@ class Download extends Action
      */
     private $downloadCommand;
 
+    /**
+     * Download constructor.
+     * @param Action\Context $context
+     * @param Filesystem $filesystem
+     * @param WriteFactory $writeFactory
+     * @param FileFactory $fileFactory
+     * @param DownloadCommand $downloadCommand
+     */
     public function __construct(
         Action\Context $context,
         Filesystem $filesystem,
         WriteFactory $writeFactory,
         FileFactory $fileFactory,
         DownloadCommand $downloadCommand
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->filesystem = $filesystem;
         $this->writeFactory = $writeFactory;
@@ -72,6 +81,9 @@ class Download extends Action
         $this->downloadCommand = $downloadCommand;
     }
 
+    /**
+     * @return Redirect|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         try {

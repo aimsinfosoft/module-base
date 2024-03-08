@@ -28,6 +28,12 @@ use Magento\Config\Model\Config\ScopeDefiner;
 use Magento\Config\Model\Config\Structure;
 use Magento\Config\Model\Config\StructureElementInterface;
 
+/**
+ * Class AddInformationBlockPlugin
+ * @package Aimsinfosoft\Base\Plugin\Backend\Model\Config
+ *
+ * Plugin class to add an information block to the configuration structure
+ */
 class AddInformationBlockPlugin
 {
     /**
@@ -35,16 +41,30 @@ class AddInformationBlockPlugin
      */
     private $scopeDefiner;
 
+    /**
+     * AddInformationBlockPlugin constructor.
+     *
+     * @param ScopeDefiner $scopeDefiner
+     */
     public function __construct(
         ScopeDefiner $scopeDefiner
-    ) {
+    )
+    {
         $this->scopeDefiner = $scopeDefiner;
     }
 
+    /**
+     * Plugin method to add an information block to the configuration structure
+     *
+     * @param Structure $subject
+     * @param StructureElementInterface $result
+     * @return StructureElementInterface
+     */
     public function afterGetElementByPathParts(
         Structure $subject,
         StructureElementInterface $result
-    ): StructureElementInterface {
+    ): StructureElementInterface
+    {
         $moduleSection = $result->getData();
 
         if (!isset($moduleSection['tab'])

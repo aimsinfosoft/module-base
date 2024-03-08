@@ -23,29 +23,33 @@
 namespace Aimsinfosoft\Base\Model\Import\Validation;
 
 /**
+ * Interface ValidatorInterface
+ * @package Aimsinfosoft\Base\Model\Import\Validation
  * @since 1.4.6
  */
 interface ValidatorInterface
 {
     /**
-     * Return array with error codes. Return true on validation pass
+     * Validate a row of data.
      *
-     * @param array  $rowData
+     * @param array $rowData
      * @param string $behavior
      *
-     * @throws \Aimsinfosoft\Base\Exceptions\StopValidation
      * @return array|bool
+     * @throws \Aimsinfosoft\Base\Exceptions\StopValidation
      */
     public function validateRow(array $rowData, $behavior);
 
     /**
-     * Return array: error_code => error_message
+     * Get error messages.
      *
      * @return array
      */
     public function getErrorMessages();
 
     /**
+     * Add a runtime error.
+     *
      * @param string $message
      * @param int $level
      *

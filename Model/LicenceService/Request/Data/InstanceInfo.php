@@ -27,6 +27,10 @@ use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo\Platform;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
+/**
+ * Class InstanceInfo
+ * @package Aimsinfosoft\Base\Model\LicenceService\Request\Data
+ */
 class InstanceInfo extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const SYSTEM_INSTANCE_KEY = 'system_instance_key';

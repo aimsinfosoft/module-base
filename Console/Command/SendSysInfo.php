@@ -35,20 +35,35 @@ class SendSysInfo extends Command
      */
     private $sendSysInfo;
 
+    /**
+     * SendSysInfo constructor.
+     * @param CommandSendSysInfo $sendSysInfo
+     * @param string|null $name
+     */
     public function __construct(
         CommandSendSysInfo $sendSysInfo,
         string $name = null
-    ) {
+    )
+    {
         parent::__construct($name);
         $this->sendSysInfo = $sendSysInfo;
     }
 
+    /**
+     * configure
+     */
     protected function configure()
     {
         $this->setName('Aimsinfosoft-base:licence:send-sys-info');
         parent::configure();
     }
 
+    /**
+     * execute
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|void
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->sendSysInfo->execute();

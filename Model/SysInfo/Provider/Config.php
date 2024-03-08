@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Provider;
@@ -27,6 +26,16 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Provider;
 use Aimsinfosoft\Base\Model\SysInfo\InfoProviderInterface;
 use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCollectionFactory;
 
+/**
+ * Class Config
+ *
+ * Config class responsible for providing system configuration information.
+ *
+ * @category    Aimsinfosoft
+ * @package     Aimsinfosoft_Base
+ * @author      Aimsinfosoft
+ * @license     https://www.aimsinfosoft.com/LICENSE.txt
+ */
 class Config implements InfoProviderInterface
 {
     const CONFIG_PATH_KEY = 'path';
@@ -37,12 +46,23 @@ class Config implements InfoProviderInterface
      */
     private $configCollectionFactory;
 
+    /**
+     * Config constructor.
+     *
+     * @param ConfigCollectionFactory $configCollectionFactory
+     */
     public function __construct(
         ConfigCollectionFactory $configCollectionFactory
-    ) {
+    )
+    {
         $this->configCollectionFactory = $configCollectionFactory;
     }
 
+    /**
+     * Generate system configuration information.
+     *
+     * @return array
+     */
     public function generate(): array
     {
         $configData = [];
@@ -62,6 +82,11 @@ class Config implements InfoProviderInterface
         return $configData;
     }
 
+    /**
+     * Get path conditions for filtering system configuration.
+     *
+     * @return array
+     */
     protected function getPathConditions(): array
     {
         return [
@@ -70,6 +95,12 @@ class Config implements InfoProviderInterface
         ];
     }
 
+    /**
+     * Prepare path for system configuration.
+     *
+     * @param string $path
+     * @return string
+     */
     private function preparePath(string $path): string
     {
         return str_replace('/', '_', $path);

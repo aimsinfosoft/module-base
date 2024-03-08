@@ -30,6 +30,12 @@ use Aimsinfosoft\Base\Utils\Http\Response\Entity\ConfigPool;
 use Aimsinfosoft\Base\Utils\Http\Response\Entity\Converter;
 use Magento\Framework\Exception\NotFoundException;
 
+/**
+ * Class ResponseFactory
+ * @package Aimsinfosoft\Base\Utils\Http\Response
+ *
+ * Factory class for creating response objects based on the entity configuration.
+ */
 class ResponseFactory
 {
     /**
@@ -52,18 +58,33 @@ class ResponseFactory
      */
     private $dataConverter;
 
+    /**
+     * ResponseFactory constructor.
+     * @param Converter $converter
+     * @param ConfigPool $configPool
+     * @param SimpleDataObjectFactory $simpleDataObjectFactory
+     * @param DataConverter $dataConverter
+     */
     public function __construct(
         Converter $converter,
         ConfigPool $configPool,
         SimpleDataObjectFactory $simpleDataObjectFactory,
         DataConverter $dataConverter
-    ) {
+    )
+    {
         $this->converter = $converter;
         $this->configPool = $configPool;
         $this->simpleDataObjectFactory = $simpleDataObjectFactory;
         $this->dataConverter = $dataConverter;
     }
 
+    /**
+     * Create a response object based on the provided URL and response data.
+     *
+     * @param string $url
+     * @param array $response
+     * @return SimpleDataObject
+     */
     public function create(string $url, array $response): SimpleDataObject
     {
         $response = $this->dataConverter->convertArrayToSnakeCase($response);

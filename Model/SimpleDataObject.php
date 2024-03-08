@@ -26,11 +26,19 @@ namespace Aimsinfosoft\Base\Model;
 use Magento\Framework\DataObject;
 
 /**
- * phpcs:ignoreFile
+ * SimpleDataObject is a base class extending DataObject to provide additional functionality.
+ *
+ * @SuppressWarnings(PHPMD.LongVariable)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class SimpleDataObject extends DataObject
 {
     /**
+     * Retrieve data from the object as an array.
+     *
+     * If $keys is specified, it returns only the specified data.
+     *
      * @param array $keys
      * @return array
      */
@@ -43,6 +51,11 @@ class SimpleDataObject extends DataObject
         return parent::toArray($keys);
     }
 
+    /**
+     * Retrieve all data from the object as an array.
+     *
+     * @return array
+     */
     public function __toArray(): array
     {
         $data = $this->_data;

@@ -23,9 +23,23 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Formatter;
 
+/**
+ * Interface FormatterInterface
+ * @since 1.0.0
+ */
 interface FormatterInterface
 {
+    /**
+     * Get the formatted content.
+     *
+     * @return string
+     */
     public function getContent(): string;
 
+    /**
+     * Get the extension associated with the formatted content.
+     *
+     * @return string
+     */
     public function getExtension(): string;
 }

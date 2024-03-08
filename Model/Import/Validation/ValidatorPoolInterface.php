@@ -22,16 +22,23 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Validation;
 
+/**
+ * Interface ValidatorPoolInterface
+ * @package Aimsinfosoft\Base\Model\Import\Validation
+ */
 interface ValidatorPoolInterface
 {
     /**
+     * Get the list of validators.
+     *
      * @return \Aimsinfosoft\Base\Model\Import\Validation\ValidatorInterface[]
      */
     public function getValidators();
 
     /**
-     * @param \Aimsinfosoft\Base\Model\Import\Validation\ValidatorInterface
+     * Add a validator to the pool.
      *
+     * @param \Aimsinfosoft\Base\Model\Import\Validation\ValidatorInterface $validator
      * @return void
      */
     public function addValidator($validator);

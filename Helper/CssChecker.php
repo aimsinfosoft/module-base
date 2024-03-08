@@ -56,6 +56,15 @@ class CssChecker extends AbstractHelper
      */
     private $file;
 
+    /**
+     * CssChecker constructor.
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\Framework\App\Helper\Context $context
+     * @param Repository $asset
+     * @param \Magento\Store\Model\App\Emulation $appEmulation
+     * @param File $file
+     * @param \Magento\Framework\Filesystem $filesystem
+     */
     public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Helper\Context $context,
@@ -63,7 +72,8 @@ class CssChecker extends AbstractHelper
         \Magento\Store\Model\App\Emulation $appEmulation,
         \Magento\Framework\Filesystem\Io\File $file,
         \Magento\Framework\Filesystem $filesystem
-    ) {
+    )
+    {
         parent::__construct($context);
 
         $this->filesystem = $filesystem;
@@ -74,6 +84,7 @@ class CssChecker extends AbstractHelper
     }
 
     /**
+     * get getCorruptedWebsites
      * @return array
      */
     public function getCorruptedWebsites()

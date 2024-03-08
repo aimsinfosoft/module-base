@@ -19,11 +19,16 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Setup;
 
 use Magento\Framework\DB\AggregatedFieldDataConverter;
 
+/**
+ * Class SerializedFieldDataConverter
+ * @package Aimsinfosoft\Base\Setup
+ *
+ * Helper class for converting serialized data to JSON format.
+ */
 class SerializedFieldDataConverter
 {
     /**
@@ -36,25 +41,32 @@ class SerializedFieldDataConverter
      */
     private $connectionResource;
 
+    /**
+     * SerializedFieldDataConverter constructor.
+     *
+     * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param \Magento\Framework\App\ResourceConnection $connectionResource
+     */
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Framework\App\ResourceConnection $connectionResource
-    ) {
+    )
+    {
         $this->objectManager = $objectManager;
         $this->connectionResource = $connectionResource;
     }
 
     /**
-     * Convert metadata from serialized to JSON format:
+     * Convert metadata from serialized to JSON format.
      *
      * @param string|string[] $tableName
-     * @param string          $identifierField
+     * @param string $identifierField
      * @param string|string[] $fields
      * @return void
      */
     public function convertSerializedDataToJson($tableName, $identifierField, $fields)
     {
-        /** @var AggregatedFieldDataConverter $aggregatedFieldConverter */
+        /** @var AggregatedFieldDataConverter $fieldConverter */
         $fieldConverter = $this->objectManager->get(AggregatedFieldDataConverter::class);
         $convertData = [];
 
@@ -73,9 +85,11 @@ class SerializedFieldDataConverter
     }
 
     /**
+     * Get converted data instance.
+     *
      * @param string|string[] $tableName
-     * @param string          $identifierField
-     * @param string          $field
+     * @param string $identifierField
+     * @param string $field
      * @return \Magento\Framework\DB\FieldToConvert
      */
     protected function getConvertedData($tableName, $identifierField, $field)

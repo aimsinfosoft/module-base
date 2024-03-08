@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Block\Adminhtml;
 
 use Aimsinfosoft\Base\Model\ModuleListProcessor;
@@ -29,9 +28,17 @@ use Magento\Store\Model\ScopeInterface;
 use Aimsinfosoft\Base\Model\Source\NotificationType;
 use Aimsinfosoft\Base\Model\Config;
 
+/**
+ * Class Notification
+ * @package Aimsinfosoft\Base\Block\Adminhtml
+ *
+ * Adminhtml block for displaying extension-related notifications.
+ */
 class Notification extends Field
 {
     /**
+     * Template file for the block
+     *
      * @var string
      */
     protected $_template = 'Aimsinfosoft_Base::notification.phtml';
@@ -46,17 +53,31 @@ class Notification extends Field
      */
     private $config;
 
+    /**
+     * Notification constructor.
+     *
+     * @param Template\Context $context
+     * @param ModuleListProcessor $moduleListProcessor
+     * @param Config $config
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         ModuleListProcessor $moduleListProcessor,
         Config $config,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->moduleListProcessor = $moduleListProcessor;
         $this->config = $config;
     }
 
+    /**
+     * Render HTML output.
+     *
+     * @return string
+     */
     protected function _toHtml()
     {
         if ($this->isSetNotification()) {
@@ -67,6 +88,8 @@ class Notification extends Field
     }
 
     /**
+     * Get the count of available updates.
+     *
      * @return int|null
      * @throws \Magento\Framework\Exception\FileSystemException
      */
@@ -78,6 +101,8 @@ class Notification extends Field
     }
 
     /**
+     * Check if the notification is set based on configuration.
+     *
      * @return bool
      */
     protected function isSetNotification()

@@ -27,6 +27,12 @@ use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\ObjectManagerInterface;
 
+/**
+ * Class Converter
+ * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
+ *
+ * Converts data rows to objects based on entity configuration.
+ */
 class Converter
 {
     /**
@@ -39,15 +45,24 @@ class Converter
      */
     private $dataObjectHelper;
 
+    /**
+     * Converter constructor.
+     *
+     * @param ObjectManagerInterface $objectManager
+     * @param DataObjectHelper $dataObjectHelper
+     */
     public function __construct(
         ObjectManagerInterface $objectManager,
         DataObjectHelper $dataObjectHelper
-    ) {
+    )
+    {
         $this->objectManager = $objectManager;
         $this->dataObjectHelper = $dataObjectHelper;
     }
 
     /**
+     * Convert the given row to a SimpleDataObject based on entity configuration.
+     *
      * @param mixed $row
      * @param Config $entityConfig
      * @return SimpleDataObject

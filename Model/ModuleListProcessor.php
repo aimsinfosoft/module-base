@@ -19,12 +19,18 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 use Aimsinfosoft\Base\Model\Feed\ExtensionsProvider;
 use Magento\Framework\Module\ModuleListInterface;
 
+/**
+ * Class ModuleListProcessor
+ *
+ * The ModuleListProcessor class processes the list of installed modules and retrieves information about them.
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class ModuleListProcessor
 {
     /**
@@ -47,17 +53,27 @@ class ModuleListProcessor
      */
     private $moduleInfoProvider;
 
+    /**
+     * ModuleListProcessor constructor.
+     *
+     * @param ModuleListInterface $moduleList
+     * @param ExtensionsProvider $extensionsProvider
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         ModuleListInterface $moduleList,
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->moduleList = $moduleList;
         $this->extensionsProvider = $extensionsProvider;
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
     /**
+     * Get the list of installed modules along with their update information.
+     *
      * @return array
      */
     public function getModuleList()
@@ -101,7 +117,10 @@ class ModuleListProcessor
     }
 
     /**
+     * Get information about a specific module.
+     *
      * @param string $moduleCode
+     *
      * @return array|mixed|string
      */
     protected function getModuleInfo($moduleCode)
@@ -136,6 +155,8 @@ class ModuleListProcessor
     }
 
     /**
+     * Replace "for Magento 2" and "by Aimsinfosoft" text in the module name.
+     *
      * @param string $moduleName
      *
      * @return string

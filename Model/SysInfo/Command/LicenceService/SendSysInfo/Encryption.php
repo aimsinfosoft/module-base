@@ -25,6 +25,10 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
 use Magento\Framework\Serialize\SerializerInterface;
 
+/**
+ * Class Encryption
+ * @since 1.0.0
+ */
 class Encryption
 {
     /**
@@ -32,12 +36,24 @@ class Encryption
      */
     private $serializer;
 
+    /**
+     * Encryption constructor.
+     *
+     * @param SerializerInterface $serializer
+     */
     public function __construct(
         SerializerInterface $serializer
-    ) {
+    )
+    {
         $this->serializer = $serializer;
     }
 
+    /**
+     * Encrypt an array and return the hashed value.
+     *
+     * @param array $value
+     * @return string
+     */
     public function encryptArray(array $value): string
     {
         $serializedValue = $this->serializer->serialize($value);
@@ -45,6 +61,12 @@ class Encryption
         return $this->encryptString($serializedValue);
     }
 
+    /**
+     * Encrypt a string and return the hashed value.
+     *
+     * @param string $value
+     * @return string
+     */
     public function encryptString(string $value): string
     {
         return hash('sha256', $value);

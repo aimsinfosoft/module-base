@@ -53,18 +53,29 @@ class InstanceRegistration
      */
     private $registeredInstanceRepository;
 
+    /**
+     * InstanceRegistration constructor.
+     * @param Schedule $scheduleChecker
+     * @param RegisterLicenceKey $registerLicenceKey
+     * @param ScheduleConfigRepository $scheduleConfigRepository
+     * @param RegisteredInstanceRepository $registeredInstanceRepository
+     */
     public function __construct(
         Schedule $scheduleChecker,
         RegisterLicenceKey $registerLicenceKey,
         ScheduleConfigRepository $scheduleConfigRepository,
         RegisteredInstanceRepository $registeredInstanceRepository
-    ) {
+    )
+    {
         $this->scheduleChecker = $scheduleChecker;
         $this->registerLicenceKey = $registerLicenceKey;
         $this->scheduleConfigRepository = $scheduleConfigRepository;
         $this->registeredInstanceRepository = $registeredInstanceRepository;
     }
 
+    /**
+     * excute
+     */
     public function execute()
     {
         $registeredInstance = $this->registeredInstanceRepository->get();

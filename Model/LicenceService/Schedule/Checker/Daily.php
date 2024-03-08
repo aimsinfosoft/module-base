@@ -27,6 +27,11 @@ use Aimsinfosoft\Base\Model\LicenceService\Schedule\Data\ScheduleConfigFactory;
 use Aimsinfosoft\Base\Model\LicenceService\Schedule\ScheduleConfigRepository;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 
+/**
+ * Class Daily
+ *
+ * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker
+ */
 class Daily implements SenderCheckerInterface
 {
     public const TIME_INTERVAL = 86400;
@@ -46,16 +51,33 @@ class Daily implements SenderCheckerInterface
      */
     private $scheduleConfigRepository;
 
+    /**
+     * Daily constructor.
+     *
+     * @param DateTime $dateTime
+     * @param ScheduleConfigFactory $scheduleConfigFactory
+     * @param ScheduleConfigRepository $scheduleConfigRepository
+     */
     public function __construct(
         DateTime $dateTime,
         ScheduleConfigFactory $scheduleConfigFactory,
         ScheduleConfigRepository $scheduleConfigRepository
-    ) {
+    )
+    {
         $this->dateTime = $dateTime;
         $this->scheduleConfigFactory = $scheduleConfigFactory;
         $this->scheduleConfigRepository = $scheduleConfigRepository;
     }
 
+    /**
+     * Check if it is necessary to send based on the time interval.
+     *
+     * @param string $flag
+     *   The identifier or flag for the scheduled task.
+     *
+     * @return bool
+     *   Returns true if it is necessary to send, false otherwise.
+     */
     public function isNeedToSend(string $flag): bool
     {
         $currentTime = $this->dateTime->gmtTimestamp();

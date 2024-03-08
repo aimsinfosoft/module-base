@@ -19,20 +19,22 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 
 /**
+ * Class ConfigProviderAbstract
+ *
  * @since 1.4.4
  * @since 1.12.9 fixed cache for emulated store
  */
 abstract class ConfigProviderAbstract
 {
     /**
-     * xpath prefix of module (section)
+     * XPath prefix of the module (section)
+     *
      * @var string '{section}/'
      */
     protected $pathPrefix = '/';
@@ -65,7 +67,7 @@ abstract class ConfigProviderAbstract
     }
 
     /**
-     * clear local storage
+     * Clear local storage
      *
      * @return void
      */
@@ -87,7 +89,8 @@ abstract class ConfigProviderAbstract
         $path,
         $storeId = null,
         $scope = ScopeInterface::SCOPE_STORE
-    ) {
+    )
+    {
         if ($storeId === null && $scope !== ScopeConfigInterface::SCOPE_TYPE_DEFAULT) {
             return $this->scopeConfig->getValue($this->pathPrefix . $path, $scope, $storeId);
         }
@@ -116,6 +119,8 @@ abstract class ConfigProviderAbstract
     }
 
     /**
+     * Check if a flag is set
+     *
      * @param string $path '{group}/{field}'
      * @param int|ScopeInterface|null $storeId
      * @param string $scope
@@ -126,11 +131,14 @@ abstract class ConfigProviderAbstract
         $path,
         $storeId = null,
         $scope = ScopeInterface::SCOPE_STORE
-    ) {
+    )
+    {
         return (bool)$this->getValue($path, $storeId, $scope);
     }
 
     /**
+     * Check if a global flag is set
+     *
      * @param string $path '{group}/{field}'
      *
      * @return bool

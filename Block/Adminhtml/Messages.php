@@ -21,9 +21,19 @@
 
 namespace Aimsinfosoft\Base\Block\Adminhtml;
 
+/**
+ * Class Messages
+ * @package Aimsinfosoft\Base\Block\Adminhtml
+ *
+ * Adminhtml block for displaying extension-related messages.
+ */
 class Messages extends \Magento\Backend\Block\Template
 {
+    /**
+     * Aimsinfosoft Base Section Name
+     */
     public const Aimsinfosoft_BASE_SECTION_NAME = 'Aimsinfosoft_base';
+
     /**
      * @var \Aimsinfosoft\Base\Model\AdminNotification\Messages
      */
@@ -34,18 +44,28 @@ class Messages extends \Magento\Backend\Block\Template
      */
     private $request;
 
+    /**
+     * Messages constructor.
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Aimsinfosoft\Base\Model\AdminNotification\Messages $messageManager
+     * @param \Magento\Framework\App\Request\Http $request
+     * @param array $data
+     */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Aimsinfosoft\Base\Model\AdminNotification\Messages $messageManager,
         \Magento\Framework\App\Request\Http $request,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
         $this->messageManager = $messageManager;
         $this->request = $request;
     }
 
     /**
+     * Get extension-related messages.
+     *
      * @return array
      */
     public function getMessages()
@@ -54,11 +74,13 @@ class Messages extends \Magento\Backend\Block\Template
     }
 
     /**
+     * Render HTML output.
+     *
      * @return string
      */
     public function _toHtml()
     {
-        $html  = '';
+        $html = '';
         if ($this->request->getParam('section') === self::Aimsinfosoft_BASE_SECTION_NAME) {
             $html = parent::_toHtml();
         }

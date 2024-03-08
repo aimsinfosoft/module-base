@@ -23,17 +23,54 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\Feed\Response;
 
+/**
+ * Interface FeedResponseInterface
+ *
+ * @package Aimsinfosoft\Base\Model\Feed\Response
+ */
 interface FeedResponseInterface
 {
+    /**
+     * Get the content of the feed response.
+     *
+     * @return string|null
+     */
     public function getContent(): ?string;
 
+    /**
+     * Set the content of the feed response.
+     *
+     * @param string|null $content
+     * @return FeedResponseInterface
+     */
     public function setContent(?string $content): FeedResponseInterface;
 
+    /**
+     * Get the status of the feed response.
+     *
+     * @return string|null
+     */
     public function getStatus(): ?string;
 
+    /**
+     * Set the status of the feed response.
+     *
+     * @param string|null $status
+     * @return FeedResponseInterface
+     */
     public function setStatus(?string $status): FeedResponseInterface;
 
+    /**
+     * Check if the cache needs to be updated based on the feed response.
+     *
+     * @return bool
+     */
     public function isNeedToUpdateCache(): bool;
 
+    /**
+     * Check if the feed response is considered failed.
+     *
+     * @return bool
+     */
     public function isFailed(): bool;
 }

@@ -25,6 +25,11 @@ namespace Aimsinfosoft\Base\Model\Feed\Response;
 
 use Magento\Framework\DataObject;
 
+/**
+ * Class FeedResponse
+ *
+ * @package Aimsinfosoft\Base\Model\Feed\Response
+ */
 class FeedResponse extends DataObject implements FeedResponseInterface
 {
     public const CONTENT = 'content';
@@ -41,11 +46,22 @@ class FeedResponse extends DataObject implements FeedResponseInterface
      */
     private $skipCacheUpdateStatuses = ['404', '304'];
 
+    /**
+     * Get the content of the feed response.
+     *
+     * @return string|null
+     */
     public function getContent(): ?string
     {
         return $this->getData(self::CONTENT);
     }
 
+    /**
+     * Set the content of the feed response.
+     *
+     * @param string|null $content
+     * @return FeedResponseInterface
+     */
     public function setContent(?string $content): FeedResponseInterface
     {
         $this->setData(self::CONTENT, $content);
@@ -53,11 +69,22 @@ class FeedResponse extends DataObject implements FeedResponseInterface
         return $this;
     }
 
+    /**
+     * Get the status of the feed response.
+     *
+     * @return string|null
+     */
     public function getStatus(): ?string
     {
         return $this->getData(self::STATUS);
     }
 
+    /**
+     * Set the status of the feed response.
+     *
+     * @param string|null $status
+     * @return FeedResponseInterface
+     */
     public function setStatus(?string $status): FeedResponseInterface
     {
         $this->setData(self::STATUS, $status);
@@ -65,11 +92,21 @@ class FeedResponse extends DataObject implements FeedResponseInterface
         return $this;
     }
 
+    /**
+     * Check if the cache needs to be updated based on the feed response.
+     *
+     * @return bool
+     */
     public function isNeedToUpdateCache(): bool
     {
         return !empty($this->getContent()) && !in_array($this->getStatus(), $this->skipCacheUpdateStatuses);
     }
 
+    /**
+     * Check if the feed response is considered failed.
+     *
+     * @return bool
+     */
     public function isFailed(): bool
     {
         return empty($this->getContent()) || in_array($this->getStatus(), $this->failedStatuses);

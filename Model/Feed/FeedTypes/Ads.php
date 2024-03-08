@@ -29,6 +29,11 @@ use Aimsinfosoft\Base\Model\Parser;
 use Aimsinfosoft\Base\Model\Serializer;
 use Magento\Framework\Config\CacheInterface;
 
+/**
+ * Class Ads
+ *
+ * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
+ */
 class Ads
 {
     public const CSV_CACHE_ID = 'Aimsinfosoft_base_csv';
@@ -64,6 +69,16 @@ class Ads
      */
     private $moduleInfoProvider;
 
+    /**
+     * Ads constructor.
+     *
+     * @param CacheInterface $cache
+     * @param Serializer $serializer
+     * @param FeedContentProvider $feedContentProvider
+     * @param Parser $parser
+     * @param Ad\Offline $adOffline
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         CacheInterface $cache,
         Serializer $serializer,
@@ -71,7 +86,8 @@ class Ads
         Parser $parser,
         Ad\Offline $adOffline,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->cache = $cache;
         $this->serializer = $serializer;
         $this->feedContentProvider = $feedContentProvider;
@@ -81,6 +97,8 @@ class Ads
     }
 
     /**
+     * Executes the main functionality to retrieve feed data.
+     *
      * @return array
      */
     public function execute(): array
@@ -92,6 +110,8 @@ class Ads
     }
 
     /**
+     * Retrieves feed data and caches it.
+     *
      * @return array
      */
     public function getFeed(): array
@@ -123,11 +143,21 @@ class Ads
         return $result;
     }
 
+    /**
+     * Gets the last modified date from the cache.
+     *
+     * @return mixed
+     */
     private function getLastModified()
     {
         return $this->cache->load(self::Aimsinfosoft_ADS_LAST_MODIFIED_DATE);
     }
 
+    /**
+     * Sets the last modified date in the cache.
+     *
+     * @return bool
+     */
     private function setLastModified()
     {
         $dateTime = gmdate('D, d M Y H:i:s') . ' GMT';
@@ -135,6 +165,11 @@ class Ads
         return $this->cache->save($dateTime, self::Aimsinfosoft_ADS_LAST_MODIFIED_DATE);
     }
 
+    /**
+     * Saves the data to cache.
+     *
+     * @param array $result
+     */
     private function saveCache(array $result)
     {
         $this->cache->save(

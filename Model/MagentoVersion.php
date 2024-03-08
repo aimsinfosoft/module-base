@@ -19,14 +19,20 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
 /**
- * Class MagentoVersion is used for faster retrieving magento version
+ * Class MagentoVersion
+ *
+ * The MagentoVersion class is used for faster retrieving the Magento version.
+ *
+ * @package Aimsinfosoft\Base\Model
  */
 class MagentoVersion
 {
+    /**
+     * Cache key for storing Magento version.
+     */
     public const MAGENTO_VERSION = 'Aimsinfosoft_magento_version';
 
     /**
@@ -40,22 +46,31 @@ class MagentoVersion
     private $cache;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $magentoVersion;
 
+    /**
+     * MagentoVersion constructor.
+     *
+     * @param \Magento\Framework\App\Cache\Type\Config $cache
+     * @param \Magento\Framework\App\ProductMetadataInterface $productMetadata
+     */
     public function __construct(
         \Magento\Framework\App\Cache\Type\Config $cache,
         \Magento\Framework\App\ProductMetadataInterface $productMetadata
-    ) {
+    )
+    {
         $this->productMetadata = $productMetadata;
         $this->cache = $cache;
     }
 
     /**
+     * Get the Magento version.
+     *
      * @return string
      */
-    public function get()
+    public function get(): string
     {
         if (!$this->magentoVersion
             && !($this->magentoVersion = $this->cache->load(self::MAGENTO_VERSION))

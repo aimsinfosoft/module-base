@@ -24,6 +24,12 @@ namespace Aimsinfosoft\Base\Plugin\Config\Block\System\Config\Form;
 
 use Magento\Config\Block\System\Config\Form\Field as NativeField;
 
+/**
+ * Class Field
+ * @package Aimsinfosoft\Base\Plugin\Config\Block\System\Config\Form
+ *
+ * Plugin class to modify the behavior of the configuration form field
+ */
 class Field
 {
     /**
@@ -31,13 +37,21 @@ class Field
      */
     private $assetRepo;
 
+    /**
+     * Field constructor.
+     *
+     * @param \Magento\Framework\View\Asset\Repository $assetRepo
+     */
     public function __construct(
         \Magento\Framework\View\Asset\Repository $assetRepo
-    ) {
+    )
+    {
         $this->assetRepo = $assetRepo;
     }
 
     /**
+     * Plugin method to modify the rendering of the configuration form field
+     *
      * @param NativeField $field
      * @param string $html
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
@@ -47,7 +61,8 @@ class Field
         NativeField $field,
         $html,
         \Magento\Framework\Data\Form\Element\AbstractElement $element
-    ) {
+    )
+    {
         if (strpos((string)$html, 'tooltip-content') !== false) {
             $html = $this->replaceString($html);
         }
@@ -62,13 +77,15 @@ class Field
     }
 
     /**
+     * Replace the string in the content based on certain conditions
+     *
      * @param string $content
      * @return string
      */
     private function replaceString(string $content): string
     {
         preg_match('/<img.*?src="(Aimsinfosoft.*?)"/', $content, $result);
-        if (count($result) >=2) {
+        if (count($result) >= 2) {
             $path = $result[1];
             $newPath = $this->assetRepo->getUrl($path);
             if ($newPath) {

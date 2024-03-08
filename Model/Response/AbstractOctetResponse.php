@@ -19,7 +19,6 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\Response;
@@ -31,8 +30,10 @@ use Magento\Framework\Session\Config\ConfigInterface;
 use Magento\Framework\Stdlib;
 
 /**
- * Response class for downloading files on frontend
+ * AbstractOctetResponse class for downloading files on the frontend.
+ *
  * @since 1.10.6
+ * @abstract
  */
 abstract class AbstractOctetResponse extends App\Response\Http implements OctetResponseInterface
 {
@@ -51,6 +52,18 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
      */
     protected $readResource;
 
+    /**
+     * AbstractOctetResponse constructor.
+     *
+     * @param DownloadOutput $downloadHelper
+     * @param MagentoVersion $magentoVersion
+     * @param App\Request\Http $request
+     * @param Stdlib\CookieManagerInterface $cookieManager
+     * @param Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory
+     * @param App\Http\Context $context
+     * @param Stdlib\DateTime $dateTime
+     * @param ConfigInterface|null $sessionConfig
+     */
     public function __construct(
         DownloadOutput $downloadHelper,
         MagentoVersion $magentoVersion,
@@ -60,7 +73,8 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         App\Http\Context $context,
         Stdlib\DateTime $dateTime,
         ConfigInterface $sessionConfig = null
-    ) {
+    )
+    {
         $this->downloadHelper = $downloadHelper;
         $this->initHeaders();
         $arguments = [$request, $cookieManager, $cookieMetadataFactory, $context, $dateTime];
@@ -74,7 +88,8 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
 
     /**
      * Can be used for override output handler.
-     * Method getContentDisposition() implementation is required due the inheritance.
+     * Method getContentDisposition() implementation is required due to inheritance.
+     *
      * @see OctetResponseInterface
      */
     public function sendOctetResponse()
@@ -83,6 +98,9 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         $this->downloadHelper->output();
     }
 
+    /**
+     * Send the HTTP response.
+     */
     public function sendResponse()
     {
         $this->setHeader(
@@ -104,6 +122,12 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         $this->sendOctetResponse();
     }
 
+    /**
+     * Set the read resource for the response.
+     *
+     * @param ReadInterface $readResource
+     * @return OctetResponseInterface
+     */
     public function setReadResource(ReadInterface $readResource): OctetResponseInterface
     {
         $this->readResource = $readResource;
@@ -111,11 +135,22 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         return $this;
     }
 
+    /**
+     * Get the file name for the response.
+     *
+     * @return string|null
+     */
     public function getFileName(): ?string
     {
         return $this->fileName;
     }
 
+    /**
+     * Set the file name for the response.
+     *
+     * @param string $fileName
+     * @return OctetResponseInterface
+     */
     public function setFileName(string $fileName): OctetResponseInterface
     {
         $this->fileName = $fileName;
@@ -123,6 +158,12 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         return $this;
     }
 
+    /**
+     * Set the content type for the response.
+     *
+     * @param string $contentType
+     * @return OctetResponseInterface
+     */
     public function setContentType(string $contentType): OctetResponseInterface
     {
         $this->setHeader('Content-type', $contentType, true);
@@ -130,6 +171,12 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         return $this;
     }
 
+    /**
+     * Set the content length for the response.
+     *
+     * @param int $length
+     * @return OctetResponseInterface
+     */
     public function setContentLength(int $length): OctetResponseInterface
     {
         $this->setHeader('Content-Length', $length, true);
@@ -137,11 +184,21 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         return $this;
     }
 
+    /**
+     * Get the content disposition for the response.
+     *
+     * @return string
+     */
     public function getContentDisposition(): string
     {
         return (string)$this->downloadHelper->getContentDisposition() ?: 'attachment';
     }
 
+    /**
+     * Initialize HTTP headers.
+     *
+     * @return OctetResponseInterface
+     */
     private function initHeaders(): OctetResponseInterface
     {
         $this->setHttpResponseCode(200);

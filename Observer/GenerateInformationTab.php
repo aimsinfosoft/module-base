@@ -86,13 +86,23 @@ class GenerateInformationTab implements ObserverInterface
      */
     private $moduleInfoProvider;
 
+    /**
+     * GenerateInformationTab constructor.
+     *
+     * @param Manager $moduleManager
+     * @param Repository $assetRepo
+     * @param Structure $configStructure
+     * @param ExtensionsProvider $extensionsProvider
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         Manager $moduleManager,
         Repository $assetRepo,
         Structure $configStructure,
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->moduleManager = $moduleManager;
         $this->assetRepo = $assetRepo;
         $this->configStructure = $configStructure;
@@ -129,6 +139,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get logo html
      * @return string
      */
     protected function getLogoHtml()
@@ -146,6 +157,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get additional content
      * @return string
      */
     private function additionalContent()
@@ -175,6 +187,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * display modules version
      * @return string
      */
     private function showVersionInfo()
@@ -211,6 +224,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get current version of module
      * @return string|null
      */
     protected function getCurrentVersion()
@@ -221,6 +235,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get module code
      * @return string
      */
     private function getModuleCode()
@@ -240,6 +255,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get change log link
      * @return string
      */
     protected function getChangeLogLink()
@@ -249,6 +265,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get userguide information
      * @return string
      */
     private function getUserGuideContainer()
@@ -266,6 +283,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get feature link
      * @return string
      */
     private function getFeatureLink()
@@ -278,10 +296,11 @@ class GenerateInformationTab implements ObserverInterface
                    class="ambase-button"
                    target="_blank"
                    title="' . __("Request New Feature") . '">'
-                . __("Request New Feature") . ' </a>';
+            . __("Request New Feature") . ' </a>';
     }
 
     /**
+     * get button container
      * @return string
      */
     private function getButtonsContainer()
@@ -293,6 +312,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get user guide link
      * @return string
      */
     private function getUserGuideLink()
@@ -311,6 +331,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get seo param
      * @return string
      */
     private function getSeoParams()
@@ -319,6 +340,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get last version modules
      * @param string $currentVer
      *
      * @return bool
@@ -339,6 +361,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get module name
      * @return string
      */
     protected function getModuleName()
@@ -363,6 +386,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * find the resource name
      * @param $config
      *
      * @return string
@@ -394,6 +418,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get module link
      * @return string
      */
     private function getModuleLink()
@@ -410,6 +435,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get existiing module conflics
      * @return array
      */
     private function getExistingConflicts()
@@ -428,6 +454,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * existing conflicted module
      * @return string
      */
     private function showModuleExistingConflicts()
@@ -463,6 +490,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * get the block
      * @return mixed
      */
     public function getBlock()
@@ -471,6 +499,7 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
+     * set the block
      * @param mixed $block
      */
     public function setBlock($block)

@@ -19,9 +19,13 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model;
 
+/**
+ * Class GetCustomerIp
+ *
+ * @package Aimsinfosoft\Base\Model
+ */
 class GetCustomerIp
 {
     /**
@@ -51,18 +55,21 @@ class GetCustomerIp
     /**
      * GetCustomerIp constructor.
      *
-     * @param \Magento\Framework\HTTP\PhpEnvironment\RemoteAddress  $remoteAddress
-     * @param \Magento\Framework\App\RequestInterface               $request
+     * @param \Magento\Framework\HTTP\PhpEnvironment\RemoteAddress $remoteAddress
+     * @param \Magento\Framework\App\RequestInterface $request
      */
     public function __construct(
         \Magento\Framework\HTTP\PhpEnvironment\RemoteAddress $remoteAddress,
         \Magento\Framework\App\RequestInterface $request
-    ) {
+    )
+    {
         $this->remoteAddress = $remoteAddress;
         $this->request = $request;
     }
 
     /**
+     * Get the current customer's IP address.
+     *
      * @return string
      */
     public function getCurrentIp()

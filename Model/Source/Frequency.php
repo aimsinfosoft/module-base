@@ -19,12 +19,16 @@
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 
-
 namespace Aimsinfosoft\Base\Model\Source;
 
+/**
+ * Frequency provides options for frequency settings.
+ */
 class Frequency implements \Magento\Framework\Option\ArrayInterface
 {
     /**
+     * Get options in key-value pair format.
+     *
      * @return array
      */
     public function toOptionArray()

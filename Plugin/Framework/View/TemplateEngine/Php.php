@@ -25,6 +25,13 @@ namespace Aimsinfosoft\Base\Plugin\Framework\View\TemplateEngine;
 
 use Magento\Framework\View\Element\BlockInterface;
 
+/**
+ * Class Php
+ * @package Aimsinfosoft\Base\Plugin\Framework\View\TemplateEngine
+ *
+ * Plugin class for \Magento\Framework\View\TemplateEngine\Php
+ * It injects the escaper instance into the dictionary before rendering a PHP template.
+ */
 class Php
 {
     /**
@@ -32,17 +39,32 @@ class Php
      */
     private $escaper;
 
+    /**
+     * Php constructor.
+     *
+     * @param \Magento\Framework\Escaper $escaper
+     */
     public function __construct(\Magento\Framework\Escaper $escaper)
     {
         $this->escaper = $escaper;
     }
 
+    /**
+     * Before plugin method to modify the parameters before rendering a PHP template.
+     *
+     * @param \Magento\Framework\View\TemplateEngine\Php $subject
+     * @param BlockInterface $block
+     * @param string $fileName
+     * @param array $dictionary
+     * @return array
+     */
     public function beforeRender(
         \Magento\Framework\View\TemplateEngine\Php $subject,
         BlockInterface $block,
         $fileName,
         array $dictionary = []
-    ) {
+    )
+    {
         if (!isset($dictionary['escaper'])) {
             $dictionary['escaper'] = $this->escaper;
         }

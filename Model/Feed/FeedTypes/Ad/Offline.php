@@ -44,15 +44,24 @@ class Offline
      */
     private $moduleReader;
 
+    /**
+     * Offline constructor.
+     *
+     * @param Filesystem $filesystem
+     * @param ModuleDirReader $moduleReader
+     */
     public function __construct(
         Filesystem $filesystem,
         ModuleDirReader $moduleReader
-    ) {
+    )
+    {
         $this->filesystem = $filesystem;
         $this->moduleReader = $moduleReader;
     }
 
     /**
+     * Get offline ads data.
+     *
      * @param bool $market
      *
      * @return array
@@ -78,10 +87,10 @@ class Offline
             return [];
         }
 
-        // phpcs:disable - Magento functional or Zend functions always throw exception
+        // Decode JSON content
         $data = json_decode($content, true) ?: [];
-        //phpcs:enable
 
+        // Process the data
         foreach ($data as &$row) {
             if (isset($row['text_market'])) {
                 if ($market) {

@@ -31,6 +31,11 @@ use Aimsinfosoft\Base\Model\Serializer;
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\Escaper;
 
+/**
+ * Class Extensions
+ *
+ * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
+ */
 class Extensions
 {
     public const EXTENSIONS_CACHE_ID = 'ambase_extensions';
@@ -71,6 +76,17 @@ class Extensions
      */
     private $moduleInfoProvider;
 
+    /**
+     * Extensions constructor.
+     *
+     * @param Serializer $serializer
+     * @param CacheInterface $cache
+     * @param FeedContentProvider $feedContentProvider
+     * @param Parser $parser
+     * @param Escaper $escaper
+     * @param LinkValidator $linkValidator
+     * @param ModuleInfoProvider $moduleInfoProvider
+     */
     public function __construct(
         Serializer $serializer,
         CacheInterface $cache,
@@ -79,7 +95,8 @@ class Extensions
         Escaper $escaper,
         LinkValidator $linkValidator,
         ModuleInfoProvider $moduleInfoProvider
-    ) {
+    )
+    {
         $this->serializer = $serializer;
         $this->cache = $cache;
         $this->feedContentProvider = $feedContentProvider;
@@ -90,6 +107,8 @@ class Extensions
     }
 
     /**
+     * Executes the main functionality to retrieve extensions data.
+     *
      * @return array
      */
     public function execute(): array
@@ -101,6 +120,8 @@ class Extensions
     }
 
     /**
+     * Retrieves extensions data and caches it.
+     *
      * @return array
      */
     public function getFeed(): array
@@ -124,11 +145,21 @@ class Extensions
         return $result;
     }
 
+    /**
+     * Gets the last modified date from the cache.
+     *
+     * @return mixed
+     */
     private function getLastModified()
     {
         return $this->cache->load(self::Aimsinfosoft_EXTENSIONS_LAST_MODIFIED_DATE);
     }
 
+    /**
+     * Sets the last modified date in the cache.
+     *
+     * @return bool
+     */
     private function setLastModified()
     {
         $dateTime = gmdate('D, d M Y H:i:s') . ' GMT';
@@ -136,6 +167,11 @@ class Extensions
         return $this->cache->save($dateTime, self::Aimsinfosoft_EXTENSIONS_LAST_MODIFIED_DATE);
     }
 
+    /**
+     * Saves the data to cache.
+     *
+     * @param array $result
+     */
     private function saveCache(array $result)
     {
         $this->cache->save(
@@ -146,6 +182,8 @@ class Extensions
     }
 
     /**
+     * Prepares feed data from the XML.
+     *
      * @param \SimpleXMLElement $feedXml
      * @return array
      */
@@ -156,7 +194,7 @@ class Extensions
 
         foreach ($feedXml->channel->item as $item) {
             $code = $this->escaper->escapeHtml((string)$item->code);
-           
+
             if (!isset($result[$code])) {
                 $result[$code] = [];
             }
@@ -187,8 +225,9 @@ class Extensions
     }
 
     /**
-     * @param string $date
+     * Converts the date string to a formatted date.
      *
+     * @param string $date
      * @return string
      * @throws \Exception
      */
