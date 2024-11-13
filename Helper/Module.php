@@ -57,8 +57,7 @@ class Module
         ExtensionsProvider $extensionsProvider,
         LinkValidator $linkValidator,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->extensionsProvider = $extensionsProvider;
         $this->linkValidator = $linkValidator;
         $this->moduleInfoProvider = $moduleInfoProvider;

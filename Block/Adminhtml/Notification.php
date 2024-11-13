@@ -30,7 +30,6 @@ use Aimsinfosoft\Base\Model\Config;
 
 /**
  * Class Notification
- * @package Aimsinfosoft\Base\Block\Adminhtml
  *
  * Adminhtml block for displaying extension-related notifications.
  */
@@ -66,8 +65,7 @@ class Notification extends Field
         ModuleListProcessor $moduleListProcessor,
         Config $config,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->moduleListProcessor = $moduleListProcessor;
         $this->config = $config;

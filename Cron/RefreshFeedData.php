@@ -46,8 +46,7 @@ class RefreshFeedData
     public function __construct(
         Ads $adsFeed,
         Extensions $extensionsFeed
-    )
-    {
+    ) {
         $this->adsFeed = $adsFeed;
         $this->extensionsFeed = $extensionsFeed;
     }

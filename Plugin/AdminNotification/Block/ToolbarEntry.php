@@ -26,7 +26,6 @@ use Magento\AdminNotification\Block\ToolbarEntry as NativeToolbarEntry;
 
 /**
  * Class ToolbarEntry
- * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block
  *
  * Plugin class to add html attributes to Aimsinfosoft notifications
  */
@@ -47,8 +46,7 @@ class ToolbarEntry
     public function afterToHtml(
         NativeToolbarEntry $subject,
         $html
-    )
-    {
+    ) {
         $collection = $subject->getLatestUnreadNotifications()
             ->clear()
             ->addFieldToFilter('is_Aimsinfosoft', 1);

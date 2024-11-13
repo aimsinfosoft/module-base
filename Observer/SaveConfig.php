@@ -28,7 +28,6 @@ use Magento\Framework\Event\ObserverInterface;
 
 /**
  * Class SaveConfig
- * @package Aimsinfosoft\Base\Observer
  *
  * Observer class for clearing cache data after saving configuration
  */
@@ -46,8 +45,7 @@ class SaveConfig implements ObserverInterface
      */
     public function __construct(
         CacheInterface $cache
-    )
-    {
+    ) {
         $this->cache = $cache;
     }
 

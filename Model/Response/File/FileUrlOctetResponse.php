@@ -64,8 +64,7 @@ class FileUrlOctetResponse extends AbstractOctetResponse
         App\Http\Context $context,
         Stdlib\DateTime $dateTime,
         ConfigInterface $sessionConfig = null
-    )
-    {
+    ) {
         $this->fileReadFactory = $fileReadFactory;
 
         parent::__construct(

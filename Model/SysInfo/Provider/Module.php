@@ -32,9 +32,6 @@ use Magento\Framework\Module\ModuleListInterface;
  *
  * Module class responsible for providing information about installed modules.
  *
- * @category    Aimsinfosoft
- * @package     Aimsinfosoft_Base
- * @author      Aimsinfosoft
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 class Module implements InfoProviderInterface
@@ -60,8 +57,7 @@ class Module implements InfoProviderInterface
     public function __construct(
         ModuleInfoProvider $moduleInfoProvider,
         ModuleListInterface $moduleList
-    )
-    {
+    ) {
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->moduleList = $moduleList;
     }

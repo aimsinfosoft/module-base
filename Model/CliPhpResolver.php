@@ -25,11 +25,6 @@ use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Shell;
 use Symfony\Component\Process\PhpExecutableFinder;
 
-/**
- * Class CliPhpResolver
- *
- * @package Aimsinfosoft\Base\Model
- */
 class CliPhpResolver
 {
     /**
@@ -73,8 +68,7 @@ class CliPhpResolver
         DeploymentConfig $deploymentConfig,
         PhpExecutableFinder $executableFinder,
         Shell $shell
-    )
-    {
+    ) {
         $this->deploymentConfig = $deploymentConfig;
         $this->executableFinder = $executableFinder;
         $this->shell = $shell;

@@ -73,8 +73,7 @@ abstract class AbstractOctetResponse extends App\Response\Http implements OctetR
         App\Http\Context $context,
         Stdlib\DateTime $dateTime,
         ConfigInterface $sessionConfig = null
-    )
-    {
+    ) {
         $this->downloadHelper = $downloadHelper;
         $this->initHeaders();
         $arguments = [$request, $cookieManager, $cookieMetadataFactory, $context, $dateTime];

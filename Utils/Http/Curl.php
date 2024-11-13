@@ -28,10 +28,6 @@ use Aimsinfosoft\Base\Utils\Http\Response\ResponseFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\HTTP\Adapter\CurlFactory as FrameworkCurlFactory;
 
-/**
- * Class Curl
- * @package Aimsinfosoft\Base\Utils\Http
- */
 class Curl
 {
     /**
@@ -63,8 +59,7 @@ class Curl
     public function __construct(
         FrameworkCurlFactory $curlFactory,
         ResponseFactory $responseFactory
-    )
-    {
+    ) {
         $this->curlFactory = $curlFactory;
         $this->responseFactory = $responseFactory;
     }
@@ -82,8 +77,7 @@ class Curl
         string $url,
         $params = '',
         string $method = \Laminas\Http\Request::METHOD_POST
-    ): SimpleDataObject
-    {
+    ): SimpleDataObject {
         $curl = $this->curlFactory->create();
         $curl->setConfig(['timeout' => self::CONNECTION_TIMEOUT, 'header' => false, 'verifypeer' => false]);
 

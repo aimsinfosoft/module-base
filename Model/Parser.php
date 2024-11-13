@@ -22,13 +22,13 @@
 namespace Aimsinfosoft\Base\Model;
 
 use Magento\Framework\Escaper;
+use Magento\Framework\Filesystem\DriverInterface;
 
 /**
  * Class Parser
  *
  * The Parser class is responsible for parsing XML and CSV formats.
  *
- * @package Aimsinfosoft\Base\Model
  */
 class Parser
 {
@@ -45,6 +45,13 @@ class Parser
      * @var Escaper
      */
     private $escaper;
+    
+    /**
+     * fileDriver
+     *
+     * @var mixed
+     */
+    protected $fileDriver;
 
     /**
      * Parser constructor.
@@ -52,10 +59,11 @@ class Parser
      * @param Escaper $escaper
      */
     public function __construct(
-        Escaper $escaper
-    )
-    {
+        Escaper $escaper,
+        DriverInterface   $fileDriver
+    ) {
         $this->escaper = $escaper;
+        $this->fileDriver = $fileDriver;
     }
 
     /**
@@ -86,14 +94,16 @@ class Parser
     public function parseCsv($csvContent)
     {
         try {
-            $fp = fopen('php://temp', 'r+');
-            fwrite($fp, $csvContent);
+
+            $fp = $this->fileDriver->fileOpen('php://temp', 'r+');
+            $this->fileDriver->fileWrite($fp, $csvContent);
+          
             rewind($fp);
 
             $data = [];
             $header = [];
             $isFirstLine = true;
-            while (($row = fgetcsv($fp)) !== false) { // for multiline values
+            while (($row = $this->fileDriver->fileReadCsv($fp)) !== false) { // for multiline values
                 $row = array_map([$this, "escape"], $row);
 
                 if ($isFirstLine) {

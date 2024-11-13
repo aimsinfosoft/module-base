@@ -117,7 +117,6 @@ class AdsProvider
 // If you need to return information sorted by priority, uncomment the following line
        // return $this->upsellModuleAds[$moduleCode] = $this->getUpsellSortedByPriority($adsData, $moduleCode);
         return $this->upsellModuleAds[$moduleCode] = $this->getUpsellRandom($adsData, $moduleCode);
-
     }
 
     /**

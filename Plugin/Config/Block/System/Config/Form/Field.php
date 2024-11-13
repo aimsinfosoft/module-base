@@ -26,7 +26,6 @@ use Magento\Config\Block\System\Config\Form\Field as NativeField;
 
 /**
  * Class Field
- * @package Aimsinfosoft\Base\Plugin\Config\Block\System\Config\Form
  *
  * Plugin class to modify the behavior of the configuration form field
  */
@@ -44,8 +43,7 @@ class Field
      */
     public function __construct(
         \Magento\Framework\View\Asset\Repository $assetRepo
-    )
-    {
+    ) {
         $this->assetRepo = $assetRepo;
     }
 
@@ -61,8 +59,7 @@ class Field
         NativeField $field,
         $html,
         \Magento\Framework\Data\Form\Element\AbstractElement $element
-    )
-    {
+    ) {
         if (strpos((string)$html, 'tooltip-content') !== false) {
             $html = $this->replaceString($html);
         }

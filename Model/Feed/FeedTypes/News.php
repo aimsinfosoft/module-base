@@ -35,11 +35,6 @@ use Magento\Framework\Escaper;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Framework\Notification\MessageInterface;
 
-/**
- * Class News
- *
- * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
- */
 class News
 {
     /**
@@ -115,8 +110,7 @@ class News
         Escaper $escaper,
         DataObjectFactory $dataObjectFactory,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->config = $config;
         $this->feedContentProvider = $feedContentProvider;
         $this->parser = $parser;

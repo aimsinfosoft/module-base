@@ -51,8 +51,7 @@ class Serializer
     public function __construct(
         ObjectManagerInterface $objectManager,
         Unserialize $unserialize
-    )
-    {
+    ) {
         if (interface_exists(SerializerInterface::class)) {
             // For Magento >= 2.2
             $this->serializer = $objectManager->get(SerializerInterface::class);

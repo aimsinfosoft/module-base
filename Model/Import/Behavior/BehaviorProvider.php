@@ -21,10 +21,6 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Behavior;
 
-/**
- * Class BehaviorProvider
- * @package Aimsinfosoft\Base\Model\Import\Behavior
- */
 class BehaviorProvider implements BehaviorProviderInterface
 {
     /**

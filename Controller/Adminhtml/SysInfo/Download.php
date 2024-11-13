@@ -72,8 +72,7 @@ class Download extends Action
         WriteFactory $writeFactory,
         FileFactory $fileFactory,
         DownloadCommand $downloadCommand
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->filesystem = $filesystem;
         $this->writeFactory = $writeFactory;

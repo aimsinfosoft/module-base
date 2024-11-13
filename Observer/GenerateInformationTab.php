@@ -101,8 +101,7 @@ class GenerateInformationTab implements ObserverInterface
         Structure $configStructure,
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->moduleManager = $moduleManager;
         $this->assetRepo = $assetRepo;
         $this->configStructure = $configStructure;

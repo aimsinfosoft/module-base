@@ -54,7 +54,12 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
         $this->messageManager = $messageManager;
         $this->notificationType = $notificationType;
     }
-
+    
+    /**
+     * Method afterSave
+     *
+     * @return void
+     */
     public function afterSave()
     {
         if ($this->isValueChanged()) {
@@ -63,7 +68,12 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
 
         return parent::afterSave();
     }
-
+    
+    /**
+     * Method prepareMessage
+     *
+     * @return void
+     */
     private function prepareMessage()
     {
         $value = explode(',', $this->getValue());
@@ -95,7 +105,14 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
     {
         return $value;
     }
-
+    
+    /**
+     * Method generateMessage
+     *
+     * @param $change $change [explicite description]
+     *
+     * @return void
+     */
     protected function generateMessage($change)
     {
         $message = '';
@@ -116,7 +133,14 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
 
         return $message;
     }
-
+    
+    /**
+     * Method generateLink
+     *
+     * @param $change $change [explicite description]
+     *
+     * @return void
+     */
     private function generateLink($change)
     {
         $change = mb_strtolower($change);

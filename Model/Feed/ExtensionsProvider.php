@@ -46,8 +46,7 @@ class ExtensionsProvider
      */
     public function __construct(
         FeedTypes\Extensions $extensionsFeed
-    )
-    {
+    ) {
         $this->extensionsFeed = $extensionsFeed;
     }
 

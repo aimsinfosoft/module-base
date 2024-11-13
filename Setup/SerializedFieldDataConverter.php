@@ -25,7 +25,6 @@ use Magento\Framework\DB\AggregatedFieldDataConverter;
 
 /**
  * Class SerializedFieldDataConverter
- * @package Aimsinfosoft\Base\Setup
  *
  * Helper class for converting serialized data to JSON format.
  */
@@ -50,8 +49,7 @@ class SerializedFieldDataConverter
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Framework\App\ResourceConnection $connectionResource
-    )
-    {
+    ) {
         $this->objectManager = $objectManager;
         $this->connectionResource = $connectionResource;
     }

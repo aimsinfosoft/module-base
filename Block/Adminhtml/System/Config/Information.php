@@ -32,7 +32,6 @@ use Magento\Framework\View\LayoutFactory;
 
 /**
  * Class Information
- * @package Aimsinfosoft\Base\Block\Adminhtml\System\Config
  *
  * Adminhtml block for rendering additional information in the system configuration.
  */
@@ -60,8 +59,7 @@ class Information extends Fieldset
         Js $jsHelper,
         LayoutFactory $layoutFactory,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->layoutFactory = $layoutFactory;
     }

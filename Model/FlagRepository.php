@@ -27,11 +27,6 @@ use Magento\Framework\Flag;
 use Magento\Framework\Flag\FlagResource;
 use Magento\Framework\FlagFactory;
 
-/**
- * Class FlagRepository
- *
- * @package Aimsinfosoft\Base\Model
- */
 class FlagRepository
 {
     /**
@@ -53,8 +48,7 @@ class FlagRepository
     public function __construct(
         FlagResource $flagResource,
         FlagFactory $flagFactory
-    )
-    {
+    ) {
         $this->flagResource = $flagResource;
         $this->flagFactory = $flagFactory;
     }

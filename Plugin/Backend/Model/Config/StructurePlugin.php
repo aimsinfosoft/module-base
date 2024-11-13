@@ -33,7 +33,6 @@ use Magento\Config\Model\Config\Structure\Element\Section;
 
 /**
  * Class StructurePlugin
- * @package Aimsinfosoft\Base\Plugin\Backend\Model\Config
  *
  * Plugin class to add advertising modules
  */
@@ -104,8 +103,7 @@ class StructurePlugin
         Config $config,
         ScopeDefiner $scopeDefiner,
         LinkValidator $linkValidator
-    )
-    {
+    ) {
         $this->adsProvider = $adsProvider;
         $this->config = $config;
         $this->scopeDefiner = $scopeDefiner;
@@ -122,8 +120,7 @@ class StructurePlugin
     public function afterGetElementByPathParts(
         Structure $subject,
         $result
-    )
-    {
+    ) {
         if (!$this->config->isAdsEnabled()) {
             return $result;
         }

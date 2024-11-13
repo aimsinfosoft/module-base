@@ -30,10 +30,6 @@ use Aimsinfosoft\Base\Model\SysInfo\RegisteredInstanceRepository;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NotFoundException;
 
-/**
- * Class SendSysInfo
- * @since 1.0.0
- */
 class SendSysInfo
 {
     /**
@@ -69,8 +65,7 @@ class SendSysInfo
         ChangedDataPersistor $changedDataPersistor,
         Converter $converter,
         RequestManager $requestManager
-    )
-    {
+    ) {
         $this->registeredInstanceRepository = $registeredInstanceRepository;
         $this->changedDataPersistor = $changedDataPersistor;
         $this->converter = $converter;

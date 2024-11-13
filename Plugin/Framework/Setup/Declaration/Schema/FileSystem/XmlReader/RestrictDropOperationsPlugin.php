@@ -29,7 +29,6 @@ use Aimsinfosoft\Base\Model\SysInfo\Provider\Module\Dir\Reader;
 
 /**
  * Class RestrictDropOperationsPlugin
- * @package Aimsinfosoft\Base\Plugin\Framework\Setup\Declaration\Schema\FileSystem\XmlReader
  *
  * Plugin class to fix an issue where db_schema.xml files of disabled modules are not collected,
  * causing DB Tables, Columns, Reference drops while a module is disabled.
@@ -48,8 +47,7 @@ class RestrictDropOperationsPlugin
      */
     public function __construct(
         Reader $moduleReader
-    )
-    {
+    ) {
         $this->moduleReader = $moduleReader;
     }
 

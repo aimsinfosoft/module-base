@@ -29,11 +29,6 @@ use Aimsinfosoft\Base\Model\Parser;
 use Aimsinfosoft\Base\Model\Serializer;
 use Magento\Framework\Config\CacheInterface;
 
-/**
- * Class Ads
- *
- * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
- */
 class Ads
 {
     public const CSV_CACHE_ID = 'Aimsinfosoft_base_csv';
@@ -86,8 +81,7 @@ class Ads
         Parser $parser,
         Ad\Offline $adOffline,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->cache = $cache;
         $this->serializer = $serializer;
         $this->feedContentProvider = $feedContentProvider;

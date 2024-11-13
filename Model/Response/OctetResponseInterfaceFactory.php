@@ -49,8 +49,7 @@ class OctetResponseInterfaceFactory
     public function __construct(
         Io\File $ioFile,
         array $responseFactoryAssociationMap = []
-    )
-    {
+    ) {
         $this->ioFile = $ioFile;
         $this->responseFactoryAssociationMap = $responseFactoryAssociationMap;
     }
@@ -69,8 +68,7 @@ class OctetResponseInterfaceFactory
         string $resourcePath,
         string $resourceType = OctetResponseInterface::FILE,
         string $fileName = null
-    ): OctetResponseInterface
-    {
+    ): OctetResponseInterface {
         if (!isset($this->responseFactoryAssociationMap[$resourceType])) {
             throw new \InvalidArgumentException('There is no resource handler for type ' . $resourceType);
         }

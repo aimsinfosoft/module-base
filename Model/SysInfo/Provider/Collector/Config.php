@@ -49,8 +49,7 @@ class Config implements CollectorInterface
      */
     public function __construct(
         ConfigCollectionFactory $configCollectionFactory
-    )
-    {
+    ) {
         $this->configCollectionFactory = $configCollectionFactory;
     }
 

@@ -84,8 +84,7 @@ class Info extends Fieldset
         ProductMetadataInterface $productMetadata,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->cronFactory = $cronFactory;
         $this->directoryList = $directoryList;

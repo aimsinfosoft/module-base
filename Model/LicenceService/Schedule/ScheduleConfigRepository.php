@@ -29,11 +29,6 @@ use Aimsinfosoft\Base\Model\LicenceService\Schedule\Data\ScheduleConfigFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Serialize\SerializerInterface;
 
-/**
- * Class ScheduleConfigRepository
- *
- * @package Aimsinfosoft\Base\Model\LicenceService\Schedule
- */
 class ScheduleConfigRepository
 {
     /**
@@ -69,8 +64,7 @@ class ScheduleConfigRepository
         SerializerInterface $serializer,
         DataObjectHelper $dataObjectHelper,
         ScheduleConfigFactory $scheduleConfigFactory
-    )
-    {
+    ) {
         $this->flagRepository = $flagRepository;
         $this->serializer = $serializer;
         $this->dataObjectHelper = $dataObjectHelper;

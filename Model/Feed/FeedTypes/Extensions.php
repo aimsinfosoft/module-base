@@ -31,11 +31,6 @@ use Aimsinfosoft\Base\Model\Serializer;
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\Escaper;
 
-/**
- * Class Extensions
- *
- * @package Aimsinfosoft\Base\Model\Feed\FeedTypes
- */
 class Extensions
 {
     public const EXTENSIONS_CACHE_ID = 'ambase_extensions';
@@ -95,8 +90,7 @@ class Extensions
         Escaper $escaper,
         LinkValidator $linkValidator,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->serializer = $serializer;
         $this->cache = $cache;
         $this->feedContentProvider = $feedContentProvider;

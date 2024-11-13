@@ -23,10 +23,6 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
-/**
- * Class Checker
- * @since 1.0.0
- */
 class Checker
 {
     /**

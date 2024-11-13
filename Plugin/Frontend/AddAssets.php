@@ -33,7 +33,6 @@ use Magento\Framework\App\ObjectManager;
 
 /**
  * Class AddAssets
- * @package Aimsinfosoft\Base\Plugin\Frontend
  *
  * Plugin class to add CSS assets for modules if less functionality for the theme is missing.
  */
@@ -105,8 +104,7 @@ class AddAssets
         ScopeConfigInterface $scopeConfig,
         \Magento\Framework\View\Design\FileResolution\Fallback\StaticFile $fallback,
         \Magento\Framework\View\DesignInterface $design
-    )
-    {
+    ) {
         $this->config = $config;
         $this->cache = $cache;
         $this->lessConfig = $lessConfig;

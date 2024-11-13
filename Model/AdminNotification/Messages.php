@@ -21,11 +21,6 @@
 
 namespace Aimsinfosoft\Base\Model\AdminNotification;
 
-/**
- * Class Messages
- *
- * @package Aimsinfosoft\Base\Model\AdminNotification
- */
 class Messages
 {
     /**
@@ -45,8 +40,7 @@ class Messages
      */
     public function __construct(
         \Magento\Backend\Model\Session $session
-    )
-    {
+    ) {
         $this->session = $session;
     }
 

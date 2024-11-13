@@ -31,7 +31,6 @@ use Magento\Setup\Model\DeclarationInstaller;
 
 /**
  * Class ApplyPatchesBeforeDeclarativeSchema
- * @package Aimsinfosoft\Base\Plugin\Setup\Model\DeclarationInstaller
  *
  * Plugin class to apply patches before installing declarative schema.
  */
@@ -63,8 +62,7 @@ class ApplyPatchesBeforeDeclarativeSchema
         PatchApplier $patchApplier,
         ResourceConnection $resourceConnection,
         array $moduleNames = []
-    )
-    {
+    ) {
         $this->patchApplier = $patchApplier;
         $this->resourceConnection = $resourceConnection;
         $this->moduleNames = $moduleNames;
@@ -83,8 +81,7 @@ class ApplyPatchesBeforeDeclarativeSchema
     public function beforeInstallSchema(
         DeclarationInstaller $declarationInstaller,
         array $request
-    ): ?array
-    {
+    ): ?array {
         $isDryRun = $request[DryRunLogger::INPUT_KEY_DRY_RUN_MODE] ?? true;
         $connection = $this->resourceConnection->getConnection();
 

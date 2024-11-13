@@ -31,7 +31,6 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class RefreshFeedData
- * @package Aimsinfosoft\Base\Setup\Patch\Data
  *
  * Data Patch to refresh feed data.
  */
@@ -63,8 +62,7 @@ class RefreshFeedData implements DataPatchInterface
         State $appState,
         LoggerInterface $logger,
         Extensions $extensionsFeed
-    )
-    {
+    ) {
         $this->logger = $logger;
         $this->appState = $appState;
         $this->extensionsFeed = $extensionsFeed;

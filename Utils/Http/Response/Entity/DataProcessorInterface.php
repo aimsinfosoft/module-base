@@ -23,7 +23,6 @@ namespace Aimsinfosoft\Base\Utils\Http\Response\Entity;
 
 /**
  * Interface DataProcessorInterface
- * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
  *
  * Defines a contract for data processing within the response entity.
  */

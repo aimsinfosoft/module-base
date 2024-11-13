@@ -34,9 +34,6 @@ use Magento\Framework\Serialize\SerializerInterface;
  *
  * Repository class for managing registered instances.
  *
- * @category    Aimsinfosoft
- * @package     Aimsinfosoft_Base
- * @author      Aimsinfosoft
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 class RegisteredInstanceRepository
@@ -76,8 +73,7 @@ class RegisteredInstanceRepository
         SerializerInterface $serializer,
         DataObjectHelper $dataObjectHelper,
         RegisteredInstanceFactory $registeredInstanceFactory
-    )
-    {
+    ) {
         $this->flagRepository = $flagRepository;
         $this->serializer = $serializer;
         $this->dataObjectHelper = $dataObjectHelper;

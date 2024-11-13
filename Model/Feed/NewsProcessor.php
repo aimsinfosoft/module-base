@@ -28,11 +28,6 @@ use Aimsinfosoft\Base\Model\Feed\FeedTypes\News;
 use Magento\AdminNotification\Model\Inbox;
 use Magento\AdminNotification\Model\InboxFactory;
 
-/**
- * Class NewsProcessor
- *
- * @package Aimsinfosoft\Base\Model\Feed
- */
 class NewsProcessor
 {
     /**
@@ -68,8 +63,7 @@ class NewsProcessor
         InboxFactory $inboxFactory,
         ExpiredFactory $expiredFactory,
         News $newsFeed
-    )
-    {
+    ) {
         $this->config = $config;
         $this->inboxFactory = $inboxFactory;
         $this->expiredFactory = $expiredFactory;

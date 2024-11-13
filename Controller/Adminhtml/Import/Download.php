@@ -77,8 +77,7 @@ class Download
         RequestInterface $request,
         ManagerInterface $messageManager,
         ResultFactory $resultFactory
-    )
-    {
+    ) {
         $this->reader = $reader;
         $this->readFactory = $readFactory;
         $this->fileFactory = $fileFactory;

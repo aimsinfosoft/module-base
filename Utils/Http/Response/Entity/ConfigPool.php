@@ -28,7 +28,6 @@ use Magento\Framework\Exception\NotFoundException;
 
 /**
  * Class ConfigPool
- * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
  *
  * Represents a pool of configurations for HTTP response entities.
  */
@@ -53,8 +52,7 @@ class ConfigPool
     public function __construct(
         UrlComparator $urlComparator,
         array $configs
-    )
-    {
+    ) {
         $this->checkConfigInstance($configs);
         $this->urlComparator = $urlComparator;
         $this->configs = $configs;

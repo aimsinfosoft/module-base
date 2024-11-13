@@ -61,8 +61,7 @@ class System implements CollectorInterface
      */
     public function __construct(
         ProductMetadataInterface $productMetadata
-    )
-    {
+    ) {
         $this->productMetadata = $productMetadata;
     }
 

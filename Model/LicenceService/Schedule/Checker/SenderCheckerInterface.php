@@ -24,7 +24,6 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker;
 /**
  * Interface SenderCheckerInterface
  *
- * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker
  */
 interface SenderCheckerInterface
 {

@@ -46,8 +46,7 @@ class ComponentRegistrar extends \Magento\Framework\Component\ComponentRegistrar
     public function __construct(
         \Magento\Framework\App\RequestInterface $request,
         \Magento\Framework\DataObject $samples
-    )
-    {
+    ) {
         $this->request = $request;
         $this->samples = $samples;
     }

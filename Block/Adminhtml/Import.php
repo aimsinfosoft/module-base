@@ -25,7 +25,6 @@ use Magento\Backend\Block\Template;
 
 /**
  * Class Import
- * @package Aimsinfosoft\Base\Block\Adminhtml
  *
  * Adminhtml block for handling import functionality.
  */
@@ -45,8 +44,7 @@ class Import extends Template
     public function __construct(
         Template\Context $context,
         array $data = []
-    )
-    {
+    ) {
         if (empty($data['entityTypeCode'])) {
             throw new \Aimsinfosoft\Base\Exceptions\EntityTypeCodeNotSet();
         }

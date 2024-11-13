@@ -29,7 +29,6 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 /**
  * Class Extensions
- * @package Aimsinfosoft\Base\Block\Adminhtml
  *
  * Adminhtml block for displaying information about installed modules.
  */
@@ -64,8 +63,7 @@ class Extensions extends Field
         ModuleListProcessor $moduleListProcessor,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->moduleListProcessor = $moduleListProcessor;
         $this->moduleInfoProvider = $moduleInfoProvider;

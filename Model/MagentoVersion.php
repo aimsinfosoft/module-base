@@ -26,7 +26,6 @@ namespace Aimsinfosoft\Base\Model;
  *
  * The MagentoVersion class is used for faster retrieving the Magento version.
  *
- * @package Aimsinfosoft\Base\Model
  */
 class MagentoVersion
 {
@@ -59,8 +58,7 @@ class MagentoVersion
     public function __construct(
         \Magento\Framework\App\Cache\Type\Config $cache,
         \Magento\Framework\App\ProductMetadataInterface $productMetadata
-    )
-    {
+    ) {
         $this->productMetadata = $productMetadata;
         $this->cache = $cache;
     }

@@ -39,9 +39,6 @@ use Magento\Framework\Filesystem\Directory\ReadFactory;
  *
  * Reader class responsible for reading module configuration files.
  *
- * @category    Aimsinfosoft
- * @package     Aimsinfosoft_Base
- * @author      Aimsinfosoft
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 class Reader
@@ -86,8 +83,7 @@ class Reader
         ReadFactory $readFactory,
         FrameworkDirReader $frameworkDirReader,
         DeploymentConfig $deploymentConfig
-    )
-    {
+    ) {
         $this->fileIteratorFactory = $fileIteratorFactory;
         $this->readFactory = $readFactory;
         $this->frameworkDirReader = $frameworkDirReader;
@@ -108,8 +104,7 @@ class Reader
         string $filename,
         string $moduleProviderName = 'all',
         $moduleStatus = 'all'
-    ): FileIterator
-    {
+    ): FileIterator {
         return $this->getFilesIterator($filename, $moduleProviderName, $moduleStatus, Dir::MODULE_ETC_DIR);
     }
 
@@ -129,8 +124,7 @@ class Reader
         string $moduleProviderName,
         $moduleStatus,
         string $subDir = ''
-    ): FileIterator
-    {
+    ): FileIterator {
         if (!isset($this->fileIterators[$subDir][$filename][$moduleProviderName][$moduleStatus])) {
             $this->fileIterators[$subDir][$filename][$moduleProviderName][$moduleStatus] =
                 $this->fileIteratorFactory->create(
@@ -157,8 +151,7 @@ class Reader
         string $moduleProviderName,
         $requiredModuleStatus,
         string $subDir = ''
-    ): array
-    {
+    ): array {
         $result = [];
         $moduleList = $this->deploymentConfig->get(ConfigOptionsListConstants::KEY_MODULES);
         foreach ($moduleList as $moduleName => $moduleStatus) {

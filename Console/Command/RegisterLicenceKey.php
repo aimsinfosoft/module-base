@@ -43,8 +43,7 @@ class RegisterLicenceKey extends Command
     public function __construct(
         CommandRegisterLicenceKey $registerLicenceKey,
         string $name = null
-    )
-    {
+    ) {
         parent::__construct($name);
         $this->registerLicenceKey = $registerLicenceKey;
     }
@@ -59,7 +58,7 @@ class RegisterLicenceKey extends Command
     }
 
     /**
-     * execurte 
+     * execurte
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int|void

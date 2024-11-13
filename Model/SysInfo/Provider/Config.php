@@ -31,15 +31,12 @@ use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCo
  *
  * Config class responsible for providing system configuration information.
  *
- * @category    Aimsinfosoft
- * @package     Aimsinfosoft_Base
- * @author      Aimsinfosoft
  * @license     https://www.aimsinfosoft.com/LICENSE.txt
  */
 class Config implements InfoProviderInterface
 {
-    const CONFIG_PATH_KEY = 'path';
-    const CONFIG_VALUE_KEY = 'value';
+    public const CONFIG_PATH_KEY = 'path';
+    public const CONFIG_VALUE_KEY = 'value';
 
     /**
      * @var ConfigCollectionFactory
@@ -53,8 +50,7 @@ class Config implements InfoProviderInterface
      */
     public function __construct(
         ConfigCollectionFactory $configCollectionFactory
-    )
-    {
+    ) {
         $this->configCollectionFactory = $configCollectionFactory;
     }
 

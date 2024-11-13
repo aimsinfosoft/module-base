@@ -25,10 +25,6 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
 use Aimsinfosoft\Base\Model\FlagRepository;
 
-/**
- * Class CacheStorage
- * @since 1.0.0
- */
 class CacheStorage
 {
     /**

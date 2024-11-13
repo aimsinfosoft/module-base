@@ -22,10 +22,6 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Validation;
 
-/**
- * Class ValidatorPool
- * @package Aimsinfosoft\Base\Model\Import\Validation
- */
 class ValidatorPool implements ValidatorPoolInterface
 {
     /**

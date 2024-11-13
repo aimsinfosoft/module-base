@@ -28,11 +28,6 @@ use Aimsinfosoft\Base\Model\LicenceService\Schedule\Data\ScheduleConfigFactory;
 use Aimsinfosoft\Base\Model\LicenceService\Schedule\ScheduleConfigRepository;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 
-/**
- * Class Schedule
- *
- * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Checker
- */
 class Schedule implements SenderCheckerInterface
 {
     /**
@@ -61,8 +56,7 @@ class Schedule implements SenderCheckerInterface
         DateTime $dateTime,
         ScheduleConfigFactory $scheduleConfigFactory,
         ScheduleConfigRepository $scheduleConfigRepository
-    )
-    {
+    ) {
         $this->dateTime = $dateTime;
         $this->scheduleConfigFactory = $scheduleConfigFactory;
         $this->scheduleConfigRepository = $scheduleConfigRepository;

@@ -47,8 +47,7 @@ class Frequency extends \Magento\Backend\App\Action
         Action\Context $context,
         \Aimsinfosoft\Base\Model\Config $config,
         \Aimsinfosoft\Base\Model\Source\Frequency $frequency
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->config = $config;
         $this->frequency = $frequency;

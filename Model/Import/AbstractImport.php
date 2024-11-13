@@ -108,8 +108,7 @@ abstract class AbstractImport extends AbstractEntity
         array $data = [],
         MagentoVersion $magentoVersion = null,
         ImportCounter $importCounter = null
-    )
-    {
+    ) {
         if (empty($entityTypeCode)) {
             throw new \Aimsinfosoft\Base\Exceptions\EntityTypeCodeNotSet();
         }
