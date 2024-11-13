@@ -29,10 +29,6 @@ use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 use Aimsinfosoft\Base\Model\SysInfo\Provider\CollectorPool;
 use Magento\Framework\Exception\NotFoundException;
 
-/**
- * Class Download
- * @since 1.0.0
- */
 class Download
 {
     /**

@@ -25,10 +25,6 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Request\Url;
 
 use Aimsinfosoft\Base\Model\Config;
 
-/**
- * Class Builder
- * @package Aimsinfosoft\Base\Model\LicenceService\Request\Url
- */
 class Builder
 {
     /**

@@ -22,10 +22,6 @@
 
 namespace Aimsinfosoft\Base\Model\Import;
 
-/**
- * Class ImportCounter
- * @package Aimsinfosoft\Base\Model\Import
- */
 class ImportCounter
 {
     /**

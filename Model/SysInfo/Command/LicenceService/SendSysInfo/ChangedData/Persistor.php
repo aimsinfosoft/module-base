@@ -29,10 +29,6 @@ use Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo\Encryptio
 use Aimsinfosoft\Base\Model\SysInfo\Provider\Collector;
 use Aimsinfosoft\Base\Model\SysInfo\Provider\CollectorPool;
 
-/**
- * Class Persistor
- * @since 1.0.0
- */
 class Persistor
 {
     /**
@@ -68,8 +64,7 @@ class Persistor
         Checker $checker,
         CacheStorage $cacheStorage,
         Encryption $encryption
-    )
-    {
+    ) {
         $this->collector = $collector;
         $this->checker = $checker;
         $this->cacheStorage = $cacheStorage;

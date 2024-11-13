@@ -31,10 +31,6 @@ use Aimsinfosoft\Base\Utils\Http\CurlFactory;
 use Magento\Framework\Api\SimpleDataObjectConverter;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class RequestManager
- * @package Aimsinfosoft\Base\Model\LicenceService\Api
- */
 class RequestManager
 {
     /**
@@ -63,8 +59,7 @@ class RequestManager
         SimpleDataObjectConverter $simpleDataObjectConverter,
         CurlFactory $curlFactory,
         Builder $urlBuilder
-    )
-    {
+    ) {
         $this->simpleDataObjectConverter = $simpleDataObjectConverter;
         $this->curlFactory = $curlFactory;
         $this->urlBuilder = $urlBuilder;

@@ -28,7 +28,6 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 /**
  * Class Advertise
- * @package Aimsinfosoft\Base\Block\Adminhtml\System\Config
  *
  * Adminhtml block for rendering an advertising field in system configuration.
  */

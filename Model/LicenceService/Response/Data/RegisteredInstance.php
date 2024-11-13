@@ -25,10 +25,6 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Response\Data;
 
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 
-/**
- * Class RegisteredInstance
- * @package Aimsinfosoft\Base\Model\LicenceService\Response\Data
- */
 class RegisteredInstance extends SimpleDataObject
 {
     public const SYSTEM_INSTANCE_KEY = 'system_instance_key';

@@ -24,7 +24,6 @@ namespace Aimsinfosoft\Base\Model\Import\Validation;
 
 /**
  * Interface ValidatorInterface
- * @package Aimsinfosoft\Base\Model\Import\Validation
  * @since 1.4.6
  */
 interface ValidatorInterface

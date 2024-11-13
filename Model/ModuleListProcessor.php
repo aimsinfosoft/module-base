@@ -29,7 +29,6 @@ use Magento\Framework\Module\ModuleListInterface;
  *
  * The ModuleListProcessor class processes the list of installed modules and retrieves information about them.
  *
- * @package Aimsinfosoft\Base\Model
  */
 class ModuleListProcessor
 {
@@ -64,8 +63,7 @@ class ModuleListProcessor
         ModuleListInterface $moduleList,
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->moduleList = $moduleList;
         $this->extensionsProvider = $extensionsProvider;
         $this->moduleInfoProvider = $moduleInfoProvider;

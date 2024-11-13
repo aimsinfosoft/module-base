@@ -29,10 +29,6 @@ use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\InstanceFactory;
 use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstanceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 
-/**
- * Class Converter
- * @since 1.0.0
- */
 class Converter
 {
     /**
@@ -61,8 +57,7 @@ class Converter
         RegisteredInstanceFactory $registeredInstanceFactory,
         InstanceFactory $instanceFactory,
         DataObjectHelper $dataObjectHelper
-    )
-    {
+    ) {
         $this->registeredInstanceFactory = $registeredInstanceFactory;
         $this->instanceFactory = $instanceFactory;
         $this->dataObjectHelper = $dataObjectHelper;

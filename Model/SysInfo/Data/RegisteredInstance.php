@@ -27,10 +27,6 @@ use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
-/**
- * Class RegisteredInstance
- * @since 1.0.0
- */
 class RegisteredInstance extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const INSTANCES = 'instances';

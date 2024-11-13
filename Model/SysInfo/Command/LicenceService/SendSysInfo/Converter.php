@@ -27,10 +27,6 @@ use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo;
 use Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfoFactory;
 use Magento\Framework\Api\DataObjectHelper;
 
-/**
- * Class Converter
- * @since 1.0.0
- */
 class Converter
 {
     /**
@@ -52,8 +48,7 @@ class Converter
     public function __construct(
         InstanceInfoFactory $instanceInfoFactory,
         DataObjectHelper $dataObjectHelper
-    )
-    {
+    ) {
         $this->instanceInfoFactory = $instanceInfoFactory;
         $this->dataObjectHelper = $dataObjectHelper;
     }

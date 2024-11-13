@@ -27,7 +27,6 @@ use Magento\Framework\View\Element\BlockInterface;
 
 /**
  * Class Php
- * @package Aimsinfosoft\Base\Plugin\Framework\View\TemplateEngine
  *
  * Plugin class for \Magento\Framework\View\TemplateEngine\Php
  * It injects the escaper instance into the dictionary before rendering a PHP template.
@@ -63,8 +62,7 @@ class Php
         BlockInterface $block,
         $fileName,
         array $dictionary = []
-    )
-    {
+    ) {
         if (!isset($dictionary['escaper'])) {
             $dictionary['escaper'] = $this->escaper;
         }

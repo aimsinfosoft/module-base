@@ -24,7 +24,6 @@ namespace Aimsinfosoft\Base\Model\Import\Mapping;
 
 /**
  * Interface MappingInterface
- * @package Aimsinfosoft\Base\Model\Import\Mapping
  * @since 1.4.6
  */
 interface MappingInterface

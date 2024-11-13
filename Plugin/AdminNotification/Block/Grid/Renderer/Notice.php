@@ -26,7 +26,6 @@ use Magento\AdminNotification\Block\Grid\Renderer\Notice as NativeNotice;
 
 /**
  * Class Notice
- * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer
  *
  * Plugin class to modify rendering of admin notification messages
  */
@@ -44,8 +43,7 @@ class Notice
         NativeNotice $subject,
         \Closure $proceed,
         \Magento\Framework\DataObject $row
-    )
-    {
+    ) {
         $result = $proceed($row);
 
         $AimsinfosoftLogo = '';

@@ -23,7 +23,6 @@ namespace Aimsinfosoft\Base\Model\Import\Behavior;
 
 /**
  * Interface BehaviorProviderInterface
- * @package Aimsinfosoft\Base\Model\Import\Behavior
  */
 interface BehaviorProviderInterface
 {

@@ -21,11 +21,6 @@
 
 namespace Aimsinfosoft\Base\Model;
 
-/**
- * Class GetCustomerIp
- *
- * @package Aimsinfosoft\Base\Model
- */
 class GetCustomerIp
 {
     /**
@@ -61,8 +56,7 @@ class GetCustomerIp
     public function __construct(
         \Magento\Framework\HTTP\PhpEnvironment\RemoteAddress $remoteAddress,
         \Magento\Framework\App\RequestInterface $request
-    )
-    {
+    ) {
         $this->remoteAddress = $remoteAddress;
         $this->request = $request;
     }

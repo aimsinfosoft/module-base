@@ -53,8 +53,7 @@ class Offline
     public function __construct(
         Filesystem $filesystem,
         ModuleDirReader $moduleReader
-    )
-    {
+    ) {
         $this->filesystem = $filesystem;
         $this->moduleReader = $moduleReader;
     }

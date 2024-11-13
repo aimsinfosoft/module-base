@@ -72,8 +72,7 @@ class CssChecker extends AbstractHelper
         \Magento\Store\Model\App\Emulation $appEmulation,
         \Magento\Framework\Filesystem\Io\File $file,
         \Magento\Framework\Filesystem $filesystem
-    )
-    {
+    ) {
         parent::__construct($context);
 
         $this->filesystem = $filesystem;

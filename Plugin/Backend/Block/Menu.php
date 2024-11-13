@@ -26,7 +26,6 @@ use Magento\Backend\Block\Menu as NativeMenu;
 
 /**
  * Class Menu
- * @package Aimsinfosoft\Base\Plugin\Backend\Block
  *
  * Plugin class to modify the backend menu behavior
  */

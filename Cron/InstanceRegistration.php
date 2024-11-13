@@ -65,8 +65,7 @@ class InstanceRegistration
         RegisterLicenceKey $registerLicenceKey,
         ScheduleConfigRepository $scheduleConfigRepository,
         RegisteredInstanceRepository $registeredInstanceRepository
-    )
-    {
+    ) {
         $this->scheduleChecker = $scheduleChecker;
         $this->registerLicenceKey = $registerLicenceKey;
         $this->scheduleConfigRepository = $scheduleConfigRepository;

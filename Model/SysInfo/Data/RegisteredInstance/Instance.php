@@ -26,10 +26,6 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
-/**
- * Class Instance
- * @since 1.0.0
- */
 class Instance extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const DOMAIN = 'domain';

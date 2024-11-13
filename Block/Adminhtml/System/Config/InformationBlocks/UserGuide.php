@@ -52,8 +52,7 @@ class UserGuide extends Template
         Template\Context $context,
         ExtensionsProvider $extensionsProvider,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->extensionsProvider = $extensionsProvider;
     }

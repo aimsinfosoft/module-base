@@ -26,24 +26,24 @@ $anchor = $block->isOriginMarketplace() ? '#product.info.details.release_notes' 
 ?>
 <div class="aims-updates-block">
     <h2 class="aims-title">
-        <?= $block->escapeHtml(__('Installed Extensions')) ?>
+        <?= $escaper->escapeHtml(__('Installed Extensions')) ?>
     </h2>
     <div class="aims-updates-container">
         <?php if (!$block->isOriginMarketplace()): ?>
         <div class="aims-btns-block">
-            <a href="https://store.aimsinfosoft.com/customer/account/<?= $block->escapeUrl($block->getSeoparams()) ?>"
+            <a href="https://store.aimsinfosoft.com/customer/account/<?= $escaper->escapeUrl($block->getSeoparams()) ?>"
                class="aims-btn -orange"
                target="_blank"
-               title="<?= $block->escapeHtml(__('Get Updates at Your store.aimsinfosoft.com Account')) ?>">
-                <?= $block->escapeHtml(__('Get Updates at Your')) ?>
-                <span class="_strong"><?= $block->escapeHtml(__('store.aimsinfosoft.com')) ?></span>
-                <?= $block->escapeHtml(__('Account')) ?>
+               title="<?= $escaper->escapeHtml(__('Get Updates at Your store.aimsinfosoft.com Account')) ?>">
+                <?= $escaper->escapeHtml(__('Get Updates at Your')) ?>
+                <span class="_strong"><?= $escaper->escapeHtml(__('store.aimsinfosoft.com')) ?></span>
+                <?= $escaper->escapeHtml(__('Account')) ?>
             </a>
-            <a href="https://store.aimsinfosoft.com/index.php/magento2-extensions.html<?= $block->escapeUrl($block->getSeoparams()) ?>"
+            <a href="https://store.aimsinfosoft.com/index.php/magento2-extensions.html<?= $escaper->escapeUrl($block->getSeoparams()) ?>"
                class="aims-btn -blue"
                target="_blank"
-               title="<?= $block->escapeHtml(__('How to Update?')) ?>">
-                <?= $block->escapeHtml(__('How to Update?')) ?>
+               title="<?= $escaper->escapeHtml(__('How to Update?')) ?>">
+                <?= $escaper->escapeHtml(__('How to Update?')) ?>
             </a>
         </div>
         <?php endif; ?>
@@ -52,34 +52,34 @@ $anchor = $block->isOriginMarketplace() ? '#product.info.details.release_notes' 
             <div class="aims-module-container -update">
                 <div class="aims-title-container">
                     <?php if (!empty($module['url'])): ?>
-                    <a href="<?= $block->escapeUrl($module['url'] . $block->getSeoparams()) ?>"
+                    <a href="<?= $escaper->escapeUrl($module['url'] . $block->getSeoparams()) ?>"
                        class="aims-title -link"
                        target="_blank"
-                       title="<?= $block->escapeHtml($module['description']) ?>">
-                        <?= $block->escapeHtml($module['description']) ?>
+                       title="<?= $escaper->escapeHtml($module['description']) ?>">
+                        <?= $escaper->escapeHtml($module['description']) ?>
                     </a>
                     <?php else: ?>
                     <h3 class="aims-title">
-                        <?= $block->escapeHtml($module['description']) ?>
+                        <?= $escaper->escapeHtml($module['description']) ?>
                     </h3>
                     <?php endif ?>
                 </div>
                 <div class="aims-version-block">
                     <div class="aims-version-container">
                         <p class="aims-version">
-                            <?= $block->escapeHtml($module['version']) ?>
+                            <?= $escaper->escapeHtml($module['version']) ?>
                         </p>
                         <span class="aims-svg -arrow"></span>
                         <p class="aims-version">
-                            <?= $block->escapeHtml($module['lastVersion']) ?>
+                            <?= $escaper->escapeHtml($module['lastVersion']) ?>
                         </p>
                     </div>
                     <?php if (!empty($module['url'])): ?>
-                    <a href="<?= $block->escapeUrl($module['url'] . $block->getSeoparams() . $anchor) ?>"
+                    <a href="<?= $escaper->escapeUrl($module['url'] . $block->getSeoparams() . $anchor) ?>"
                        class="aims-link"
                        target="_blank"
-                       title="<?= $block->escapeHtml(__('See what\'s new')) ?>">
-                        <?= $block->escapeHtml(__('See what\'s new')) ?>
+                       title="<?= $escaper->escapeHtml(__('See what\'s new')) ?>">
+                        <?= $escaper->escapeHtml(__('See what\'s new')) ?>
                     </a>
                     <?php endif ?>
                 </div>
@@ -90,25 +90,25 @@ $anchor = $block->isOriginMarketplace() ? '#product.info.details.release_notes' 
 </div>
 <div class="aims-updates-block">
     <h2 class="aims-title -small">
-        <?= $block->escapeHtml(__('Up-to-Date Aimsinfosoft Extensions')) ?>
+        <?= $escaper->escapeHtml(__('Up-to-Date Aimsinfosoft Extensions')) ?>
     </h2>
     <div class="aims-modules-block">
         <?php foreach ($modules['lastVersion'] as $module): ?>
             <?php if (!empty($module['url'])): ?>
-            <a href="<?= $block->escapeUrl($module['url'] . $block->getSeoparams()) ?>"
+            <a href="<?= $escaper->escapeUrl($module['url'] . $block->getSeoparams()) ?>"
                class="aims-module-container -link"
                target="_blank"
-               title="<?= $block->escapeHtml($module['description']) ?>">
+               title="<?= $escaper->escapeHtml($module['description']) ?>">
                 <span class="aims-title">
-                    <?= $block->escapeHtml($module['description']) ?>
+                    <?= $escaper->escapeHtml($module['description']) ?>
                 </span>
                 <span class="aims-version-block">
                     <span class="aims-version-container">
                         <span class="aims-svg"></span>
-                        <span class="aims-version"><?= $block->escapeHtml($module['version']) ?></span>
+                        <span class="aims-version"><?= $escaper->escapeHtml($module['version']) ?></span>
                     </span>
                     <?php if (!empty($module['date'])): ?>
-                    <span class="aims-date"><?= $block->escapeHtml($module['date']) ?></span>
+                    <span class="aims-date"><?= $escaper->escapeHtml($module['date']) ?></span>
                     <?php endif; ?>
                 </span>
             </a>
@@ -116,19 +116,19 @@ $anchor = $block->isOriginMarketplace() ? '#product.info.details.release_notes' 
             <div class="aims-module-container">
                 <div class="aims-title-container">
                     <h3 class="aims-title">
-                        <?= $block->escapeHtml($module['description']) ?>
+                        <?= $escaper->escapeHtml($module['description']) ?>
                     </h3>
                 </div>
                 <div class="aims-version-block">
                     <div class="aims-version-container">
                         <span class="aims-svg"></span>
                         <p class="aims-version">
-                            <?= $block->escapeHtml($module['version']) ?>
+                            <?= $escaper->escapeHtml($module['version']) ?>
                         </p>
                     </div>
                     <?php if (!empty($module['date'])): ?>
                         <p class="aims-date">
-                            <?= $block->escapeHtml($module['date']) ?>
+                            <?= $escaper->escapeHtml($module['date']) ?>
                         </p>
                     <?php endif; ?>
                 </div>

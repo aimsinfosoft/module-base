@@ -26,7 +26,6 @@ use Magento\AdminNotification\Block\Grid\Renderer\Actions as NativeActions;
 
 /**
  * Class Actions
- * @package Aimsinfosoft\Base\Plugin\AdminNotification\Block\Grid\Renderer
  *
  * Plugin class to modify rendering of admin notification actions
  */
@@ -44,8 +43,7 @@ class Actions
      */
     public function __construct(
         \Magento\Framework\UrlInterface $urlBuilder
-    )
-    {
+    ) {
         $this->urlBuilder = $urlBuilder;
     }
 
@@ -61,8 +59,7 @@ class Actions
         NativeActions $subject,
         \Closure $proceed,
         \Magento\Framework\DataObject $row
-    )
-    {
+    ) {
         $result = $proceed($row);
         if ($row->getData('is_Aimsinfosoft')) {
             $result .= sprintf(

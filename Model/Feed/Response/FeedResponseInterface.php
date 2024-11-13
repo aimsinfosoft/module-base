@@ -26,7 +26,6 @@ namespace Aimsinfosoft\Base\Model\Feed\Response;
 /**
  * Interface FeedResponseInterface
  *
- * @package Aimsinfosoft\Base\Model\Feed\Response
  */
 interface FeedResponseInterface
 {

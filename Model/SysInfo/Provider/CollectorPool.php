@@ -50,8 +50,7 @@ class CollectorPool
      */
     public function __construct(
         array $collectors
-    )
-    {
+    ) {
         $this->checkProviderInstance($collectors);
         $this->collectors = $collectors;
     }

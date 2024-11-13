@@ -31,7 +31,6 @@ use Magento\Store\Model\ScopeInterface;
  * Class Config
  * Provide configuration data for the module
  *
- * @package Aimsinfosoft\Base\Model
  */
 class Config extends ConfigProviderAbstract
 {
@@ -103,8 +102,7 @@ class Config extends ConfigProviderAbstract
         ScopeConfigInterface $scopeConfig,
         WriterInterface $configWriter,
         ReinitableConfigInterface $reinitableConfig
-    )
-    {
+    ) {
         parent::__construct($scopeConfig);
         $this->configWriter = $configWriter;
         $this->reinitableConfig = $reinitableConfig;

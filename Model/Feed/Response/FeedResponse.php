@@ -25,11 +25,6 @@ namespace Aimsinfosoft\Base\Model\Feed\Response;
 
 use Magento\Framework\DataObject;
 
-/**
- * Class FeedResponse
- *
- * @package Aimsinfosoft\Base\Model\Feed\Response
- */
 class FeedResponse extends DataObject implements FeedResponseInterface
 {
     public const CONTENT = 'content';

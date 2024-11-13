@@ -57,8 +57,7 @@ class Module implements CollectorInterface
     public function __construct(
         ModuleInfoProvider $moduleInfoProvider,
         DeploymentConfig $deploymentConfig
-    )
-    {
+    ) {
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->deploymentConfig = $deploymentConfig;
     }

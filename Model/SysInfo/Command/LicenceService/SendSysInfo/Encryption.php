@@ -25,10 +25,6 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\SendSysInfo;
 
 use Magento\Framework\Serialize\SerializerInterface;
 
-/**
- * Class Encryption
- * @since 1.0.0
- */
 class Encryption
 {
     /**
@@ -43,8 +39,7 @@ class Encryption
      */
     public function __construct(
         SerializerInterface $serializer
-    )
-    {
+    ) {
         $this->serializer = $serializer;
     }
 

@@ -80,8 +80,7 @@ class VersionInfo extends Template
         Structure $structure,
         Repository $assetRepo,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->moduleInfoProvider = $moduleInfoProvider;
         $this->extensionsProvider = $extensionsProvider;

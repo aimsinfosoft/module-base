@@ -30,10 +30,6 @@ use Aimsinfosoft\Base\Model\SysInfo\Data\RegisteredInstance\Instance;
 use Aimsinfosoft\Base\Model\SysInfo\RegisteredInstanceRepository;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class RegisterLicenceKey
- * @since 1.0.0
- */
 class RegisterLicenceKey
 {
     /**
@@ -69,8 +65,7 @@ class RegisterLicenceKey
         RequestManager $requestManager,
         Provider $domainProvider,
         Converter $converter
-    )
-    {
+    ) {
         $this->registeredInstanceRepository = $registeredInstanceRepository;
         $this->requestManager = $requestManager;
         $this->domainProvider = $domainProvider;

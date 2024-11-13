@@ -26,10 +26,6 @@ namespace Aimsinfosoft\Base\Model\SysInfo\Command\LicenceService\RegisterLicence
 use Aimsinfosoft\Base\Model\SysInfo\RegisteredInstanceRepository;
 use Magento\Framework\UrlInterface;
 
-/**
- * Class Provider
- * @since 1.0.0
- */
 class Provider
 {
     /**
@@ -51,8 +47,7 @@ class Provider
     public function __construct(
         RegisteredInstanceRepository $registeredInstanceRepository,
         UrlInterface $url
-    )
-    {
+    ) {
         $this->registeredInstanceRepository = $registeredInstanceRepository;
         $this->url = $url;
     }

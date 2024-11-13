@@ -29,7 +29,6 @@ use Magento\Framework\ObjectManagerInterface;
 
 /**
  * Class Converter
- * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
  *
  * Converts data rows to objects based on entity configuration.
  */
@@ -54,8 +53,7 @@ class Converter
     public function __construct(
         ObjectManagerInterface $objectManager,
         DataObjectHelper $dataObjectHelper
-    )
-    {
+    ) {
         $this->objectManager = $objectManager;
         $this->dataObjectHelper = $dataObjectHelper;
     }

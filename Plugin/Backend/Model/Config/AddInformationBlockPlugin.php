@@ -30,7 +30,6 @@ use Magento\Config\Model\Config\StructureElementInterface;
 
 /**
  * Class AddInformationBlockPlugin
- * @package Aimsinfosoft\Base\Plugin\Backend\Model\Config
  *
  * Plugin class to add an information block to the configuration structure
  */
@@ -48,8 +47,7 @@ class AddInformationBlockPlugin
      */
     public function __construct(
         ScopeDefiner $scopeDefiner
-    )
-    {
+    ) {
         $this->scopeDefiner = $scopeDefiner;
     }
 
@@ -63,8 +61,7 @@ class AddInformationBlockPlugin
     public function afterGetElementByPathParts(
         Structure $subject,
         StructureElementInterface $result
-    ): StructureElementInterface
-    {
+    ): StructureElementInterface {
         $moduleSection = $result->getData();
 
         if (!isset($moduleSection['tab'])

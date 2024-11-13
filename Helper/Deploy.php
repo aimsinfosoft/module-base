@@ -54,8 +54,7 @@ class Deploy extends AbstractHelper
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Aimsinfosoft\Base\Model\FilesystemProvider $filesystemProvider
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->filesystem = $filesystemProvider->get();
         $this->rootWrite = $this->filesystem->getDirectoryWrite(DirectoryList::ROOT);

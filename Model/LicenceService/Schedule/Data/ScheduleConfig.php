@@ -26,11 +26,6 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Schedule\Data;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
-/**
- * Class ScheduleConfig
- *
- * @package Aimsinfosoft\Base\Model\LicenceService\Schedule\Data
- */
 class ScheduleConfig extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const LAST_SEND_DATE = 'last_send_date';

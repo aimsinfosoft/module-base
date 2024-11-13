@@ -28,7 +28,6 @@ use Magento\Backend\Model\Menu\Item as NativeItem;
 
 /**
  * Class Item
- * @package Aimsinfosoft\Base\Plugin\Backend\Model\Menu
  *
  * Plugin class to modify the Admin Menu Item URLs
  */
@@ -62,8 +61,7 @@ class Item
     public function __construct(
         ExtensionsProvider $extensionsProvider,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->extensionsProvider = $extensionsProvider;
         $this->moduleInfoProvider = $moduleInfoProvider;
     }
@@ -105,4 +103,3 @@ class Item
         return $url;
     }
 }
-

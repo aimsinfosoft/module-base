@@ -44,8 +44,7 @@ class InfoComposite implements InfoProviderInterface
      */
     public function __construct(
         array $providers = []
-    )
-    {
+    ) {
         $this->providers = $providers;
     }
 

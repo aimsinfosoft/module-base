@@ -23,7 +23,6 @@ namespace Aimsinfosoft\Base\Block\Adminhtml;
 
 /**
  * Class Messages
- * @package Aimsinfosoft\Base\Block\Adminhtml
  *
  * Adminhtml block for displaying extension-related messages.
  */
@@ -56,8 +55,7 @@ class Messages extends \Magento\Backend\Block\Template
         \Aimsinfosoft\Base\Model\AdminNotification\Messages $messageManager,
         \Magento\Framework\App\Request\Http $request,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->messageManager = $messageManager;
         $this->request = $request;

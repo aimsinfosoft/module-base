@@ -27,7 +27,6 @@ use Magento\Framework\DataObject;
 
 /**
  * Class Config
- * @package Aimsinfosoft\Base\Utils\Http\Response\Entity
  *
  * Represents the configuration for an HTTP response entity.
  */

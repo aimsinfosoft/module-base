@@ -46,8 +46,7 @@ class MenuGroup extends Fieldset
         \Magento\Backend\Model\Auth\Session $authSession,
         \Magento\Framework\View\Helper\Js $jsHelper,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $authSession, $jsHelper, $data);
         $this->metadata = $metadata;
     }

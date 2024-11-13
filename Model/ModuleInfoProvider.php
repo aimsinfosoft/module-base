@@ -32,7 +32,6 @@ use Magento\Framework\Module\Dir\Reader;
  *
  * The ModuleInfoProvider class provides information about Magento modules.
  *
- * @package Aimsinfosoft\Base\Model
  */
 class ModuleInfoProvider
 {
@@ -80,8 +79,7 @@ class ModuleInfoProvider
         Reader $moduleReader,
         File $filesystem,
         Serializer $serializer
-    )
-    {
+    ) {
         $this->moduleReader = $moduleReader;
         $this->filesystem = $filesystem;
         $this->serializer = $serializer;

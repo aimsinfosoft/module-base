@@ -57,8 +57,7 @@ class ExistingConflicts extends Template
         Manager $moduleManager,
         ExtensionsProvider $extensionsProvider,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->moduleManager = $moduleManager;
         $this->extensionsProvider = $extensionsProvider;

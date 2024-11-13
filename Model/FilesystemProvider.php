@@ -35,7 +35,6 @@ use Psr\Log\LoggerInterface;
 /**
  * Class to provide either default Filesystem class or with configured DenyListPathValidator exception paths
  *
- * @package Aimsinfosoft\Base\Model
  */
 class FilesystemProvider
 {

@@ -27,11 +27,6 @@ use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
-/**
- * Class FeedContentProvider
- *
- * @package Aimsinfosoft\Base\Model\Feed
- */
 class FeedContentProvider
 {
     /**
@@ -80,8 +75,7 @@ class FeedContentProvider
         CurlFactory $curlFactory,
         StoreManagerInterface $storeManager,
         FeedResponseInterfaceFactory $feedResponseFactory
-    )
-    {
+    ) {
         $this->curlFactory = $curlFactory;
         $this->storeManager = $storeManager;
         $this->feedResponseFactory = $feedResponseFactory;

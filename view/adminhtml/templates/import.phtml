@@ -34,7 +34,7 @@
             var entity = $('#entity');
             entity.hide();
             entity.closest('fieldset').find('label.label.admin__field-label').css('visibility','hidden');
-            $(entity).val('<?= $block->escapeHtml($block->getImportEntity()) ?>');
+            $(entity).val('<?= $escaper->escapeHtml($block->getImportEntity()) ?>');
             varienImport.handleEntityTypeSelector();
             //]]>
         }

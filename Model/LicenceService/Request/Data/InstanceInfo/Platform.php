@@ -26,10 +26,6 @@ namespace Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo;
 use Aimsinfosoft\Base\Model\SimpleDataObject;
 use Magento\Framework\Api\ExtensibleDataInterface;
 
-/**
- * Class Platform
- * @package Aimsinfosoft\Base\Model\LicenceService\Request\Data\InstanceInfo
- */
 class Platform extends SimpleDataObject implements ExtensibleDataInterface
 {
     public const NAME = 'name';

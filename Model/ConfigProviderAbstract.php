@@ -89,8 +89,7 @@ abstract class ConfigProviderAbstract
         $path,
         $storeId = null,
         $scope = ScopeInterface::SCOPE_STORE
-    )
-    {
+    ) {
         if ($storeId === null && $scope !== ScopeConfigInterface::SCOPE_TYPE_DEFAULT) {
             return $this->scopeConfig->getValue($this->pathPrefix . $path, $scope, $storeId);
         }
@@ -131,8 +130,7 @@ abstract class ConfigProviderAbstract
         $path,
         $storeId = null,
         $scope = ScopeInterface::SCOPE_STORE
-    )
-    {
+    ) {
         return (bool)$this->getValue($path, $storeId, $scope);
     }
 

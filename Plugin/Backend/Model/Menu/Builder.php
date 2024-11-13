@@ -129,8 +129,7 @@ class Builder
         ExtensionsProvider $extensionsProvider,
         LoggerInterface $logger,
         ModuleInfoProvider $moduleInfoProvider
-    )
-    {
+    ) {
         $this->menuConfig = $menuConfig;
         $this->iteratorFactory = $iteratorFactory;
         $this->itemFactory = $itemFactory;

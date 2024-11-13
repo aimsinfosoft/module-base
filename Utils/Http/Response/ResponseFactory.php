@@ -32,7 +32,6 @@ use Magento\Framework\Exception\NotFoundException;
 
 /**
  * Class ResponseFactory
- * @package Aimsinfosoft\Base\Utils\Http\Response
  *
  * Factory class for creating response objects based on the entity configuration.
  */
@@ -70,8 +69,7 @@ class ResponseFactory
         ConfigPool $configPool,
         SimpleDataObjectFactory $simpleDataObjectFactory,
         DataConverter $dataConverter
-    )
-    {
+    ) {
         $this->converter = $converter;
         $this->configPool = $configPool;
         $this->simpleDataObjectFactory = $simpleDataObjectFactory;

@@ -29,7 +29,6 @@ use Magento\Framework\Setup\UninstallInterface;
 
 /**
  * Class Uninstall
- * @package Aimsinfosoft\Base\Setup
  *
  * Handles module uninstallation.
  */

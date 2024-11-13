@@ -22,10 +22,6 @@
 
 namespace Aimsinfosoft\Base\Model\Import\Mapping;
 
-/**
- * Class Mapping
- * @package Aimsinfosoft\Base\Model\Import\Mapping
- */
 class Mapping implements MappingInterface
 {
     /**

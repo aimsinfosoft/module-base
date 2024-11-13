@@ -52,8 +52,7 @@ class FeatureRequest extends Template
         Template\Context $context,
         ModuleInfoProvider $moduleInfoProvider,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->moduleInfoProvider = $moduleInfoProvider;
     }

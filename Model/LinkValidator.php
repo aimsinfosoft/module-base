@@ -23,11 +23,6 @@ declare(strict_types=1);
 
 namespace Aimsinfosoft\Base\Model;
 
-/**
- * Class LinkValidator
- *
- * @package Aimsinfosoft\Base\Model
- */
 class LinkValidator
 {
     /**

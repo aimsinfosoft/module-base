@@ -48,8 +48,7 @@ class DailySendSystemInfo
     public function __construct(
         SendSysInfo $sysInfo,
         Daily $dailyChecker
-    )
-    {
+    ) {
         $this->sysInfo = $sysInfo;
         $this->dailyChecker = $dailyChecker;
     }
