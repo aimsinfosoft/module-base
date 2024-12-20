@@ -33,10 +33,10 @@ use Magento\Framework\Setup\SchemaSetupInterface;
  */
 class Recurring implements \Magento\Framework\Setup\InstallSchemaInterface
 {
-    const NOTIFICATION_TABLE = 'adminnotification_inbox';
-    const IS_Aimsinfosoft_COLUMN = 'is_Aimsinfosoft';
-    const EXPIRATION_COLUMN = 'expiration_date';
-    const IMAGE_URL_COLUMN = 'image_url';
+    public const NOTIFICATION_TABLE = 'adminnotification_inbox';
+    public const IS_Aimsinfosoft_COLUMN = 'is_Aimsinfosoft';
+    public const EXPIRATION_COLUMN = 'expiration_date';
+    public const IMAGE_URL_COLUMN = 'image_url';
 
     /**
      * Install recurring schema operations.
