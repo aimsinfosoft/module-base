@@ -27,7 +27,7 @@ use Aimsinfosoft\Base\Model\Source\NotificationType;
 class Unsubscribe extends \Magento\Framework\App\Config\Value implements
     \Magento\Framework\App\Config\Data\ProcessorInterface
 {
-    private const PATH_TO_FEED_IMAGES = 'https://Aimsinfosoft.com/frontend/base/default/images/Aimsinfosoft/notifeed/';
+    private const PATH_TO_FEED_IMAGES = 'https://store.aimsinfosoft.com/pub/media/notification/';
 
     /**
      * @var \Aimsinfosoft\Base\Model\AdminNotification\Messages
