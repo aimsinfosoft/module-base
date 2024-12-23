@@ -32,7 +32,7 @@ class Messages extends \Magento\Backend\Block\Template
     /**
      * Aimsinfosoft Base Section Name
      */
-    public const Aimsinfosoft_BASE_SECTION_NAME = 'Aimsinfosoft_base';
+    private const Aimsinfosoft_BASE_SECTION_NAME = 'aimsinfosoft_base';
 
     /**
      * @var \Aimsinfosoft\Base\Model\AdminNotification\Messages

@@ -29,9 +29,9 @@ use Magento\Framework\App\ProductMetadataInterface;
 
 class System implements InfoProviderInterface
 {
-    const MAGENTO_VERSION_KEY = 'magento_version';
-    const MAGENTO_EDITION_KEY = 'magento_edition';
-    const PHP_VERSION_KEY = 'php_version';
+    private const MAGENTO_VERSION_KEY = 'magento_version';
+    private const MAGENTO_EDITION_KEY = 'magento_edition';
+    private const PHP_VERSION_KEY = 'php_version';
 
     /**
      * @var ProductMetadataInterface
