@@ -38,8 +38,8 @@ use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCo
  */
 class Config implements InfoProviderInterface
 {
-    public const CONFIG_PATH_KEY = 'path';
-    public const CONFIG_VALUE_KEY = 'value';
+    private const CONFIG_PATH_KEY = 'path';
+    private const CONFIG_VALUE_KEY = 'value';
 
     /**
      * @var ConfigCollectionFactory
